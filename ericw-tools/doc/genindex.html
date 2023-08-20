@@ -1,0 +1,2973 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="#" /><link rel="search" title="Search" href="search.html" />
+
+    <!-- Generated with Sphinx 6.2.1 and Furo 2023.03.27 --><title>Index - ericw-tools documentation</title>
+<link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">ericw-tools  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">ericw-tools  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="qbsp.html">qbsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vis.html">vis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="light.html">light</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bspinfo.html">bspinfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bsputil.html">bsputil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          
+<section class="genindex-section">
+  <h1 id="index">Index</h1>
+  <div class="genindex-jumpbox"><a href="#Symbols"><strong>Symbols</strong></a> | <a href="#_"><strong>_</strong></a> | <a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#H"><strong>H</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#O"><strong>O</strong></a> | <a href="#Q"><strong>Q</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a></div>
+</section>
+<section id="Symbols" class="genindex-section">
+  <h2>Symbols</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    *
+
+        <ul>
+          <li><a href="qbsp.html#texture-0">texture name</a>
+</li>
+        </ul></li>
+        <li>
+    *lava
+
+        <ul>
+          <li><a href="qbsp.html#texture-lava">texture name</a>
+</li>
+        </ul></li>
+        <li>
+    *slime
+
+        <ul>
+          <li><a href="qbsp.html#texture-slime">texture name</a>
+</li>
+        </ul></li>
+        <li>
+    --check
+
+        <ul>
+          <li><a href="bsputil.html#cmdoption-bsputil-check">bsputil command line option</a>
+</li>
+        </ul></li>
+        <li>
+    --extract-entities
+
+        <ul>
+          <li><a href="bsputil.html#cmdoption-bsputil-extract-entities">bsputil command line option</a>
+</li>
+        </ul></li>
+        <li>
+    --extract-textures
+
+        <ul>
+          <li><a href="bsputil.html#cmdoption-bsputil-extract-textures">bsputil command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -2psb
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-2psb">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -add
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-add">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -addmin
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-addmin">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -aliasdef
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-aliasdef">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -allowupgrade
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-allowupgrade">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -arghradcompat
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-arghradcompat">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -basedir
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-basedir">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-basedir">qbsp command line option</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-basedir">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -bmodelcontents
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-bmodelcontents">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -bouncedebug
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-bouncedebug">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -bouncelightsdebug
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-bouncelightsdebug">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -bsp2
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-bsp2">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -bspx
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-bspx">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-bspx">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -bspxlit
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-bspxlit">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -bspxlux
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-bspxlux">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -bspxonly
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-bspxonly">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-bspxonly">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -chop
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-chop">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -chopfragment
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-chopfragment">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -convert
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-convert">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -debugbspbrushes
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-debugbspbrushes">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -debugchop
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-debugchop">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -debugexpand
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-debugexpand">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -debugface
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-debugface">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -debugleafvolumes
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-debugleafvolumes">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -debugleak
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-debugleak">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -debugmottle
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-debugmottle">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -debugneighbours
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-debugneighbours">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -debugoccluded
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-debugoccluded">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -debugvert
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-debugvert">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -defaultpaths
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-defaultpaths">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-defaultpaths">qbsp command line option</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-defaultpaths">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -dirtdebug
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-dirtdebug">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -emissivequality
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-emissivequality">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -epsilon
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-epsilon">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -exportobj
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-exportobj">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -extra
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-extra">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -extra4
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-extra4">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -facestyles
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-facestyles">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -fast
+
+        <ul>
+          <li><a href="vis.html#cmdoption-vis-fast">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -filepriority
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-filepriority">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-filepriority">qbsp command line option</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-filepriority">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -filldetail
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-filldetail">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -filltype
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-filltype">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -forcegoodtree
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-forcegoodtree">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -forceprt1
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-forceprt1">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -gamedir
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-gamedir">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-gamedir">qbsp command line option</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-gamedir">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -gate
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-gate">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -hexen2
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-hexen2">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -highlightseams
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-highlightseams">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -hlbsp
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-hlbsp">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -includeskip
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-includeskip">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -keepprt
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-keepprt">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -leakdist
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-leakdist">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -leaktest
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-leaktest">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -level
+
+        <ul>
+          <li><a href="vis.html#cmdoption-vis-level">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -lightgrid
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-lightgrid">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -lightgrid_dist
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-lightgrid_dist">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -lightgrid_format
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-lightgrid_format">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -lit
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-lit">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -lit2
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-lit2">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -litonly
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-litonly">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -litwater
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-litwater">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -lmscale
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-lmscale">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-lmscale">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -lmshift
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-lmshift">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -log
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-log">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-log">qbsp command line option</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-log">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -logbmodels
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-logbmodels">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -loghulls
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-loghulls">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -lowpriority
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-lowpriority">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-lowpriority">qbsp command line option</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-lowpriority">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -lux
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-lux">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -maxedges
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-maxedges">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -maxnodesize
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-maxnodesize">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -microvolume
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-microvolume">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -midsplitbrushfraction
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-midsplitbrushfraction">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -midsplitsurffraction
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-midsplitsurffraction">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -noallowupgrade
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-noallowupgrade">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -noambient
+
+        <ul>
+          <li><a href="vis.html#cmdoption-vis-noambient">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -noambientlava
+
+        <ul>
+          <li><a href="vis.html#cmdoption-vis-noambientlava">vis command line option</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    -noambientsky
+
+        <ul>
+          <li><a href="vis.html#cmdoption-vis-noambientsky">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -noambientslime
+
+        <ul>
+          <li><a href="vis.html#cmdoption-vis-noambientslime">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -noambientwater
+
+        <ul>
+          <li><a href="vis.html#cmdoption-vis-noambientwater">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -noautoclean
+
+        <ul>
+          <li><a href="vis.html#cmdoption-vis-noautoclean">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -nochop
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-nochop">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -noclip
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-noclip">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -nocolor
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-nocolor">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-nocolor">qbsp command line option</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-nocolor">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -nodefaultpaths
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-nodefaultpaths">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-nodefaultpaths">qbsp command line option</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-nodefaultpaths">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -nodetail
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-nodetail">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -noedgereuse
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-noedgereuse">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -noextendedsurfflags
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-noextendedsurfflags">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -nofill
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-nofill">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -nolighting
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-nolighting">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -nolights
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-nolights">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -nolog
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-nolog">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-nolog">qbsp command line option</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-nolog">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -nomerge
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-nomerge">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -nooldaxis
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-nooldaxis">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -nopercent
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-nopercent">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-nopercent">qbsp command line option</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-nopercent">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -noprogress
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-noprogress">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-noprogress">qbsp command line option</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-noprogress">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -noskip
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-noskip">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -nosoftware
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-nosoftware">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -nostat
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-nostat">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-nostat">qbsp command line option</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-nostat">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -nostate
+
+        <ul>
+          <li><a href="vis.html#cmdoption-vis-nostate">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -nosubdivide
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-nosubdivide">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -notex
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-notex">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -notjunc
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-notjunc">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -notranswater
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-notranswater">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -notriggermodels
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-notriggermodels">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -novanilla
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-novanilla">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -noverbose
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-noverbose">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-noverbose">qbsp command line option</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-noverbose">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -novisapprox
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-novisapprox">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -objexport
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-objexport">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -oldaxis
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-oldaxis">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -oldrottex
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-oldrottex">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -omitdetail
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-omitdetail">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -omitdetailfence
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-omitdetailfence">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -omitdetailillusionary
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-omitdetailillusionary">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -omitdetailwall
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-omitdetailwall">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -onlyents
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-onlyents">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-onlyents">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -outsidedebug
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-outsidedebug">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -path
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-path">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-path">qbsp command line option</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-path">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -phongdebug
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-phongdebug">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -phongdebug_obj
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-phongdebug_obj">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -phsonly
+
+        <ul>
+          <li><a href="vis.html#cmdoption-vis-phsonly">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -q2bsp
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-q2bsp">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -q2rtx
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-q2rtx">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-q2rtx">qbsp command line option</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-q2rtx">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -qbism
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-qbism">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -quiet
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-quiet">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-quiet">qbsp command line option</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-quiet">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -radlights
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-radlights">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -soft
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-soft">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -software
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-software">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -splitsky
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-splitsky">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -splitspecial
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-splitspecial">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -splitturb
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-splitturb">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -subdivide
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-subdivide">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -sunsamples
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-sunsamples">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -surflight_dump
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-surflight_dump">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -surflight_subdivide
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-surflight_subdivide">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -texturedefs
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-texturedefs">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -threads
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-threads">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-threads">qbsp command line option</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-threads">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -tjunc
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-tjunc">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -transsky
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-transsky">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -transwater
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-transwater">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -v
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-v">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-v">qbsp command line option</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-v">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -verbose
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-verbose">light command line option</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-verbose">qbsp command line option</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-verbose">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -visapprox
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-visapprox">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -visdist
+
+        <ul>
+          <li><a href="vis.html#cmdoption-vis-visdist">vis command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -wadpath
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-wadpath">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -world_units_per_luxel
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-world_units_per_luxel">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -worldextent
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-worldextent">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -wrbrushes
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-wrbrushes">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -wrbrushesonly
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-wrbrushesonly">qbsp command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -wrnormals
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-wrnormals">light command line option</a>
+</li>
+        </ul></li>
+        <li>
+    -xwadpath
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-xwadpath">qbsp command line option</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="_" class="genindex-section">
+  <h2>_</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    _anglescale
+
+        <ul>
+          <li><a href="light.html#light-key-_anglescale">light entity key</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_anglescale">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _anglesense
+
+        <ul>
+          <li><a href="light.html#light-key-_anglesense">light entity key</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_anglesense">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _autominlight
+
+        <ul>
+          <li><a href="light.html#bmodel-key-_autominlight">bmodel key</a>
+</li>
+        </ul></li>
+        <li>
+    _autominlight_target
+
+        <ul>
+          <li><a href="light.html#bmodel-key-_autominlight_target">bmodel key</a>
+</li>
+        </ul></li>
+        <li>
+    _bounce
+
+        <ul>
+          <li><a href="light.html#bmodel-key-_bounce">bmodel key</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_bounce">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _bouncecolorscale
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_bouncecolorscale">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _bouncelightsubdivision
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_bouncelightsubdivision">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _bouncescale
+
+        <ul>
+          <li><a href="light.html#light-key-_bouncescale">light entity key</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_bouncescale">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _bouncestyled
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_bouncestyled">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _choplight
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_choplight">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _color
+
+        <ul>
+          <li><a href="light.html#light-key-_color">light entity key</a>
+</li>
+        </ul></li>
+        <li>
+    _compilerstyle_max
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_compilerstyle_max">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _compilerstyle_start
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_compilerstyle_start">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _deviance
+
+        <ul>
+          <li><a href="light.html#light-key-_deviance">light entity key</a>
+</li>
+        </ul></li>
+        <li>
+    _dirt
+
+        <ul>
+          <li><a href="light.html#bmodel-key-_dirt">bmodel key</a>
+</li>
+          <li><a href="light.html#light-key-_dirt">light entity key</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_dirt">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _dirtangle
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_dirtangle">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _dirtdepth
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_dirtdepth">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _dirtgain
+
+        <ul>
+          <li><a href="light.html#light-key-_dirtgain">light entity key</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_dirtgain">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _dirtmode
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_dirtmode">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _dirtscale
+
+        <ul>
+          <li><a href="light.html#light-key-_dirtscale">light entity key</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_dirtscale">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _dirty
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_dirty">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _dist
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_dist">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _external_map
+
+        <ul>
+          <li><a href="qbsp.html#other-key-_external_map">other entity key</a>
+</li>
+        </ul></li>
+        <li>
+    _external_map_angle
+
+        <ul>
+          <li><a href="qbsp.html#other-key-_external_map_angle">other entity key</a>
+</li>
+        </ul></li>
+        <li>
+    _external_map_angles
+
+        <ul>
+          <li><a href="qbsp.html#other-key-_external_map_angles">other entity key</a>
+</li>
+        </ul></li>
+        <li>
+    _external_map_classname
+
+        <ul>
+          <li><a href="qbsp.html#other-key-_external_map_classname">other entity key</a>
+</li>
+        </ul></li>
+        <li>
+    _external_map_scale
+
+        <ul>
+          <li><a href="qbsp.html#other-key-_external_map_scale">other entity key</a>
+</li>
+        </ul></li>
+        <li>
+    _falloff
+
+        <ul>
+          <li><a href="light.html#light-key-_falloff">light entity key</a>
+</li>
+        </ul></li>
+        <li>
+    _gamma
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_gamma">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _light_channel_mask
+
+        <ul>
+          <li><a href="light.html#light-key-_light_channel_mask">light entity key</a>
+</li>
+        </ul></li>
+        <li>
+    _lightignore
+
+        <ul>
+          <li><a href="light.html#bmodel-key-_lightignore">bmodel key</a>
+</li>
+        </ul></li>
+        <li>
+    _lightmap_scale
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_lightmap_scale">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _lmscale
+
+        <ul>
+          <li><a href="qbsp.html#bmodel-key-_lmscale">bmodel key</a>
+</li>
+        </ul></li>
+        <li>
+    _maxlight
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_maxlight">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _mincolor
+
+        <ul>
+          <li><a href="light.html#bmodel-key-_mincolor">bmodel key</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_mincolor">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _minlight
+
+        <ul>
+          <li><a href="light.html#bmodel-key-_minlight">bmodel key</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_minlight">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _minlight_color
+
+        <ul>
+          <li><a href="light.html#bmodel-key-_minlight_color">bmodel key</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_minlight_color">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _minlight_dirt
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_minlight_dirt">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _minlight_exclude
+
+        <ul>
+          <li><a href="light.html#bmodel-key-_minlight_exclude">bmodel key</a>
+</li>
+        </ul></li>
+        <li>
+    _minlight_mottle
+
+        <ul>
+          <li><a href="light.html#bmodel-key-_minlight_mottle">bmodel key</a>
+</li>
+        </ul></li>
+        <li>
+    _minlightMottle
+
+        <ul>
+          <li><a href="light.html#bmodel-key-_minlightMottle">bmodel key</a>
+</li>
+        </ul></li>
+        <li>
+    _mirrorinside
+
+        <ul>
+          <li><a href="qbsp.html#bmodel-key-_mirrorinside">bmodel key</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    _nostaticlight
+
+        <ul>
+          <li><a href="light.html#light-key-_nostaticlight">light entity key</a>
+</li>
+        </ul></li>
+        <li>
+    _object_channel_mask
+
+        <ul>
+          <li><a href="light.html#bmodel-key-_object_channel_mask">bmodel key</a>
+</li>
+        </ul></li>
+        <li>
+    _phong
+
+        <ul>
+          <li><a href="light.html#bmodel-key-_phong">bmodel key</a>
+</li>
+        </ul></li>
+        <li>
+    _phong_angle
+
+        <ul>
+          <li><a href="light.html#bmodel-key-_phong_angle">bmodel key</a>
+</li>
+        </ul></li>
+        <li>
+    _phong_angle_concave
+
+        <ul>
+          <li><a href="light.html#bmodel-key-_phong_angle_concave">bmodel key</a>
+</li>
+        </ul></li>
+        <li>
+    _project_fov
+
+        <ul>
+          <li><a href="light.html#light-key-_project_fov">light entity key</a>
+</li>
+        </ul></li>
+        <li>
+    _project_mangle
+
+        <ul>
+          <li><a href="light.html#light-key-_project_mangle">light entity key</a>
+</li>
+        </ul></li>
+        <li>
+    _project_texture
+
+        <ul>
+          <li><a href="light.html#light-key-_project_texture">light entity key</a>
+</li>
+        </ul></li>
+        <li>
+    _range
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_range">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _samples
+
+        <ul>
+          <li><a href="light.html#light-key-_samples">light entity key</a>
+</li>
+        </ul></li>
+        <li>
+    _selfshadow
+
+        <ul>
+          <li><a href="light.html#bmodel-key-_selfshadow">bmodel key</a>
+</li>
+        </ul></li>
+        <li>
+    _shadow
+
+        <ul>
+          <li><a href="light.html#bmodel-key-_shadow">bmodel key</a>
+</li>
+        </ul></li>
+        <li>
+    _shadow_channel_mask
+
+        <ul>
+          <li><a href="light.html#light-key-_shadow_channel_mask">light entity key</a>
+</li>
+        </ul></li>
+        <li>
+    _shadowself
+
+        <ul>
+          <li><a href="light.html#bmodel-key-_shadowself">bmodel key</a>
+</li>
+        </ul></li>
+        <li>
+    _shadowworldonly
+
+        <ul>
+          <li><a href="light.html#bmodel-key-_shadowworldonly">bmodel key</a>
+</li>
+        </ul></li>
+        <li>
+    _sky_surface
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_sky_surface">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _softangle
+
+        <ul>
+          <li><a href="light.html#light-key-_softangle">light entity key</a>
+</li>
+        </ul></li>
+        <li>
+    _spotlightautofalloff
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_spotlightautofalloff">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _sun
+
+        <ul>
+          <li><a href="light.html#light-key-_sun">light entity key</a>
+</li>
+        </ul></li>
+        <li>
+    _sun2
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_sun2">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _sun2_color
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_sun2_color">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _sun2_mangle
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_sun2_mangle">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _sun_angle
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_sun_angle">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _sun_color
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_sun_color">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _sun_light
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_sun_light">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _sun_mangle
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_sun_mangle">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _sun_surface
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_sun_surface">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _sunlight
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_sunlight">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _sunlight2
+
+        <ul>
+          <li><a href="light.html#light-key-_sunlight2">light entity key</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sunlight2">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _sunlight2_color
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_sunlight2_color">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _sunlight2_dirt
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_sunlight2_dirt">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _sunlight3
+
+        <ul>
+          <li><a href="light.html#light-key-_sunlight3">light entity key</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sunlight3">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _sunlight3_color
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_sunlight3_color">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _sunlight_color
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_sunlight_color">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _sunlight_color2
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_sunlight_color2">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _sunlight_color3
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_sunlight_color3">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _sunlight_dirt
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_sunlight_dirt">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _sunlight_mangle
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_sunlight_mangle">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _sunlight_penumbra
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_sunlight_penumbra">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _surface
+
+        <ul>
+          <li><a href="light.html#light-key-_surface">light entity key</a>
+</li>
+        </ul></li>
+        <li>
+    _surface_offset
+
+        <ul>
+          <li><a href="light.html#light-key-_surface_offset">light entity key</a>
+</li>
+        </ul></li>
+        <li>
+    _surface_spotlight
+
+        <ul>
+          <li><a href="light.html#light-key-_surface_spotlight">light entity key</a>
+</li>
+        </ul></li>
+        <li>
+    _surflight_radiosity
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_surflight_radiosity">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _surflightscale
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_surflightscale">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _surflightskyscale
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_surflightskyscale">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _surflightsubdivision
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_surflightsubdivision">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    _switchableshadow
+
+        <ul>
+          <li><a href="light.html#bmodel-key-_switchableshadow">bmodel key</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="A" class="genindex-section">
+  <h2>A</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    angle
+
+        <ul>
+          <li><a href="light.html#light-key-angle">light entity key</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="B" class="genindex-section">
+  <h2>B</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    bmodel key
+
+        <ul>
+          <li><a href="light.html#bmodel-key-_autominlight">_autominlight</a>
+</li>
+          <li><a href="light.html#bmodel-key-_autominlight_target">_autominlight_target</a>
+</li>
+          <li><a href="light.html#bmodel-key-_bounce">_bounce</a>
+</li>
+          <li><a href="light.html#bmodel-key-_dirt">_dirt</a>
+</li>
+          <li><a href="light.html#bmodel-key-_lightignore">_lightignore</a>
+</li>
+          <li><a href="qbsp.html#bmodel-key-_lmscale">_lmscale</a>
+</li>
+          <li><a href="light.html#bmodel-key-_mincolor">_mincolor</a>
+</li>
+          <li><a href="light.html#bmodel-key-_minlight">_minlight</a>
+</li>
+          <li><a href="light.html#bmodel-key-_minlight_color">_minlight_color</a>
+</li>
+          <li><a href="light.html#bmodel-key-_minlight_exclude">_minlight_exclude</a>
+</li>
+          <li><a href="light.html#bmodel-key-_minlight_mottle">_minlight_mottle</a>
+</li>
+          <li><a href="light.html#bmodel-key-_minlightMottle">_minlightMottle</a>
+</li>
+          <li><a href="qbsp.html#bmodel-key-_mirrorinside">_mirrorinside</a>
+</li>
+          <li><a href="light.html#bmodel-key-_object_channel_mask">_object_channel_mask</a>
+</li>
+          <li><a href="light.html#bmodel-key-_phong">_phong</a>
+</li>
+          <li><a href="light.html#bmodel-key-_phong_angle">_phong_angle</a>
+</li>
+          <li><a href="light.html#bmodel-key-_phong_angle_concave">_phong_angle_concave</a>
+</li>
+          <li><a href="light.html#bmodel-key-_selfshadow">_selfshadow</a>
+</li>
+          <li><a href="light.html#bmodel-key-_shadow">_shadow</a>
+</li>
+          <li><a href="light.html#bmodel-key-_shadowself">_shadowself</a>
+</li>
+          <li><a href="light.html#bmodel-key-_shadowworldonly">_shadowworldonly</a>
+</li>
+          <li><a href="light.html#bmodel-key-_switchableshadow">_switchableshadow</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    bsputil command line option
+
+        <ul>
+          <li><a href="bsputil.html#cmdoption-bsputil-check">--check</a>
+</li>
+          <li><a href="bsputil.html#cmdoption-bsputil-extract-entities">--extract-entities</a>
+</li>
+          <li><a href="bsputil.html#cmdoption-bsputil-extract-textures">--extract-textures</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="C" class="genindex-section">
+  <h2>C</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    classname
+
+        <ul>
+          <li><a href="qbsp.html#classname-func_detail_fence">func_detail_fence</a>
+</li>
+          <li><a href="qbsp.html#classname-func_detail_illusionary">func_detail_illusionary</a>
+</li>
+          <li><a href="qbsp.html#classname-func_detail_wall">func_detail_wall</a>
+</li>
+          <li><a href="qbsp.html#classname-func_illusionary_visblocker">func_illusionary_visblocker</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="D" class="genindex-section">
+  <h2>D</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    delay
+
+        <ul>
+          <li><a href="light.html#light-key-delay">light entity key</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="F" class="genindex-section">
+  <h2>F</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    func_detail_fence
+
+        <ul>
+          <li><a href="qbsp.html#classname-func_detail_fence">classname</a>
+</li>
+        </ul></li>
+        <li>
+    func_detail_illusionary
+
+        <ul>
+          <li><a href="qbsp.html#classname-func_detail_illusionary">classname</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    func_detail_wall
+
+        <ul>
+          <li><a href="qbsp.html#classname-func_detail_wall">classname</a>
+</li>
+        </ul></li>
+        <li>
+    func_illusionary_visblocker
+
+        <ul>
+          <li><a href="qbsp.html#classname-func_illusionary_visblocker">classname</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="H" class="genindex-section">
+  <h2>H</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    hint
+
+        <ul>
+          <li><a href="qbsp.html#texture-hint">texture name</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="L" class="genindex-section">
+  <h2>L</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    light
+
+        <ul>
+          <li><a href="light.html#light-key-light">light entity key</a>
+</li>
+          <li><a href="light.html#worldspawn-key-light">worldspawn key</a>
+</li>
+        </ul></li>
+        <li>
+    light command line option
+
+        <ul>
+          <li><a href="light.html#cmdoption-light-addmin">-addmin</a>
+</li>
+          <li><a href="light.html#cmdoption-light-arghradcompat">-arghradcompat</a>
+</li>
+          <li><a href="light.html#cmdoption-light-basedir">-basedir</a>
+</li>
+          <li><a href="light.html#cmdoption-light-bouncedebug">-bouncedebug</a>
+</li>
+          <li><a href="light.html#cmdoption-light-bouncelightsdebug">-bouncelightsdebug</a>
+</li>
+          <li><a href="light.html#cmdoption-light-bspx">-bspx</a>
+</li>
+          <li><a href="light.html#cmdoption-light-bspxlit">-bspxlit</a>
+</li>
+          <li><a href="light.html#cmdoption-light-bspxlux">-bspxlux</a>
+</li>
+          <li><a href="light.html#cmdoption-light-bspxonly">-bspxonly</a>
+</li>
+          <li><a href="light.html#cmdoption-light-debugface">-debugface</a>
+</li>
+          <li><a href="light.html#cmdoption-light-debugmottle">-debugmottle</a>
+</li>
+          <li><a href="light.html#cmdoption-light-debugneighbours">-debugneighbours</a>
+</li>
+          <li><a href="light.html#cmdoption-light-debugoccluded">-debugoccluded</a>
+</li>
+          <li><a href="light.html#cmdoption-light-debugvert">-debugvert</a>
+</li>
+          <li><a href="light.html#cmdoption-light-defaultpaths">-defaultpaths</a>
+</li>
+          <li><a href="light.html#cmdoption-light-dirtdebug">-dirtdebug</a>
+</li>
+          <li><a href="light.html#cmdoption-light-emissivequality">-emissivequality</a>
+</li>
+          <li><a href="light.html#cmdoption-light-exportobj">-exportobj</a>
+</li>
+          <li><a href="light.html#cmdoption-light-extra">-extra</a>
+</li>
+          <li><a href="light.html#cmdoption-light-extra4">-extra4</a>
+</li>
+          <li><a href="light.html#cmdoption-light-facestyles">-facestyles</a>
+</li>
+          <li><a href="light.html#cmdoption-light-filepriority">-filepriority</a>
+</li>
+          <li><a href="light.html#cmdoption-light-gamedir">-gamedir</a>
+</li>
+          <li><a href="light.html#cmdoption-light-gate">-gate</a>
+</li>
+          <li><a href="light.html#cmdoption-light-highlightseams">-highlightseams</a>
+</li>
+          <li><a href="light.html#cmdoption-light-lightgrid">-lightgrid</a>
+</li>
+          <li><a href="light.html#cmdoption-light-lightgrid_dist">-lightgrid_dist</a>
+</li>
+          <li><a href="light.html#cmdoption-light-lightgrid_format">-lightgrid_format</a>
+</li>
+          <li><a href="light.html#cmdoption-light-lit">-lit</a>
+</li>
+          <li><a href="light.html#cmdoption-light-lit2">-lit2</a>
+</li>
+          <li><a href="light.html#cmdoption-light-litonly">-litonly</a>
+</li>
+          <li><a href="light.html#cmdoption-light-lmscale">-lmscale</a>
+</li>
+          <li><a href="light.html#cmdoption-light-lmshift">-lmshift</a>
+</li>
+          <li><a href="light.html#cmdoption-light-log">-log</a>
+</li>
+          <li><a href="light.html#cmdoption-light-lowpriority">-lowpriority</a>
+</li>
+          <li><a href="light.html#cmdoption-light-lux">-lux</a>
+</li>
+          <li><a href="light.html#cmdoption-light-nocolor">-nocolor</a>
+</li>
+          <li><a href="light.html#cmdoption-light-nodefaultpaths">-nodefaultpaths</a>
+</li>
+          <li><a href="light.html#cmdoption-light-nolighting">-nolighting</a>
+</li>
+          <li><a href="light.html#cmdoption-light-nolights">-nolights</a>
+</li>
+          <li><a href="light.html#cmdoption-light-nolog">-nolog</a>
+</li>
+          <li><a href="light.html#cmdoption-light-nopercent">-nopercent</a>
+</li>
+          <li><a href="light.html#cmdoption-light-noprogress">-noprogress</a>
+</li>
+          <li><a href="light.html#cmdoption-light-nostat">-nostat</a>
+</li>
+          <li><a href="light.html#cmdoption-light-novanilla">-novanilla</a>
+</li>
+          <li><a href="light.html#cmdoption-light-noverbose">-noverbose</a>
+</li>
+          <li><a href="light.html#cmdoption-light-novisapprox">-novisapprox</a>
+</li>
+          <li><a href="light.html#cmdoption-light-onlyents">-onlyents</a>
+</li>
+          <li><a href="light.html#cmdoption-light-path">-path</a>
+</li>
+          <li><a href="light.html#cmdoption-light-phongdebug">-phongdebug</a>
+</li>
+          <li><a href="light.html#cmdoption-light-phongdebug_obj">-phongdebug_obj</a>
+</li>
+          <li><a href="light.html#cmdoption-light-q2rtx">-q2rtx</a>
+</li>
+          <li><a href="light.html#cmdoption-light-quiet">-quiet</a>
+</li>
+          <li><a href="light.html#cmdoption-light-radlights">-radlights</a>
+</li>
+          <li><a href="light.html#cmdoption-light-soft">-soft</a>
+</li>
+          <li><a href="light.html#cmdoption-light-sunsamples">-sunsamples</a>
+</li>
+          <li><a href="light.html#cmdoption-light-surflight_dump">-surflight_dump</a>
+</li>
+          <li><a href="light.html#cmdoption-light-surflight_subdivide">-surflight_subdivide</a>
+</li>
+          <li><a href="light.html#cmdoption-light-threads">-threads</a>
+</li>
+          <li><a href="light.html#cmdoption-light-v">-v</a>
+</li>
+          <li><a href="light.html#cmdoption-light-verbose">-verbose</a>
+</li>
+          <li><a href="light.html#cmdoption-light-visapprox">-visapprox</a>
+</li>
+          <li><a href="light.html#cmdoption-light-world_units_per_luxel">-world_units_per_luxel</a>
+</li>
+          <li><a href="light.html#cmdoption-light-wrnormals">-wrnormals</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    light entity key
+
+        <ul>
+          <li><a href="light.html#light-key-_anglescale">_anglescale</a>
+</li>
+          <li><a href="light.html#light-key-_anglesense">_anglesense</a>
+</li>
+          <li><a href="light.html#light-key-_bouncescale">_bouncescale</a>
+</li>
+          <li><a href="light.html#light-key-_color">_color</a>
+</li>
+          <li><a href="light.html#light-key-_deviance">_deviance</a>
+</li>
+          <li><a href="light.html#light-key-_dirt">_dirt</a>
+</li>
+          <li><a href="light.html#light-key-_dirtgain">_dirtgain</a>
+</li>
+          <li><a href="light.html#light-key-_dirtscale">_dirtscale</a>
+</li>
+          <li><a href="light.html#light-key-_falloff">_falloff</a>
+</li>
+          <li><a href="light.html#light-key-_light_channel_mask">_light_channel_mask</a>
+</li>
+          <li><a href="light.html#light-key-_nostaticlight">_nostaticlight</a>
+</li>
+          <li><a href="light.html#light-key-_project_fov">_project_fov</a>
+</li>
+          <li><a href="light.html#light-key-_project_mangle">_project_mangle</a>
+</li>
+          <li><a href="light.html#light-key-_project_texture">_project_texture</a>
+</li>
+          <li><a href="light.html#light-key-_samples">_samples</a>
+</li>
+          <li><a href="light.html#light-key-_shadow_channel_mask">_shadow_channel_mask</a>
+</li>
+          <li><a href="light.html#light-key-_softangle">_softangle</a>
+</li>
+          <li><a href="light.html#light-key-_sun">_sun</a>
+</li>
+          <li><a href="light.html#light-key-_sunlight2">_sunlight2</a>
+</li>
+          <li><a href="light.html#light-key-_sunlight3">_sunlight3</a>
+</li>
+          <li><a href="light.html#light-key-_surface">_surface</a>
+</li>
+          <li><a href="light.html#light-key-_surface_offset">_surface_offset</a>
+</li>
+          <li><a href="light.html#light-key-_surface_spotlight">_surface_spotlight</a>
+</li>
+          <li><a href="light.html#light-key-angle">angle</a>
+</li>
+          <li><a href="light.html#light-key-delay">delay</a>
+</li>
+          <li><a href="light.html#light-key-light">light</a>
+</li>
+          <li><a href="light.html#light-key-mangle">mangle</a>
+</li>
+          <li><a href="light.html#light-key-style">style</a>
+</li>
+          <li><a href="light.html#light-key-target">target</a>
+</li>
+          <li><a href="light.html#light-key-targetname">targetname</a>
+</li>
+          <li><a href="light.html#light-key-wait">wait</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="M" class="genindex-section">
+  <h2>M</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    mangle
+
+        <ul>
+          <li><a href="light.html#light-key-mangle">light entity key</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="O" class="genindex-section">
+  <h2>O</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    origin
+
+        <ul>
+          <li><a href="qbsp.html#texture-origin">texture name</a>
+</li>
+        </ul></li>
+        <li>
+    other entity key
+
+        <ul>
+          <li><a href="qbsp.html#other-key-_external_map">_external_map</a>
+</li>
+          <li><a href="qbsp.html#other-key-_external_map_angle">_external_map_angle</a>
+</li>
+          <li><a href="qbsp.html#other-key-_external_map_angles">_external_map_angles</a>
+</li>
+          <li><a href="qbsp.html#other-key-_external_map_classname">_external_map_classname</a>
+</li>
+          <li><a href="qbsp.html#other-key-_external_map_scale">_external_map_scale</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="Q" class="genindex-section">
+  <h2>Q</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    qbsp command line option
+
+        <ul>
+          <li><a href="qbsp.html#cmdoption-qbsp-2psb">-2psb</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-add">-add</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-aliasdef">-aliasdef</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-allowupgrade">-allowupgrade</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-basedir">-basedir</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-bmodelcontents">-bmodelcontents</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-bsp2">-bsp2</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-bspx">-bspx</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-bspxonly">-bspxonly</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-chop">-chop</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-chopfragment">-chopfragment</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-convert">-convert</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-debugbspbrushes">-debugbspbrushes</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-debugchop">-debugchop</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-debugexpand">-debugexpand</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-debugleafvolumes">-debugleafvolumes</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-debugleak">-debugleak</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-defaultpaths">-defaultpaths</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-epsilon">-epsilon</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-filepriority">-filepriority</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-filldetail">-filldetail</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-filltype">-filltype</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-forcegoodtree">-forcegoodtree</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-forceprt1">-forceprt1</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-gamedir">-gamedir</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-hexen2">-hexen2</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-hlbsp">-hlbsp</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-includeskip">-includeskip</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-keepprt">-keepprt</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-leakdist">-leakdist</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-leaktest">-leaktest</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-litwater">-litwater</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-lmscale">-lmscale</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-log">-log</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-logbmodels">-logbmodels</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-loghulls">-loghulls</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-lowpriority">-lowpriority</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-maxedges">-maxedges</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-maxnodesize">-maxnodesize</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-microvolume">-microvolume</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-midsplitbrushfraction">-midsplitbrushfraction</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-midsplitsurffraction">-midsplitsurffraction</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-noallowupgrade">-noallowupgrade</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-nochop">-nochop</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-noclip">-noclip</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-nocolor">-nocolor</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-nodefaultpaths">-nodefaultpaths</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-nodetail">-nodetail</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-noedgereuse">-noedgereuse</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-noextendedsurfflags">-noextendedsurfflags</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-nofill">-nofill</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-nolog">-nolog</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-nomerge">-nomerge</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-nooldaxis">-nooldaxis</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-nopercent">-nopercent</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-noprogress">-noprogress</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-noskip">-noskip</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-nosoftware">-nosoftware</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-nostat">-nostat</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-nosubdivide">-nosubdivide</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-notex">-notex</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-notjunc">-notjunc</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-notranswater">-notranswater</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-notriggermodels">-notriggermodels</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-noverbose">-noverbose</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-objexport">-objexport</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-oldaxis">-oldaxis</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-oldrottex">-oldrottex</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-omitdetail">-omitdetail</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-omitdetailfence">-omitdetailfence</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-omitdetailillusionary">-omitdetailillusionary</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-omitdetailwall">-omitdetailwall</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-onlyents">-onlyents</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-outsidedebug">-outsidedebug</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-path">-path</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-q2bsp">-q2bsp</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-q2rtx">-q2rtx</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-qbism">-qbism</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-quiet">-quiet</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-software">-software</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-splitsky">-splitsky</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-splitspecial">-splitspecial</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-splitturb">-splitturb</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-subdivide">-subdivide</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-texturedefs">-texturedefs</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-threads">-threads</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-tjunc">-tjunc</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-transsky">-transsky</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-transwater">-transwater</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-v">-v</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-verbose">-verbose</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-wadpath">-wadpath</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-worldextent">-worldextent</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-wrbrushes">-wrbrushes</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-wrbrushesonly">-wrbrushesonly</a>
+</li>
+          <li><a href="qbsp.html#cmdoption-qbsp-xwadpath">-xwadpath</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="S" class="genindex-section">
+  <h2>S</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    skip
+
+        <ul>
+          <li><a href="qbsp.html#texture-skip">texture name</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    style
+
+        <ul>
+          <li><a href="light.html#light-key-style">light entity key</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="T" class="genindex-section">
+  <h2>T</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    target
+
+        <ul>
+          <li><a href="light.html#light-key-target">light entity key</a>
+</li>
+        </ul></li>
+        <li>
+    targetname
+
+        <ul>
+          <li><a href="light.html#light-key-targetname">light entity key</a>
+</li>
+        </ul></li>
+        <li>
+    texture name
+
+        <ul>
+          <li><a href="qbsp.html#texture-0">*</a>
+</li>
+          <li><a href="qbsp.html#texture-lava">*lava</a>
+</li>
+          <li><a href="qbsp.html#texture-slime">*slime</a>
+</li>
+          <li><a href="qbsp.html#texture-hint">hint</a>
+</li>
+          <li><a href="qbsp.html#texture-origin">origin</a>
+</li>
+          <li><a href="qbsp.html#texture-skip">skip</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="V" class="genindex-section">
+  <h2>V</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    vis command line option
+
+        <ul>
+          <li><a href="vis.html#cmdoption-vis-basedir">-basedir</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-defaultpaths">-defaultpaths</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-fast">-fast</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-filepriority">-filepriority</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-gamedir">-gamedir</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-level">-level</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-log">-log</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-lowpriority">-lowpriority</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-noambient">-noambient</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-noambientlava">-noambientlava</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-noambientsky">-noambientsky</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-noambientslime">-noambientslime</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-noambientwater">-noambientwater</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-noautoclean">-noautoclean</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-nocolor">-nocolor</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-nodefaultpaths">-nodefaultpaths</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-nolog">-nolog</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-nopercent">-nopercent</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-noprogress">-noprogress</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-nostat">-nostat</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-nostate">-nostate</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-noverbose">-noverbose</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-path">-path</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-phsonly">-phsonly</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-q2rtx">-q2rtx</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-quiet">-quiet</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-threads">-threads</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-v">-v</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-verbose">-verbose</a>
+</li>
+          <li><a href="vis.html#cmdoption-vis-visdist">-visdist</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="W" class="genindex-section">
+  <h2>W</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    wait
+
+        <ul>
+          <li><a href="light.html#light-key-wait">light entity key</a>
+</li>
+        </ul></li>
+        <li>
+    worldspawn key
+
+        <ul>
+          <li><a href="light.html#worldspawn-key-_anglescale">_anglescale</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_anglesense">_anglesense</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_bounce">_bounce</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_bouncecolorscale">_bouncecolorscale</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_bouncelightsubdivision">_bouncelightsubdivision</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_bouncescale">_bouncescale</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_bouncestyled">_bouncestyled</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_choplight">_choplight</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_compilerstyle_max">_compilerstyle_max</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_compilerstyle_start">_compilerstyle_start</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_dirt">_dirt</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_dirtangle">_dirtangle</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_dirtdepth">_dirtdepth</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_dirtgain">_dirtgain</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_dirtmode">_dirtmode</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_dirtscale">_dirtscale</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_dirty">_dirty</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_dist">_dist</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_gamma">_gamma</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_lightmap_scale">_lightmap_scale</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_maxlight">_maxlight</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_mincolor">_mincolor</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_minlight">_minlight</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_minlight_color">_minlight_color</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_minlight_dirt">_minlight_dirt</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_range">_range</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sky_surface">_sky_surface</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_spotlightautofalloff">_spotlightautofalloff</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sun2">_sun2</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sun2_color">_sun2_color</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sun2_mangle">_sun2_mangle</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sun_angle">_sun_angle</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sun_color">_sun_color</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sun_light">_sun_light</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sun_mangle">_sun_mangle</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sun_surface">_sun_surface</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sunlight">_sunlight</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sunlight2">_sunlight2</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sunlight2_color">_sunlight2_color</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sunlight2_dirt">_sunlight2_dirt</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sunlight3">_sunlight3</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sunlight3_color">_sunlight3_color</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sunlight_color">_sunlight_color</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sunlight_color2">_sunlight_color2</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sunlight_color3">_sunlight_color3</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sunlight_dirt">_sunlight_dirt</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sunlight_mangle">_sunlight_mangle</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_sunlight_penumbra">_sunlight_penumbra</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_surflight_radiosity">_surflight_radiosity</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_surflightscale">_surflightscale</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_surflightskyscale">_surflightskyscale</a>
+</li>
+          <li><a href="light.html#worldspawn-key-_surflightsubdivision">_surflightsubdivision</a>
+</li>
+          <li><a href="light.html#worldspawn-key-light">light</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>

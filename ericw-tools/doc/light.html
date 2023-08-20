@@ -1,0 +1,1622 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="bspinfo" href="bspinfo.html" /><link rel="prev" title="vis" href="vis.html" />
+
+    <!-- Generated with Sphinx 6.2.1 and Furo 2023.03.27 -->
+        <title>light - ericw-tools documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">ericw-tools  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">ericw-tools  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="qbsp.html">qbsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vis.html">vis</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">light</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bspinfo.html">bspinfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bsputil.html">bsputil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="light">
+<h1>light<a class="headerlink" href="#light" title="Permalink to this heading">#</a></h1>
+<p>light - Caclulate lightmap data for a Quake BSP file</p>
+<section id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
+<p><strong>light</strong> [OPTION]… BSPFILE</p>
+</section>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">#</a></h2>
+<p><strong>light</strong> reads a Quake .bsp file and calculates light and shadow
+information based on the entity definitions contained in the .bsp. The
+.bsp file is updated with the new light data upon completion,
+overwriting any existing lighting data.</p>
+</section>
+<section id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this heading">#</a></h2>
+<p>Note, any of the Worldspawn Keys listed in the next section can be
+supplied as command-line options, which will override any setting in
+worldspawn.</p>
+<section id="logging">
+<h3>Logging<a class="headerlink" href="#logging" title="Permalink to this heading">#</a></h3>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-log">
+<span class="sig-name descname"><span class="pre">-log</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-log" title="Permalink to this definition">#</a></dt>
+<dd><p>Write log files. Enabled by default.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-nolog">
+<span class="sig-name descname"><span class="pre">-nolog</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-nolog" title="Permalink to this definition">#</a></dt>
+<dd><p>Don’t write log files.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-verbose">
+<span class="sig-name descname"><span class="pre">-verbose</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-verbose" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object std" id="cmdoption-light-v">
+<span class="sig-name descname"><span class="pre">-v</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-v" title="Permalink to this definition">#</a></dt>
+<dd><p>Verbose output.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-nopercent">
+<span class="sig-name descname"><span class="pre">-nopercent</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-nopercent" title="Permalink to this definition">#</a></dt>
+<dd><p>Don’t output percentage messages.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-nostat">
+<span class="sig-name descname"><span class="pre">-nostat</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-nostat" title="Permalink to this definition">#</a></dt>
+<dd><p>Don’t output statistic messages.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-noprogress">
+<span class="sig-name descname"><span class="pre">-noprogress</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-noprogress" title="Permalink to this definition">#</a></dt>
+<dd><p>Don’t output progress messages.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-nocolor">
+<span class="sig-name descname"><span class="pre">-nocolor</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-nocolor" title="Permalink to this definition">#</a></dt>
+<dd><p>Don’t output color codes (for TB, etc).</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-quiet">
+<span class="sig-name descname"><span class="pre">-quiet</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-quiet" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object std" id="cmdoption-light-noverbose">
+<span class="sig-name descname"><span class="pre">-noverbose</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-noverbose" title="Permalink to this definition">#</a></dt>
+<dd><p>Suppress non-important messages (equivalent to <a class="reference internal" href="#cmdoption-light-nopercent"><code class="xref std std-option docutils literal notranslate"><span class="pre">-nopercent</span></code></a> <a class="reference internal" href="#cmdoption-light-nostat"><code class="xref std std-option docutils literal notranslate"><span class="pre">-nostat</span></code></a>
+<a class="reference internal" href="#cmdoption-light-noprogress"><code class="xref std std-option docutils literal notranslate"><span class="pre">-noprogress</span></code></a>)</p>
+</dd></dl>
+
+</section>
+<section id="game">
+<h3>Game<a class="headerlink" href="#game" title="Permalink to this heading">#</a></h3>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-gamedir">
+<span class="sig-name descname"><span class="pre">-gamedir</span></span><span class="sig-prename descclassname"> <span class="pre">&quot;relative/path&quot;</span> <span class="pre">or</span> <span class="pre">&quot;C:/absolute/path&quot;</span></span><a class="headerlink" href="#cmdoption-light-gamedir" title="Permalink to this definition">#</a></dt>
+<dd><p>Override the default mod base directory. if this is not set, or if it is relative, it will be derived from
+the input file or the basedir if specified.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-basedir">
+<span class="sig-name descname"><span class="pre">-basedir</span></span><span class="sig-prename descclassname"> <span class="pre">&quot;relative/path&quot;</span> <span class="pre">or</span> <span class="pre">&quot;C:/absolute/path&quot;</span></span><a class="headerlink" href="#cmdoption-light-basedir" title="Permalink to this definition">#</a></dt>
+<dd><p>Override the default game base directory. if this is not set, or if it is relative, it will be derived
+from the input file or the gamedir if specified.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-filepriority">
+<span class="sig-name descname"><span class="pre">-filepriority</span></span><span class="sig-prename descclassname"> <span class="pre">archive</span> <span class="pre">|</span> <span class="pre">loose</span></span><a class="headerlink" href="#cmdoption-light-filepriority" title="Permalink to this definition">#</a></dt>
+<dd><p>Which types of archives (folders/loose files or packed archives) are higher priority and chosen first
+for path searching.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-path">
+<span class="sig-name descname"><span class="pre">-path</span></span><span class="sig-prename descclassname"> <span class="pre">&quot;/path/to/folder&quot;</span> <span class="pre">&lt;multiple</span> <span class="pre">allowed&gt;</span></span><a class="headerlink" href="#cmdoption-light-path" title="Permalink to this definition">#</a></dt>
+<dd><p>Additional paths or archives to add to the search path, mostly for loose files.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-q2rtx">
+<span class="sig-name descname"><span class="pre">-q2rtx</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-q2rtx" title="Permalink to this definition">#</a></dt>
+<dd><p>Adjust settings to best support Q2RTX.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-defaultpaths">
+<span class="sig-name descname"><span class="pre">-defaultpaths</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-defaultpaths" title="Permalink to this definition">#</a></dt>
+<dd><p>Whether the compiler should attempt to automatically derive game/base paths for
+games that support it. Enabled by default.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-nodefaultpaths">
+<span class="sig-name descname"><span class="pre">-nodefaultpaths</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-nodefaultpaths" title="Permalink to this definition">#</a></dt>
+<dd><p>Opt out of <a class="reference internal" href="#cmdoption-light-defaultpaths"><code class="xref std std-option docutils literal notranslate"><span class="pre">-defaultpaths</span></code></a>.</p>
+</dd></dl>
+
+</section>
+<section id="performance">
+<h3>Performance<a class="headerlink" href="#performance" title="Permalink to this heading">#</a></h3>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-lowpriority">
+<span class="sig-name descname"><span class="pre">-lowpriority</span></span><span class="sig-prename descclassname"> <span class="pre">[0]</span></span><a class="headerlink" href="#cmdoption-light-lowpriority" title="Permalink to this definition">#</a></dt>
+<dd><p>Run in a lower priority, to free up headroom for other processes.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-threads">
+<span class="sig-name descname"><span class="pre">-threads</span></span><span class="sig-prename descclassname"> <span class="pre">n</span></span><a class="headerlink" href="#cmdoption-light-threads" title="Permalink to this definition">#</a></dt>
+<dd><p>Set number of threads explicitly. By default light will attempt to
+detect the number of CPUs/cores available.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-extra">
+<span class="sig-name descname"><span class="pre">-extra</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-extra" title="Permalink to this definition">#</a></dt>
+<dd><p>Calculate extra samples (2x2) and average the results for smoother
+shadows.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-extra4">
+<span class="sig-name descname"><span class="pre">-extra4</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-extra4" title="Permalink to this definition">#</a></dt>
+<dd><p>Calculate even more samples (4x4) and average the results for
+smoother shadows.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-gate">
+<span class="sig-name descname"><span class="pre">-gate</span></span><span class="sig-prename descclassname"> <span class="pre">n</span></span><a class="headerlink" href="#cmdoption-light-gate" title="Permalink to this definition">#</a></dt>
+<dd><p>Set a minimum light level, below which can be considered zero
+brightness. This can dramatically speed up processing when there are
+large numbers of lights with inverse or inverse square falloff. In
+most cases, values less than 1.0 will cause no discernible visual
+differences. Default 0.001.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-sunsamples">
+<span class="sig-name descname"><span class="pre">-sunsamples</span></span><span class="sig-prename descclassname"> <span class="pre">[n]</span></span><a class="headerlink" href="#cmdoption-light-sunsamples" title="Permalink to this definition">#</a></dt>
+<dd><p>Set the number of samples to use for <a class="reference internal" href="#worldspawn-key-_sunlight_penumbra"><code class="xref std std-worldspawn-key docutils literal notranslate"><span class="pre">_sunlight_penumbra</span></code></a> and
+<a class="reference internal" href="#worldspawn-key-_sunlight2"><code class="xref std std-worldspawn-key docutils literal notranslate"><span class="pre">_sunlight2</span></code></a> (sunlight2 may use more or less because of how the suns
+are set up in a sphere). Default 100.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-surflight_subdivide">
+<span id="cmdoption-light-surflight-subdivide"></span><span class="sig-name descname"><span class="pre">-surflight_subdivide</span></span><span class="sig-prename descclassname"> <span class="pre">[n]</span></span><a class="headerlink" href="#cmdoption-light-surflight_subdivide" title="Permalink to this definition">#</a></dt>
+<dd><p>Configure spacing of all surface lights. Default 16 units. Value must be between 1
+and 8192. In the future I’d like to make this
+configurable per-surface-light.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-emissivequality">
+<span class="sig-name descname"><span class="pre">-emissivequality</span></span><span class="sig-prename descclassname"> <span class="pre">low</span> <span class="pre">|</span> <span class="pre">high</span></span><a class="headerlink" href="#cmdoption-light-emissivequality" title="Permalink to this definition">#</a></dt>
+<dd><p>For emissive surfaces (both direct light and bounced light), use a single
+point in the middle of the face (low) or subdivide the face into multiple
+points, which provides anti-aliased results and more shadows, at the cost
+of compile time. When using “high”, you can use <cite>surflight_subdivide</cite>
+to control the point spacing for better anti-aliasing. Default is low.</p>
+</dd></dl>
+
+</section>
+<section id="output-format-options">
+<h3>Output format options<a class="headerlink" href="#output-format-options" title="Permalink to this heading">#</a></h3>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-lit">
+<span class="sig-name descname"><span class="pre">-lit</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-lit" title="Permalink to this definition">#</a></dt>
+<dd><p>Force generation of a .lit file, even if your map does not have any
+coloured lights. By default, light will automatically generate the
+.lit file when needed.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-world_units_per_luxel">
+<span id="cmdoption-light-world-units-per-luxel"></span><span class="sig-name descname"><span class="pre">-world_units_per_luxel</span></span><span class="sig-prename descclassname"> <span class="pre">n</span></span><a class="headerlink" href="#cmdoption-light-world_units_per_luxel" title="Permalink to this definition">#</a></dt>
+<dd><p>Enables output of DECOUPLED_LM BSPX lump.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-onlyents">
+<span class="sig-name descname"><span class="pre">-onlyents</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-onlyents" title="Permalink to this definition">#</a></dt>
+<dd><p>Updates the entities lump in the bsp. You should run this after
+running qbsp with -onlyents, if your map uses any switchable lights.
+All this does is assign style numbers to each switchable light.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-litonly">
+<span class="sig-name descname"><span class="pre">-litonly</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-litonly" title="Permalink to this definition">#</a></dt>
+<dd><p>Generate a .lit file that is compatible with the .bsp without
+modifying the .bsp. This is meant for tweaking lighting or adding
+colored lights when you can’t modify an existing .bsp (e.g. for
+multiplayer maps.) Typically you would make a temporary copy of the
+.bsp, update the lights in the entity lump (e.g. with “qbsp
+-onlyents”), then re-light it with “light -litonly”. Engines may
+enforce a restriction that you can’t make areas brighter than they
+originally were (cheat protection). Also, styled lights
+(flickering/switchable) can’t be added in new areas or have their
+styles changed.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-nolighting">
+<span class="sig-name descname"><span class="pre">-nolighting</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-nolighting" title="Permalink to this definition">#</a></dt>
+<dd><p>Do all of the stuff required for lighting to work without actually
+performing any lighting calculations. This is mainly for engines that
+don’t use the light data, but still need switchable lights, etc.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-nolights">
+<span class="sig-name descname"><span class="pre">-nolights</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-nolights" title="Permalink to this definition">#</a></dt>
+<dd><p>Ignore light entities (only sunlight/minlight).</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-facestyles">
+<span class="sig-name descname"><span class="pre">-facestyles</span></span><span class="sig-prename descclassname"> <span class="pre">n</span></span><a class="headerlink" href="#cmdoption-light-facestyles" title="Permalink to this definition">#</a></dt>
+<dd><p>Max amount of styles per face; requires BSPX lump if &gt; 4.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-exportobj">
+<span class="sig-name descname"><span class="pre">-exportobj</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-exportobj" title="Permalink to this definition">#</a></dt>
+<dd><p>Export an .OBJ for inspection.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-lmshift">
+<span class="sig-name descname"><span class="pre">-lmshift</span></span><span class="sig-prename descclassname"> <span class="pre">n</span></span><a class="headerlink" href="#cmdoption-light-lmshift" title="Permalink to this definition">#</a></dt>
+<dd><p>Force a specified lmshift to be applied to the entire map; this is useful if you want to re-light a map with
+higher quality BSPX lighting without the sources. Will add the LMSHIFT lump to the BSP.</p>
+</dd></dl>
+
+</section>
+<section id="postprocessing-options">
+<h3>Postprocessing options<a class="headerlink" href="#postprocessing-options" title="Permalink to this heading">#</a></h3>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-soft">
+<span class="sig-name descname"><span class="pre">-soft</span></span><span class="sig-prename descclassname"> <span class="pre">[n]</span></span><a class="headerlink" href="#cmdoption-light-soft" title="Permalink to this definition">#</a></dt>
+<dd><p>Perform post-processing on the lightmap which averages adjacent
+samples to smooth shadow edges. If n is specified, the algorithm
+will take ‘n’ samples on each side of the sample point and replace
+the original value with the average. e.g. a value of 1 results in
+averaging a 3x3 square centred on the original sample. 2 implies a
+5x5 square and so on. If -soft is specified, but n is omitted, a
+value will be the level of oversampling requested. If no
+oversampling, then the implied value is 1. <a class="reference internal" href="#cmdoption-light-extra"><code class="xref std std-option docutils literal notranslate"><span class="pre">-extra</span></code></a> implies a value
+of 2 and <a class="reference internal" href="#cmdoption-light-extra4"><code class="xref std std-option docutils literal notranslate"><span class="pre">-extra4</span></code></a> implies 3. Default 0 (off).</p>
+</dd></dl>
+
+</section>
+<section id="debug-modes">
+<h3>Debug modes<a class="headerlink" href="#debug-modes" title="Permalink to this heading">#</a></h3>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-dirtdebug">
+<span class="sig-name descname"><span class="pre">-dirtdebug</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-dirtdebug" title="Permalink to this definition">#</a></dt>
+<dd><p>Implies <a class="reference internal" href="#worldspawn-key-_dirt"><code class="xref std std-worldspawn-key docutils literal notranslate"><span class="pre">_dirt</span></code></a> “1”, and renders just the dirtmap against a fullbright
+background, ignoring all lights in the map. Useful for previewing and
+turning the dirt settings.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-phongdebug">
+<span class="sig-name descname"><span class="pre">-phongdebug</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-phongdebug" title="Permalink to this definition">#</a></dt>
+<dd><p>Write normals to lit file for debugging phong shading.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-bouncedebug">
+<span class="sig-name descname"><span class="pre">-bouncedebug</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-bouncedebug" title="Permalink to this definition">#</a></dt>
+<dd><p>Write bounced lighting only to the lightmap for debugging /
+previewing -bounce.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-bouncelightsdebug">
+<span class="sig-name descname"><span class="pre">-bouncelightsdebug</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-bouncelightsdebug" title="Permalink to this definition">#</a></dt>
+<dd><p>Only save bounced emitters lighting to the lightmap.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-surflight_dump">
+<span id="cmdoption-light-surflight-dump"></span><span class="sig-name descname"><span class="pre">-surflight_dump</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-surflight_dump" title="Permalink to this definition">#</a></dt>
+<dd><p>Saves the lights generated by surfacelights to a
+“mapname-surflights.map” file.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-visapprox">
+<span class="sig-name descname"><span class="pre">-visapprox</span></span><span class="sig-prename descclassname"> <span class="pre">auto</span> <span class="pre">|</span> <span class="pre">none</span> <span class="pre">|</span> <span class="pre">rays</span> <span class="pre">|</span> <span class="pre">vis</span></span><a class="headerlink" href="#cmdoption-light-visapprox" title="Permalink to this definition">#</a></dt>
+<dd><p>Change approximate visibility algorithm.</p>
+<dl class="simple">
+<dt>auto</dt><dd><p>choose default based on format</p>
+</dd>
+<dt>vis</dt><dd><p>use BSP vis data (slow but precise).</p>
+</dd>
+<dt>rays</dt><dd><p>use sphere culling with fired rays (fast but may miss faces).</p>
+</dd>
+<dt>none</dt><dd><p>Disable approximate visibility culling of lights, which has a small
+chance of introducing artifacts where lights cut off too soon.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-novisapprox">
+<span class="sig-name descname"><span class="pre">-novisapprox</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-novisapprox" title="Permalink to this definition">#</a></dt>
+<dd><p>Alias for <a class="reference internal" href="#cmdoption-light-visapprox"><code class="xref std std-option docutils literal notranslate"><span class="pre">-visapprox</span> <span class="pre">none</span></code></a></p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-phongdebug_obj">
+<span id="cmdoption-light-phongdebug-obj"></span><span class="sig-name descname"><span class="pre">-phongdebug_obj</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-phongdebug_obj" title="Permalink to this definition">#</a></dt>
+<dd><p>Save map as .obj with phonged normals.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-debugoccluded">
+<span class="sig-name descname"><span class="pre">-debugoccluded</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-debugoccluded" title="Permalink to this definition">#</a></dt>
+<dd><p>Save luxel occlusion data to lightmap.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-debugneighbours">
+<span class="sig-name descname"><span class="pre">-debugneighbours</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-debugneighbours" title="Permalink to this definition">#</a></dt>
+<dd><p>Save neighboring faces data to lightmap (requires <a class="reference internal" href="#cmdoption-light-debugface"><code class="xref std std-option docutils literal notranslate"><span class="pre">-debugface</span></code></a>).</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-debugmottle">
+<span class="sig-name descname"><span class="pre">-debugmottle</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-debugmottle" title="Permalink to this definition">#</a></dt>
+<dd><p>Save mottle pattern (used by Q2 minlight, unless opted out with <a class="reference internal" href="#bmodel-key-_minlight_mottle"><code class="xref std std-bmodel-key docutils literal notranslate"><span class="pre">_minlight_mottle</span></code></a>)
+to lightmap.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-debugface">
+<span class="sig-name descname"><span class="pre">-debugface</span></span><span class="sig-prename descclassname"> <span class="pre">x</span> <span class="pre">y</span> <span class="pre">z</span></span><a class="headerlink" href="#cmdoption-light-debugface" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-debugvert">
+<span class="sig-name descname"><span class="pre">-debugvert</span></span><span class="sig-prename descclassname"> <span class="pre">x</span> <span class="pre">y</span> <span class="pre">z</span></span><a class="headerlink" href="#cmdoption-light-debugvert" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-highlightseams">
+<span class="sig-name descname"><span class="pre">-highlightseams</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-highlightseams" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="experimental-options">
+<h3>Experimental options<a class="headerlink" href="#experimental-options" title="Permalink to this heading">#</a></h3>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-addmin">
+<span class="sig-name descname"><span class="pre">-addmin</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-addmin" title="Permalink to this definition">#</a></dt>
+<dd><p>Changes the behaviour of <em>minlight</em>. Instead of increasing low light
+levels to the global minimum, add the global minimum light level to
+all style 0 lightmaps. This may help reducing the sometimes uniform
+minlight effect.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-lit2">
+<span class="sig-name descname"><span class="pre">-lit2</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-lit2" title="Permalink to this definition">#</a></dt>
+<dd><p>Force generation of a .lit2 file, even if your map does not have any
+coloured lights.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-lux">
+<span class="sig-name descname"><span class="pre">-lux</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-lux" title="Permalink to this definition">#</a></dt>
+<dd><p>Generate a .lux file storing average incoming light directions for
+surfaces. Usable by FTEQW with “r_deluxemapping 1”.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-bspxlux">
+<span class="sig-name descname"><span class="pre">-bspxlux</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-bspxlux" title="Permalink to this definition">#</a></dt>
+<dd><p>Writes lux data into the bsp itself.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-lmscale">
+<span class="sig-name descname"><span class="pre">-lmscale</span></span><span class="sig-prename descclassname"> <span class="pre">n</span></span><a class="headerlink" href="#cmdoption-light-lmscale" title="Permalink to this definition">#</a></dt>
+<dd><p>Equivalent to “_lightmap_scale” worldspawn key.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-bspxlit">
+<span class="sig-name descname"><span class="pre">-bspxlit</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-bspxlit" title="Permalink to this definition">#</a></dt>
+<dd><p>Writes rgb data into the bsp itself.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-bspx">
+<span class="sig-name descname"><span class="pre">-bspx</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-bspx" title="Permalink to this definition">#</a></dt>
+<dd><p>Writes both rgb and directions data into the bsp itself.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-bspxonly">
+<span class="sig-name descname"><span class="pre">-bspxonly</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-bspxonly" title="Permalink to this definition">#</a></dt>
+<dd><p>Writes both rgb and directions data <em>only</em> into the bsp itself.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-novanilla">
+<span class="sig-name descname"><span class="pre">-novanilla</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-novanilla" title="Permalink to this definition">#</a></dt>
+<dd><p>Fallback scaled lighting will be omitted. Standard grey lighting will
+be omitted if there are coloured lights. Implies <a class="reference internal" href="#cmdoption-light-bspxlit"><code class="xref std std-option docutils literal notranslate"><span class="pre">-bspxlit</span></code></a>. <a class="reference internal" href="#cmdoption-light-lit"><code class="xref std std-option docutils literal notranslate"><span class="pre">-lit</span></code></a>
+will no longer be implied by the presence of coloured lights.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-wrnormals">
+<span class="sig-name descname"><span class="pre">-wrnormals</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-wrnormals" title="Permalink to this definition">#</a></dt>
+<dd><p>Writes normal data into the bsp itself.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-arghradcompat">
+<span class="sig-name descname"><span class="pre">-arghradcompat</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-arghradcompat" title="Permalink to this definition">#</a></dt>
+<dd><p>Enable compatibility for Arghrad-specific keys.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-radlights">
+<span class="sig-name descname"><span class="pre">-radlights</span></span><span class="sig-prename descclassname"> <span class="pre">&quot;filename.rad&quot;</span></span><a class="headerlink" href="#cmdoption-light-radlights" title="Permalink to this definition">#</a></dt>
+<dd><p>Loads a &lt;surfacename&gt; &lt;r&gt; &lt;g&gt; &lt;b&gt; &lt;intensity&gt; file.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-lightgrid">
+<span class="sig-name descname"><span class="pre">-lightgrid</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-light-lightgrid" title="Permalink to this definition">#</a></dt>
+<dd><p>Generates a lightgrid and writes it to a bspx lump (LIGHTGRID_OCTREE).</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-lightgrid_dist">
+<span id="cmdoption-light-lightgrid-dist"></span><span class="sig-name descname"><span class="pre">-lightgrid_dist</span></span><span class="sig-prename descclassname"> <span class="pre">x</span> <span class="pre">y</span> <span class="pre">z</span></span><a class="headerlink" href="#cmdoption-light-lightgrid_dist" title="Permalink to this definition">#</a></dt>
+<dd><p>Distance between lightgrid sample points, in world units. Controls lightgrid size.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-light-lightgrid_format">
+<span id="cmdoption-light-lightgrid-format"></span><span class="sig-name descname"><span class="pre">-lightgrid_format</span></span><span class="sig-prename descclassname"> <span class="pre">octree</span></span><a class="headerlink" href="#cmdoption-light-lightgrid_format" title="Permalink to this definition">#</a></dt>
+<dd><p>Lightgrid BSPX lump to use. Currently there is only one supported format, octree.</p>
+</dd></dl>
+
+</section>
+</section>
+<section id="model-entity-keys">
+<h2>Model Entity Keys<a class="headerlink" href="#model-entity-keys" title="Permalink to this heading">#</a></h2>
+<section id="worldspawn-keys">
+<h3>Worldspawn Keys<a class="headerlink" href="#worldspawn-keys" title="Permalink to this heading">#</a></h3>
+<p>The following keys can be added to the <em>worldspawn</em> entity:</p>
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-light">
+<span class="sig-name descname"><span class="pre">&quot;light&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-light" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object std" id="worldspawn-key-_minlight">
+<span class="sig-name descname"><span class="pre">&quot;_minlight&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_minlight" title="Permalink to this definition">#</a></dt>
+<dd><p>Set a global minimum light level of “n” across the whole map. This is
+an easy way to eliminate completely dark areas of the level, however
+you may lose some contrast as a result, so use with care. Default 0.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In Q2 mode, minlight uses a 0..1 range.</p>
+</div>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_minlight_color">
+<span class="sig-name descname"><span class="pre">&quot;_minlight_color&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;r</span> <span class="pre">g</span> <span class="pre">b&quot;</span></span><a class="headerlink" href="#worldspawn-key-_minlight_color" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object std" id="worldspawn-key-_mincolor">
+<span class="sig-name descname"><span class="pre">&quot;_mincolor&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;r</span> <span class="pre">g</span> <span class="pre">b&quot;</span></span><a class="headerlink" href="#worldspawn-key-_mincolor" title="Permalink to this definition">#</a></dt>
+<dd><p>Specify red(r), green(g) and blue(b) components for the colour of the
+minlight. RGB component values are between 0 and 255 (between 0 and 1
+is also accepted). Default is white light (“255 255 255”).</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_maxlight">
+<span class="sig-name descname"><span class="pre">&quot;_maxlight&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_maxlight" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_dist">
+<span class="sig-name descname"><span class="pre">&quot;_dist&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_dist" title="Permalink to this definition">#</a></dt>
+<dd><p>Scales the fade distance of all lights by a factor of n. If n &gt; 1
+lights fade more quickly with distance and if n &lt; 1, lights fade more
+slowly with distance and light reaches further.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_range">
+<span class="sig-name descname"><span class="pre">&quot;_range&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_range" title="Permalink to this definition">#</a></dt>
+<dd><p>Scales the brightness range of all lights without affecting their
+fade discance. Values of n &gt; 0.5 makes lights brighter and n &lt; 0.5
+makes lights less bright. The same effect can be achieved on
+individual lights by adjusting both the “light” and “wait”
+attributes.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_sunlight">
+<span class="sig-name descname"><span class="pre">&quot;_sunlight&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_sunlight" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object std" id="worldspawn-key-_sun_light">
+<span class="sig-name descname"><span class="pre">&quot;_sun_light&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_sun_light" title="Permalink to this definition">#</a></dt>
+<dd><p>Set the brightness of the sunlight coming from an unseen sun in the
+sky. Sky brushes (or more accurately bsp leafs with sky contents)
+will emit sunlight at an angle specified by the “_sun_mangle” key.
+Default 0.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_anglescale">
+<span class="sig-name descname"><span class="pre">&quot;_anglescale&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_anglescale" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object std" id="worldspawn-key-_anglesense">
+<span class="sig-name descname"><span class="pre">&quot;_anglesense&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_anglesense" title="Permalink to this definition">#</a></dt>
+<dd><p>Set the scaling of sunlight brightness due to the angle of incidence
+with a surface (more detailed explanation in the “_anglescale” light
+entity key below).</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_sunlight_mangle">
+<span class="sig-name descname"><span class="pre">&quot;_sunlight_mangle&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;yaw</span> <span class="pre">pitch</span> <span class="pre">roll&quot;</span></span><a class="headerlink" href="#worldspawn-key-_sunlight_mangle" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object std" id="worldspawn-key-_sun_mangle">
+<span class="sig-name descname"><span class="pre">&quot;_sun_mangle&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;yaw</span> <span class="pre">pitch</span> <span class="pre">roll&quot;</span></span><a class="headerlink" href="#worldspawn-key-_sun_mangle" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object std" id="worldspawn-key-_sun_angle">
+<span class="sig-name descname"><span class="pre">&quot;_sun_angle&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;yaw</span> <span class="pre">pitch</span> <span class="pre">roll&quot;</span></span><a class="headerlink" href="#worldspawn-key-_sun_angle" title="Permalink to this definition">#</a></dt>
+<dd><p>Specifies the direction of sunlight using yaw, pitch and roll in
+degrees. Yaw specifies the angle around the Z-axis from 0 to 359
+degrees and pitch specifies the angle from 90 (shining straight up)
+to -90 (shining straight down from above). Roll has no effect, so use
+any value (e.g. 0). Default is straight down (“0 -90 0”).</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_sun2">
+<span class="sig-name descname"><span class="pre">&quot;_sun2&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_sun2" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_sun2_color">
+<span class="sig-name descname"><span class="pre">&quot;_sun2_color&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;x</span> <span class="pre">y</span> <span class="pre">z&quot;</span></span><a class="headerlink" href="#worldspawn-key-_sun2_color" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_sun2_mangle">
+<span class="sig-name descname"><span class="pre">&quot;_sun2_mangle&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;x</span> <span class="pre">y</span> <span class="pre">z&quot;</span></span><a class="headerlink" href="#worldspawn-key-_sun2_mangle" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_sunlight_penumbra">
+<span class="sig-name descname"><span class="pre">&quot;_sunlight_penumbra&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_sunlight_penumbra" title="Permalink to this definition">#</a></dt>
+<dd><p>Specifies the penumbra width, in degrees, of sunlight. Useful values
+are 3-4 for a gentle soft edge, or 10-20+ for more diffuse sunlight.
+Default is 0.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_sunlight_color">
+<span class="sig-name descname"><span class="pre">&quot;_sunlight_color&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;r</span> <span class="pre">g</span> <span class="pre">b&quot;</span></span><a class="headerlink" href="#worldspawn-key-_sunlight_color" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object std" id="worldspawn-key-_sun_color">
+<span class="sig-name descname"><span class="pre">&quot;_sun_color&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;r</span> <span class="pre">g</span> <span class="pre">b&quot;</span></span><a class="headerlink" href="#worldspawn-key-_sun_color" title="Permalink to this definition">#</a></dt>
+<dd><p>Specify red(r), green(g) and blue(b) components for the colour of the
+sunlight. RGB component values are between 0 and 255 (between 0 and 1
+is also accepted). Default is white light (“255 255 255”).</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_sunlight2">
+<span class="sig-name descname"><span class="pre">&quot;_sunlight2&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_sunlight2" title="Permalink to this definition">#</a></dt>
+<dd><p>Set the brightness of a dome of lights arranged around the upper
+hemisphere. (i.e. ambient light, coming from above the horizon).
+Default 0.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_sunlight_color2">
+<span class="sig-name descname"><span class="pre">&quot;_sunlight_color2&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;r</span> <span class="pre">g</span> <span class="pre">b&quot;</span></span><a class="headerlink" href="#worldspawn-key-_sunlight_color2" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object std" id="worldspawn-key-_sunlight2_color">
+<span class="sig-name descname"><span class="pre">&quot;_sunlight2_color&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;r</span> <span class="pre">g</span> <span class="pre">b&quot;</span></span><a class="headerlink" href="#worldspawn-key-_sunlight2_color" title="Permalink to this definition">#</a></dt>
+<dd><p>Specifies the colour of _sunlight2, same format as
+“_sunlight_color”. Default is white light (“255 255 255”).</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_sunlight3">
+<span class="sig-name descname"><span class="pre">&quot;_sunlight3&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_sunlight3" title="Permalink to this definition">#</a></dt>
+<dd><p>Same as “_sunlight2”, but for the bottom hemisphere (i.e. ambient
+light, coming from below the horizon). Combine “_sunlight2” and
+“_sunlight3” to have light coming equally from all directions, e.g.
+for levels floating in the clouds. Default 0.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_sunlight_color3">
+<span class="sig-name descname"><span class="pre">&quot;_sunlight_color3&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;r</span> <span class="pre">g</span> <span class="pre">b&quot;</span></span><a class="headerlink" href="#worldspawn-key-_sunlight_color3" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object std" id="worldspawn-key-_sunlight3_color">
+<span class="sig-name descname"><span class="pre">&quot;_sunlight3_color&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;r</span> <span class="pre">g</span> <span class="pre">b&quot;</span></span><a class="headerlink" href="#worldspawn-key-_sunlight3_color" title="Permalink to this definition">#</a></dt>
+<dd><p>Specifies the colour of “_sunlight3”. Default is white light (“255
+255 255”).</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_dirt">
+<span class="sig-name descname"><span class="pre">&quot;_dirt&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_dirt" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object std" id="worldspawn-key-_dirty">
+<span class="sig-name descname"><span class="pre">&quot;_dirty&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_dirty" title="Permalink to this definition">#</a></dt>
+<dd><p>1 enables dirtmapping (ambient occlusion) on all lights, borrowed
+from q3map2. This adds shadows to corners and crevices. You can
+override the global setting for specific lights with the “_dirt”
+light entity key or “_sunlight_dirt”, “_sunlight2_dirt”, and
+“_minlight_dirt” worldspawn keys. Default is no dirtmapping (-1).</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_sunlight_dirt">
+<span class="sig-name descname"><span class="pre">&quot;_sunlight_dirt&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_sunlight_dirt" title="Permalink to this definition">#</a></dt>
+<dd><p>1 enables dirtmapping (ambient occlusion) on sunlight, -1 to disable
+(making it illuminate the dirtmapping shadows). Default is to use the
+value of “_dirt”.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_sunlight2_dirt">
+<span class="sig-name descname"><span class="pre">&quot;_sunlight2_dirt&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_sunlight2_dirt" title="Permalink to this definition">#</a></dt>
+<dd><p>1 enables dirtmapping (ambient occlusion) on sunlight2/3, -1 to
+disable. Default is to use the value of “_dirt”.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_minlight_dirt">
+<span class="sig-name descname"><span class="pre">&quot;_minlight_dirt&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_minlight_dirt" title="Permalink to this definition">#</a></dt>
+<dd><p>1 enables dirtmapping (ambient occlusion) on minlight, -1 to disable.
+Default is to use the value of “_dirt”.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_dirtmode">
+<span class="sig-name descname"><span class="pre">&quot;_dirtmode&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_dirtmode" title="Permalink to this definition">#</a></dt>
+<dd><p>Choose between ordered (0, default) and randomized (1) dirtmapping.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_dirtdepth">
+<span class="sig-name descname"><span class="pre">&quot;_dirtdepth&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_dirtdepth" title="Permalink to this definition">#</a></dt>
+<dd><p>Maximum depth of occlusion checking for dirtmapping, default 128.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_dirtscale">
+<span class="sig-name descname"><span class="pre">&quot;_dirtscale&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_dirtscale" title="Permalink to this definition">#</a></dt>
+<dd><p>Scale factor used in dirt calculations, default 1. Lower values (e.g.
+0.5) make the dirt fainter, 2.0 would create much darker shadows.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_dirtgain">
+<span class="sig-name descname"><span class="pre">&quot;_dirtgain&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_dirtgain" title="Permalink to this definition">#</a></dt>
+<dd><p>Exponent used in dirt calculation, default 1. Lower values (e.g. 0.5)
+make the shadows darker and stretch further away from corners.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_dirtangle">
+<span class="sig-name descname"><span class="pre">&quot;_dirtangle&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_dirtangle" title="Permalink to this definition">#</a></dt>
+<dd><p>Cone angle in degrees for occlusion testing, default 88. Allowed
+range 1-90. Lower values can avoid unwanted dirt on arches, pipe
+interiors, etc.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_gamma">
+<span class="sig-name descname"><span class="pre">&quot;_gamma&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_gamma" title="Permalink to this definition">#</a></dt>
+<dd><p>Adjust brightness of final lightmap. Default 1, &gt;1 is brighter, &lt;1 is
+darker.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_lightmap_scale">
+<span class="sig-name descname"><span class="pre">&quot;_lightmap_scale&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_lightmap_scale" title="Permalink to this definition">#</a></dt>
+<dd><p>Forces all surfaces+submodels to use this specific lightmap scale.
+Removes “LMSHIFT” field.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_bounce">
+<span class="sig-name descname"><span class="pre">&quot;_bounce&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_bounce" title="Permalink to this definition">#</a></dt>
+<dd><p>1 enables bounce lighting, disabled by default.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_bouncescale">
+<span class="sig-name descname"><span class="pre">&quot;_bouncescale&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_bouncescale" title="Permalink to this definition">#</a></dt>
+<dd><p>Scales brightness of bounce lighting, default 1.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_bouncecolorscale">
+<span class="sig-name descname"><span class="pre">&quot;_bouncecolorscale&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_bouncecolorscale" title="Permalink to this definition">#</a></dt>
+<dd><p>Weight for bounce lighting to use texture colors from the map:
+0=ignore map textures (default), 1=multiply bounce light color by
+texture color.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_bouncelightsubdivision">
+<span class="sig-name descname"><span class="pre">&quot;_bouncelightsubdivision&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_bouncelightsubdivision" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_surflightscale">
+<span class="sig-name descname"><span class="pre">&quot;_surflightscale&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_surflightscale" title="Permalink to this definition">#</a></dt>
+<dd><p>Scales the surface light emission from Q2 surface lights (excluding sky faces) by this amount.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_surflightskyscale">
+<span class="sig-name descname"><span class="pre">&quot;_surflightskyscale&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_surflightskyscale" title="Permalink to this definition">#</a></dt>
+<dd><p>Scales the surface light emission from Q2 sky faces by this amount.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_surflightsubdivision">
+<span class="sig-name descname"><span class="pre">&quot;_surflightsubdivision&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_surflightsubdivision" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object std" id="worldspawn-key-_choplight">
+<span class="sig-name descname"><span class="pre">&quot;_choplight&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_choplight" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_bouncestyled">
+<span class="sig-name descname"><span class="pre">&quot;_bouncestyled&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_bouncestyled" title="Permalink to this definition">#</a></dt>
+<dd><p>1 makes styled lights bounce (e.g. flickering or switchable lights),
+default is 0, they do not bounce.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_spotlightautofalloff">
+<span class="sig-name descname"><span class="pre">&quot;_spotlightautofalloff&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_spotlightautofalloff" title="Permalink to this definition">#</a></dt>
+<dd><p>When set to 1, spotlight falloff is calculated from the distance to
+the targeted info_null. Ignored when “_falloff” is not 0. Default 0.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_surflight_radiosity">
+<span class="sig-name descname"><span class="pre">&quot;_surflight_radiosity&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_surflight_radiosity" title="Permalink to this definition">#</a></dt>
+<dd><p>Whether to use Q1-style surface subdivision (0) or Q2-style surface radiosity.</p>
+</dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_sky_surface">
+<span class="sig-name descname"><span class="pre">&quot;_sky_surface&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;x</span> <span class="pre">y</span> <span class="pre">z&quot;</span></span><a class="headerlink" href="#worldspawn-key-_sky_surface" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object std" id="worldspawn-key-_sun_surface">
+<span class="sig-name descname"><span class="pre">&quot;_sun_surface&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;x</span> <span class="pre">y</span> <span class="pre">z&quot;</span></span><a class="headerlink" href="#worldspawn-key-_sun_surface" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_compilerstyle_start">
+<span class="sig-name descname"><span class="pre">&quot;_compilerstyle_start&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_compilerstyle_start" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="std worldspawn-key">
+<dt class="sig sig-object std" id="worldspawn-key-_compilerstyle_max">
+<span class="sig-name descname"><span class="pre">&quot;_compilerstyle_max&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#worldspawn-key-_compilerstyle_max" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="id1">
+<h3>Model Entity Keys<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>The following keys can be used on any entity with a brush model.
+“_minlight”, “_mincolor”, “_dirt”, “_phong”, “_phong_angle”,
+“_phong_angle_concave”, “_shadow”, “_bounce” are supported on
+func_detail/func_group as well, if qbsp from these tools is used.</p>
+<dl class="std bmodel-key">
+<dt class="sig sig-object std" id="bmodel-key-_minlight">
+<span class="sig-name descname"><span class="pre">&quot;_minlight&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#bmodel-key-_minlight" title="Permalink to this definition">#</a></dt>
+<dd><p>Set the minimum light level for any surface of the brush model.
+Default 0.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Q2 uses a 0..1 scale for this key</p>
+</div>
+</dd></dl>
+
+<dl class="std bmodel-key">
+<dt class="sig sig-object std" id="bmodel-key-_minlight_mottle">
+<span class="sig-name descname"><span class="pre">&quot;_minlight_mottle&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#bmodel-key-_minlight_mottle" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object std" id="bmodel-key-_minlightMottle">
+<span class="sig-name descname"><span class="pre">&quot;_minlightMottle&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#bmodel-key-_minlightMottle" title="Permalink to this definition">#</a></dt>
+<dd><p>Whether minlight should have a mottled pattern. Defaults
+to 1 in Q2 mode and 0 otherwise.</p>
+</dd></dl>
+
+<dl class="std bmodel-key">
+<dt class="sig sig-object std" id="bmodel-key-_minlight_exclude">
+<span class="sig-name descname"><span class="pre">&quot;_minlight_exclude&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;texname&quot;</span></span><a class="headerlink" href="#bmodel-key-_minlight_exclude" title="Permalink to this definition">#</a></dt>
+<dd><p>Faces with the given texture are excluded from receiving minlight on
+this brush model.</p>
+</dd></dl>
+
+<dl class="std bmodel-key">
+<dt class="sig sig-object std" id="bmodel-key-_minlight_color">
+<span class="sig-name descname"><span class="pre">&quot;_minlight_color&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;r</span> <span class="pre">g</span> <span class="pre">b&quot;</span></span><a class="headerlink" href="#bmodel-key-_minlight_color" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object std" id="bmodel-key-_mincolor">
+<span class="sig-name descname"><span class="pre">&quot;_mincolor&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;r</span> <span class="pre">g</span> <span class="pre">b&quot;</span></span><a class="headerlink" href="#bmodel-key-_mincolor" title="Permalink to this definition">#</a></dt>
+<dd><p>Specify red(r), green(g) and blue(b) components for the colour of the
+minlight. RGB component values are between 0 and 255 (between 0 and 1
+is also accepted). Default is white light (“255 255 255”).</p>
+</dd></dl>
+
+<dl class="std bmodel-key">
+<dt class="sig sig-object std" id="bmodel-key-_shadow">
+<span class="sig-name descname"><span class="pre">&quot;_shadow&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#bmodel-key-_shadow" title="Permalink to this definition">#</a></dt>
+<dd><p>If n is 1, this model will cast shadows on other models and itself
+(i.e. “_shadow” implies “_shadowself”). Note that this doesn’t
+magically give Quake dynamic lighting powers, so the shadows will not
+move if the model moves. Set to -1 on func_detail/func_group to
+prevent them from casting shadows. Default 0.</p>
+</dd></dl>
+
+<dl class="std bmodel-key">
+<dt class="sig sig-object std" id="bmodel-key-_shadowself">
+<span class="sig-name descname"><span class="pre">&quot;_shadowself&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#bmodel-key-_shadowself" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object std" id="bmodel-key-_selfshadow">
+<span class="sig-name descname"><span class="pre">&quot;_selfshadow&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#bmodel-key-_selfshadow" title="Permalink to this definition">#</a></dt>
+<dd><p>If n is 1, this model will cast shadows on itself if one part of the
+model blocks the light from another model surface. This can be a
+better compromise for moving models than full shadowing. Default 0.</p>
+</dd></dl>
+
+<dl class="std bmodel-key">
+<dt class="sig sig-object std" id="bmodel-key-_shadowworldonly">
+<span class="sig-name descname"><span class="pre">&quot;_shadowworldonly&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#bmodel-key-_shadowworldonly" title="Permalink to this definition">#</a></dt>
+<dd><p>If n is 1, this model will cast shadows on the world only (not other
+bmodels).</p>
+</dd></dl>
+
+<dl class="std bmodel-key">
+<dt class="sig sig-object std" id="bmodel-key-_switchableshadow">
+<span class="sig-name descname"><span class="pre">&quot;_switchableshadow&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#bmodel-key-_switchableshadow" title="Permalink to this definition">#</a></dt>
+<dd><p>If n is 1, this model casts a shadow that can be switched on/off
+using QuakeC. To make this work, a lightstyle is automatically
+assigned and stored in a key called “switchshadstyle”, which the
+QuakeC will need to read and call the “lightstyle()” builtin with “a”
+or “m” to switch the shadow on or off. Entities sharing the same
+targetname, and with “_switchableshadow” set to 1, will share the
+same lightstyle.</p>
+<p>These models are only able to block style 0 light (i.e., non-flickering
+or switchable lights). Flickering or switchable lights will shine
+through the switchable shadow casters, regardless of whether the shadow
+is off or on.</p>
+</dd></dl>
+
+<dl class="std bmodel-key">
+<dt class="sig sig-object std" id="bmodel-key-_dirt">
+<span class="sig-name descname"><span class="pre">&quot;_dirt&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#bmodel-key-_dirt" title="Permalink to this definition">#</a></dt>
+<dd><p>For brush models, -1 prevents dirtmapping on the brush model. Useful
+if the bmodel touches or sticks into the world, and you want to
+prevent those areas from turning black. Default 0.</p>
+</dd></dl>
+
+<dl class="std bmodel-key">
+<dt class="sig sig-object std" id="bmodel-key-_phong">
+<span class="sig-name descname"><span class="pre">&quot;_phong&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#bmodel-key-_phong" title="Permalink to this definition">#</a></dt>
+<dd><p>1 enables phong shading on this model with a default _phong_angle of
+89 (softens columns etc).</p>
+</dd></dl>
+
+<dl class="std bmodel-key">
+<dt class="sig sig-object std" id="bmodel-key-_phong_angle">
+<span class="sig-name descname"><span class="pre">&quot;_phong_angle&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#bmodel-key-_phong_angle" title="Permalink to this definition">#</a></dt>
+<dd><p>Enables phong shading on faces of this model with a custom angle.
+Adjacent faces with normals this many degrees apart (or less) will be
+smoothed. Consider setting “_anglescale” to “1” on lights or
+worldspawn to make the effect of phong shading more visible. Use the
+“-phongdebug” command-line flag to save the interpolated normals to
+the lightmap for previewing (use “r_lightmap 1” or “gl_lightmaps 1”
+in your engine to preview.)</p>
+</dd></dl>
+
+<dl class="std bmodel-key">
+<dt class="sig sig-object std" id="bmodel-key-_phong_angle_concave">
+<span class="sig-name descname"><span class="pre">&quot;_phong_angle_concave&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#bmodel-key-_phong_angle_concave" title="Permalink to this definition">#</a></dt>
+<dd><p>Optional key for setting a different angle threshold for concave
+joints. A pair of faces will either use “_phong_angle” or
+“_phong_angle_concave” as the smoothing threshold, depending on
+whether the joint between the faces is concave or not.
+“_phong_angle(_concave)” is the maximum angle (in degrees) between
+the face normals that will still cause the pair of faces to be
+smoothed. The minimum setting for “_phong_angle_concave” is 1, this
+should make all concave joints non-smoothed (unless they’re less than
+1 degree apart, almost a flat plane.) If it’s 0 or unset, the same
+value as “_phong_angle” is used.</p>
+</dd></dl>
+
+<dl class="std bmodel-key">
+<dt class="sig sig-object std" id="bmodel-key-_lightignore">
+<span class="sig-name descname"><span class="pre">&quot;_lightignore&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#bmodel-key-_lightignore" title="Permalink to this definition">#</a></dt>
+<dd><p>1 makes a model receive minlight only, ignoring all lights /
+sunlight. Could be useful on rotators / trains.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#lighting-channels">Lighting Channels</a> for a more powerful version of this</p>
+</div>
+</dd></dl>
+
+<dl class="std bmodel-key">
+<dt class="sig sig-object std" id="bmodel-key-_bounce">
+<span class="sig-name descname"><span class="pre">&quot;_bounce&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#bmodel-key-_bounce" title="Permalink to this definition">#</a></dt>
+<dd><p>Set to -1 to prevent this model from bouncing light (i.e. prevents
+its brushes from emitting bounced light they receive from elsewhere.)
+Only has an effect if “_bounce” is enabled in worldspawn.</p>
+</dd></dl>
+
+<dl class="std bmodel-key">
+<dt class="sig sig-object std" id="bmodel-key-_autominlight">
+<span class="sig-name descname"><span class="pre">&quot;_autominlight&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#bmodel-key-_autominlight" title="Permalink to this definition">#</a></dt>
+<dd><p>“Autominlight” is a feature for automatically choosing a suitable
+minlight color for a bmodel entity (e.g. a func_door), by averaging
+incoming light at the center of the bmodel bounding box.</p>
+<p>Default behaviour is to apply autominlight on occluded luxels only (e.g., for a
+door that opens vertically upwards, it would apply to the bottom face of the
+door, which is initially pressed against the ground).</p>
+<p>A value of “-1” disables the feature (occluded luxels will be solid black),
+and “1” enables it as a minlight color even on non-occluded luxels.</p>
+</dd></dl>
+
+<dl class="std bmodel-key">
+<dt class="sig sig-object std" id="bmodel-key-_autominlight_target">
+<span class="sig-name descname"><span class="pre">&quot;_autominlight_target&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;name&quot;</span></span><a class="headerlink" href="#bmodel-key-_autominlight_target" title="Permalink to this definition">#</a></dt>
+<dd><p>For autominlight, instead of using the center of the model bounds as the sample point,
+searches for an entity with its “targetname” key set to “name”,
+and use that entity’s origin (typically you’d use an “info_null” for this).</p>
+</dd></dl>
+
+</section>
+</section>
+<section id="light-entity-keys">
+<h2>Light Entity Keys<a class="headerlink" href="#light-entity-keys" title="Permalink to this heading">#</a></h2>
+<p>Light entity keys can be used in any entity with a classname starting
+with the first five letters “light”. E.g. “light”, “light_globe”,
+“light_flame_small_yellow”, etc.</p>
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-light">
+<span class="sig-name descname"><span class="pre">&quot;light&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-light" title="Permalink to this definition">#</a></dt>
+<dd><p>Set the light intensity. Negative values are also allowed and will
+cause the entity to subtract light cast by other entities. Default
+300.</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-wait">
+<span class="sig-name descname"><span class="pre">&quot;wait&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-wait" title="Permalink to this definition">#</a></dt>
+<dd><p>Scale the fade distance of the light by “n”. Values of n &gt; 1 make the
+light fade more quickly with distance, and values &lt; 1 make the light
+fade more slowly (and thus reach further). Default 1.</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-delay">
+<span class="sig-name descname"><span class="pre">&quot;delay&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-delay" title="Permalink to this definition">#</a></dt>
+<dd><p>Select an attenuation formaula for the light:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">=&gt;</span> <span class="n">Linear</span> <span class="n">attenuation</span> <span class="p">(</span><span class="n">default</span><span class="p">)</span>
+<span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span> <span class="n">attenuation</span>
+<span class="mi">2</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="n">attenuation</span>
+<span class="mi">3</span> <span class="o">=&gt;</span> <span class="n">No</span> <span class="n">attenuation</span> <span class="p">(</span><span class="n">same</span> <span class="n">brightness</span> <span class="n">at</span> <span class="nb">any</span> <span class="n">distance</span><span class="p">)</span>
+<span class="mi">4</span> <span class="o">=&gt;</span> <span class="s2">&quot;local minlight&quot;</span> <span class="o">-</span> <span class="n">No</span> <span class="n">attenuation</span> <span class="ow">and</span> <span class="n">like</span> <span class="n">minlight</span><span class="p">,</span>
+      <span class="n">it</span> <span class="n">won</span><span class="s1">&#39;t raise the lighting above it&#39;</span><span class="n">s</span> <span class="n">light</span> <span class="n">value</span><span class="o">.</span>
+      <span class="n">Unlike</span> <span class="n">minlight</span><span class="p">,</span> <span class="n">it</span> <span class="n">will</span> <span class="n">only</span> <span class="n">affect</span> <span class="n">surfaces</span> <span class="n">within</span>
+      <span class="n">line</span> <span class="n">of</span> <span class="n">sight</span> <span class="n">of</span> <span class="n">the</span> <span class="n">entity</span><span class="o">.</span>
+<span class="mi">5</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="n">attenuation</span><span class="p">,</span> <span class="n">but</span> <span class="n">slightly</span> <span class="n">more</span> <span class="n">attenuated</span> <span class="ow">and</span>
+      <span class="n">without</span> <span class="n">the</span> <span class="n">extra</span> <span class="n">bright</span> <span class="n">effect</span> <span class="n">that</span> <span class="s2">&quot;delay 2&quot;</span> <span class="n">has</span>
+      <span class="n">near</span> <span class="n">the</span> <span class="n">source</span><span class="o">.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-_falloff">
+<span class="sig-name descname"><span class="pre">&quot;_falloff&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-_falloff" title="Permalink to this definition">#</a></dt>
+<dd><p>Sets the distance at which the light drops to 0, in map units.</p>
+<p>In this mode, “wait” is ignored and “light” only controls the brightness
+at the center of the light, and no longer affects the falloff distance.</p>
+<p>Only supported on linear attenuation (delay 0) lights currently.</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-_color">
+<span class="sig-name descname"><span class="pre">&quot;_color&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;r</span> <span class="pre">g</span> <span class="pre">b&quot;</span></span><a class="headerlink" href="#light-key-_color" title="Permalink to this definition">#</a></dt>
+<dd><p>Specify red(r), green(g) and blue(b) components for the colour of the
+light. RGB component values are between 0 and 255 (between 0 and 1 is
+also accepted). Default is white light (“255 255 255”).</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-target">
+<span class="sig-name descname"><span class="pre">&quot;target&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;name&quot;</span></span><a class="headerlink" href="#light-key-target" title="Permalink to this definition">#</a></dt>
+<dd><p>Turns the light into a spotlight, with the direction of light being
+towards another entity with it’s “targetname” key set to “name”.</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-mangle">
+<span class="sig-name descname"><span class="pre">&quot;mangle&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;yaw</span> <span class="pre">pitch</span> <span class="pre">roll&quot;</span></span><a class="headerlink" href="#light-key-mangle" title="Permalink to this definition">#</a></dt>
+<dd><p>Turns the light into a spotlight and specifies the direction of light
+using yaw, pitch and roll in degrees. Yaw specifies the angle around
+the Z-axis from 0 to 359 degrees and pitch specifies the angle from
+90 (straight up) to -90 (straight down). Roll has no effect, so use
+any value (e.g. 0). Often easier than the “target” method.</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-angle">
+<span class="sig-name descname"><span class="pre">&quot;angle&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-angle" title="Permalink to this definition">#</a></dt>
+<dd><p>Specifies the angle in degrees for a spotlight cone. Default 40.</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-_softangle">
+<span class="sig-name descname"><span class="pre">&quot;_softangle&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-_softangle" title="Permalink to this definition">#</a></dt>
+<dd><p>Specifies the angle in degrees for an inner spotlight cone (must be
+less than the “angle” cone. Creates a softer transition between the
+full brightness of the inner cone to the edge of the outer cone.
+Default 0 (disabled).</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-targetname">
+<span class="sig-name descname"><span class="pre">&quot;targetname&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;name&quot;</span></span><a class="headerlink" href="#light-key-targetname" title="Permalink to this definition">#</a></dt>
+<dd><p>Turns the light into a switchable light, toggled by another entity
+targeting it’s name.</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-style">
+<span class="sig-name descname"><span class="pre">&quot;style&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-style" title="Permalink to this definition">#</a></dt>
+<dd><p>Set the animated light style. Default 0.</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-_anglescale">
+<span class="sig-name descname"><span class="pre">&quot;_anglescale&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-_anglescale" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object std" id="light-key-_anglesense">
+<span class="sig-name descname"><span class="pre">&quot;_anglesense&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-_anglesense" title="Permalink to this definition">#</a></dt>
+<dd><p>Sets a scaling factor for how much influence the angle of incidence
+of light on a surface has on the brightness of the surface. <em>n</em> must
+be between 0.0 and 1.0. Smaller values mean less attenuation, with
+zero meaning that angle of incidence has no effect at all on the
+brightness. Default 0.5.</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-_dirtscale">
+<span class="sig-name descname"><span class="pre">&quot;_dirtscale&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-_dirtscale" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object std" id="light-key-_dirtgain">
+<span class="sig-name descname"><span class="pre">&quot;_dirtgain&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-_dirtgain" title="Permalink to this definition">#</a></dt>
+<dd><p>Override the global “_dirtscale” or “_dirtgain” settings to change
+how this light is affected by dirtmapping (ambient occlusion). See
+descriptions of these keys in the worldspawn section.</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-_dirt">
+<span class="sig-name descname"><span class="pre">&quot;_dirt&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-_dirt" title="Permalink to this definition">#</a></dt>
+<dd><p>Overrides the worldspawn setting of “_dirt” for this particular
+light. -1 to disable dirtmapping (ambient occlusion) for this light,
+making it illuminate the dirtmapping shadows. 1 to enable ambient
+occlusion for this light. Default is to defer to the worldspawn
+setting.</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-_deviance">
+<span class="sig-name descname"><span class="pre">&quot;_deviance&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-_deviance" title="Permalink to this definition">#</a></dt>
+<dd><p>Split up the light into a sphere of randomly positioned lights within
+radius “n” (in world units). Useful to give shadows a wider penumbra.
+“_samples” specifies the number of lights in the sphere. The “light”
+value is automatically scaled down for most lighting formulas (except
+linear and non-additive minlight) to attempt to keep the brightness
+equal. Default is 0, do not split up lights.</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-_samples">
+<span class="sig-name descname"><span class="pre">&quot;_samples&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-_samples" title="Permalink to this definition">#</a></dt>
+<dd><p>Number of lights to use for “_deviance”. Default 16 (only used if
+“_deviance” is set).</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-_surface">
+<span class="sig-name descname"><span class="pre">&quot;_surface&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;texturename&quot;</span></span><a class="headerlink" href="#light-key-_surface" title="Permalink to this definition">#</a></dt>
+<dd><p>Makes surfaces with the given texture name emit light, by using this
+light as a template which is copied across those surfaces. Lights are
+spaced about 128 units (though possibly closer due to bsp splitting)
+apart and positioned 2 units above the surfaces.</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-_surface_offset">
+<span class="sig-name descname"><span class="pre">&quot;_surface_offset&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-_surface_offset" title="Permalink to this definition">#</a></dt>
+<dd><p>Controls the offset lights are placed above surfaces for “_surface”.
+Default 2.</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-_surface_spotlight">
+<span class="sig-name descname"><span class="pre">&quot;_surface_spotlight&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-_surface_spotlight" title="Permalink to this definition">#</a></dt>
+<dd><p>For a surface light template (i.e. a light with “_surface” set),
+setting this to “1” makes each instance into a spotlight, with the
+direction of light pointing along the surface normal. In other words,
+it automatically sets “mangle” on each of the generated lights.</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-_project_texture">
+<span class="sig-name descname"><span class="pre">&quot;_project_texture&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;texture&quot;</span></span><a class="headerlink" href="#light-key-_project_texture" title="Permalink to this definition">#</a></dt>
+<dd><p>Specifies that a light should project this texture. The texture must
+be used in the map somewhere.</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-_project_mangle">
+<span class="sig-name descname"><span class="pre">&quot;_project_mangle&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;yaw</span> <span class="pre">pitch</span> <span class="pre">roll&quot;</span></span><a class="headerlink" href="#light-key-_project_mangle" title="Permalink to this definition">#</a></dt>
+<dd><p>Specifies the yaw/pitch/roll angles for a texture projection
+(overriding mangle).</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-_project_fov">
+<span class="sig-name descname"><span class="pre">&quot;_project_fov&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-_project_fov" title="Permalink to this definition">#</a></dt>
+<dd><p>Specifies the fov angle for a texture projection. Default 90.</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-_bouncescale">
+<span class="sig-name descname"><span class="pre">&quot;_bouncescale&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-_bouncescale" title="Permalink to this definition">#</a></dt>
+<dd><p>Scales the amount of light that is contributed by bounces. Default is
+1.0, 0.0 disables bounce lighting for this light.</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-_sun">
+<span class="sig-name descname"><span class="pre">&quot;_sun&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-_sun" title="Permalink to this definition">#</a></dt>
+<dd><p>Set to 1 to make this entity a sun, as an alternative to using the
+sunlight worldspawn keys. If the light targets an info_null entity,
+the direction towards that entity sets sun direction. The light
+itself is disabled, so it can be placed anywhere in the map.</p>
+<p>The following light properties correspond to these sunlight settings:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">light</span>       <span class="o">=&gt;</span> <span class="n">_sunlight</span>
+<span class="n">mangle</span>      <span class="o">=&gt;</span> <span class="n">_sunlight_mangle</span>
+<span class="n">deviance</span>    <span class="o">=&gt;</span> <span class="n">_sunlight_penumbra</span>
+<span class="n">_color</span>      <span class="o">=&gt;</span> <span class="n">_sunlight_color</span>
+<span class="n">_dirt</span>       <span class="o">=&gt;</span> <span class="n">_sunlight_dirt</span>
+<span class="n">_anglescale</span> <span class="o">=&gt;</span> <span class="n">_anglescale</span>
+<span class="n">style</span>       <span class="o">=&gt;</span> <span class="n">flicker</span> <span class="n">style</span> <span class="k">for</span> <span class="n">styled</span> <span class="n">sunlight</span>
+<span class="n">targetname</span>  <span class="o">=&gt;</span> <span class="n">targetname</span> <span class="k">for</span> <span class="n">switchable</span> <span class="n">sunlight</span>
+<span class="n">_suntexture</span> <span class="o">=&gt;</span> <span class="n">this</span> <span class="n">sunlight</span> <span class="ow">is</span> <span class="n">only</span> <span class="n">emitted</span> <span class="kn">from</span> <span class="nn">faces</span> <span class="k">with</span> <span class="n">this</span> <span class="n">texture</span> <span class="n">name</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-_sunlight2">
+<span class="sig-name descname"><span class="pre">&quot;_sunlight2&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-_sunlight2" title="Permalink to this definition">#</a></dt>
+<dd><p>Set to 1 to make this entity control the upper dome lighting emitted
+from sky faces, as an alternative to the worldspawn key <a class="reference internal" href="#worldspawn-key-_sunlight2"><code class="xref std std-worldspawn-key docutils literal notranslate"><span class="pre">_sunlight2</span></code></a>.
+The light entity itself is disabled, so it can be placed anywhere in
+the map.</p>
+<p>The following light properties correspond to these sunlight settings:</p>
+<dl class="simple">
+<dt>light</dt><dd><p>_sunlight2</p>
+</dd>
+<dt>_color</dt><dd><p>_sunlight2_color</p>
+</dd>
+<dt>_dirt</dt><dd><p>_sunlight2_dirt</p>
+</dd>
+<dt>_anglescale</dt><dd><p>_anglescale</p>
+</dd>
+<dt>style</dt><dd><p>flicker style for styled dome light</p>
+</dd>
+<dt>targetname</dt><dd><p>targetname for switchable sunlight</p>
+</dd>
+<dt>_suntexture</dt><dd><p>this sunlight is only emitted from faces with this texture name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-_sunlight3">
+<span class="sig-name descname"><span class="pre">&quot;_sunlight3&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-_sunlight3" title="Permalink to this definition">#</a></dt>
+<dd><p>Same as <a class="reference internal" href="#light-key-_sunlight2"><code class="xref std std-light-key docutils literal notranslate"><span class="pre">_sunlight2</span></code></a>, but for the lower hemisphere.</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-_nostaticlight">
+<span class="sig-name descname"><span class="pre">&quot;_nostaticlight&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-_nostaticlight" title="Permalink to this definition">#</a></dt>
+<dd><p>Set to 1 to make the light compiler ignore this entity (prevents it
+from casting any light). e.g. could be useful with rtlights.</p>
+</dd></dl>
+
+</section>
+<section id="lighting-channels">
+<h2>Lighting Channels<a class="headerlink" href="#lighting-channels" title="Permalink to this heading">#</a></h2>
+<p>Lighting channels allow custom lighting setups where certain light entities only affect certain bmodels. Useful
+for lighting rotators, doors, etc.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently, bounced light, surface lights, and sunlight are always on channel 1.</p>
+</div>
+<section id="light-keys">
+<h3>Light Keys<a class="headerlink" href="#light-keys" title="Permalink to this heading">#</a></h3>
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-_light_channel_mask">
+<span class="sig-name descname"><span class="pre">&quot;_light_channel_mask&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-_light_channel_mask" title="Permalink to this definition">#</a></dt>
+<dd><p>Mask of lighting channels that the light casts on.</p>
+<p>In order for this light to cast light on a bmodel, there needs to be a least 1 bit in common between
+<a class="reference internal" href="#light-key-_light_channel_mask"><code class="xref std std-light-key docutils literal notranslate"><span class="pre">_light_channel_mask</span></code></a> and the receiving bmodel’s <a class="reference internal" href="#bmodel-key-_object_channel_mask"><code class="xref std std-bmodel-key docutils literal notranslate"><span class="pre">_object_channel_mask</span></code></a> (i.e. the bitwise AND must be nonzero).</p>
+<p>Default 1.</p>
+</dd></dl>
+
+<dl class="std light-key">
+<dt class="sig sig-object std" id="light-key-_shadow_channel_mask">
+<span class="sig-name descname"><span class="pre">&quot;_shadow_channel_mask&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#light-key-_shadow_channel_mask" title="Permalink to this definition">#</a></dt>
+<dd><p>This is the mask of lighting channels that will block this entity’s light rays. If the the bitwise AND of this
+and another bmodel’s <a class="reference internal" href="#bmodel-key-_object_channel_mask"><code class="xref std std-bmodel-key docutils literal notranslate"><span class="pre">_object_channel_mask</span></code></a> is nonzero, the light ray is stopped.</p>
+<p>This is an advanced option, for making bmodels only cast shadows for specific lights (but not others).</p>
+<p>Defaults to <a class="reference internal" href="#light-key-_light_channel_mask"><code class="xref std std-light-key docutils literal notranslate"><span class="pre">_light_channel_mask</span></code></a></p>
+</dd></dl>
+
+</section>
+<section id="model-keys">
+<h3>Model Keys<a class="headerlink" href="#model-keys" title="Permalink to this heading">#</a></h3>
+<dl class="std bmodel-key">
+<dt class="sig sig-object std" id="bmodel-key-_object_channel_mask">
+<span class="sig-name descname"><span class="pre">&quot;_object_channel_mask&quot;</span></span><span class="s"> </span><span class="s"><span class="pre">&quot;n&quot;</span></span><a class="headerlink" href="#bmodel-key-_object_channel_mask" title="Permalink to this definition">#</a></dt>
+<dd><p>Mask of lighting channels that this bmodel receives light on, blocks light on, and tests for AO on.</p>
+<p>Default 1.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Changing this from 1 will disable bouncing light off of this bmodel.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Changing this from 1 implicitly enables <a class="reference internal" href="#bmodel-key-_shadow"><code class="xref std std-bmodel-key docutils literal notranslate"><span class="pre">_shadow</span></code></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Changing to 2, for example, will cause the bmodel to initially be solid black. You’ll need to add minlight or lights
+with <a class="reference internal" href="#light-key-_light_channel_mask"><code class="xref std std-light-key docutils literal notranslate"><span class="pre">_light_channel_mask</span></code></a> <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
+</div>
+</dd></dl>
+
+</section>
+</section>
+<section id="other-information">
+<h2>Other Information<a class="headerlink" href="#other-information" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">\b</span></code> escape sequence toggles red text on/off, you can use this in
+any strings in the map file. e.g. <code class="docutils literal notranslate"><span class="pre">&quot;message&quot;</span> <span class="pre">&quot;Here</span> <span class="pre">is</span> <span class="pre">\bsome</span> <span class="pre">red</span>
+<span class="pre">text\b...&quot;</span></code></p>
+</section>
+<section id="author">
+<h2>Author<a class="headerlink" href="#author" title="Permalink to this heading">#</a></h2>
+<div class="line-block">
+<div class="line">Eric Wasylishen</div>
+<div class="line">Kevin Shanahan (aka Tyrann) - <a class="reference external" href="http://disenchant.net">http://disenchant.net</a></div>
+<div class="line">David Walton (aka spike)</div>
+<div class="line">Based on source provided by id Software</div>
+</div>
+</section>
+<section id="reporting-bugs">
+<h2>Reporting Bugs<a class="headerlink" href="#reporting-bugs" title="Permalink to this heading">#</a></h2>
+<div class="line-block">
+<div class="line">Please post bug reports at
+<a class="reference external" href="https://github.com/ericwa/ericw-tools/issues">https://github.com/ericwa/ericw-tools/issues</a>.</div>
+<div class="line">Improvements to the documentation are welcome and encouraged.</div>
+</div>
+</section>
+<section id="copyright">
+<h2>Copyright<a class="headerlink" href="#copyright" title="Permalink to this heading">#</a></h2>
+<div class="line-block">
+<div class="line">Copyright (C) 2017 Eric Wasylishen</div>
+<div class="line">Copyright (C) 2013 Kevin Shanahan</div>
+<div class="line">Copyright (C) 1997 id Software</div>
+<div class="line">License GPLv2+: GNU GPL version 2 or later</div>
+<div class="line">&lt;<a class="reference external" href="http://gnu.org/licenses/gpl2.html">http://gnu.org/licenses/gpl2.html</a>&gt;.</div>
+</div>
+<p>This is free software: you are free to change and redistribute it. There
+is NO WARRANTY, to the extent permitted by law.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="bspinfo.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">bspinfo</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="vis.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">vis</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">light</a><ul>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#options">Options</a><ul>
+<li><a class="reference internal" href="#logging">Logging</a></li>
+<li><a class="reference internal" href="#game">Game</a></li>
+<li><a class="reference internal" href="#performance">Performance</a></li>
+<li><a class="reference internal" href="#output-format-options">Output format options</a></li>
+<li><a class="reference internal" href="#postprocessing-options">Postprocessing options</a></li>
+<li><a class="reference internal" href="#debug-modes">Debug modes</a></li>
+<li><a class="reference internal" href="#experimental-options">Experimental options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#model-entity-keys">Model Entity Keys</a><ul>
+<li><a class="reference internal" href="#worldspawn-keys">Worldspawn Keys</a></li>
+<li><a class="reference internal" href="#id1">Model Entity Keys</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#light-entity-keys">Light Entity Keys</a></li>
+<li><a class="reference internal" href="#lighting-channels">Lighting Channels</a><ul>
+<li><a class="reference internal" href="#light-keys">Light Keys</a></li>
+<li><a class="reference internal" href="#model-keys">Model Keys</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other-information">Other Information</a></li>
+<li><a class="reference internal" href="#author">Author</a></li>
+<li><a class="reference internal" href="#reporting-bugs">Reporting Bugs</a></li>
+<li><a class="reference internal" href="#copyright">Copyright</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>

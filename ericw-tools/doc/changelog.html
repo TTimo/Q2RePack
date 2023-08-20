@@ -1,0 +1,914 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="bsputil" href="bsputil.html" />
+
+    <!-- Generated with Sphinx 6.2.1 and Furo 2023.03.27 -->
+        <title>Changelog - ericw-tools documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">ericw-tools  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">ericw-tools  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="qbsp.html">qbsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vis.html">vis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="light.html">light</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bspinfo.html">bspinfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bsputil.html">bsputil</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Changelog</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this heading">#</a></h1>
+<section id="upcoming">
+<h2>Upcoming<a class="headerlink" href="#upcoming" title="Permalink to this heading">#</a></h2>
+<section id="note">
+<h3>Note<a class="headerlink" href="#note" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Windows builds are 64-bit only for this release. I’m planning to restore 32-bit support but dropping it for this release made a dependency update easier. Not sure how many users this affects - let me know if it is a problem for you.</p></li>
+</ul>
+</section>
+<section id="bug-fixes">
+<h3>Bug fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>qbsp: make origin brushes not use hiprotate bounds expansion (c30a0a4)</p></li>
+<li><p>qbsp: fix external maps with no worldspawn brushes (5e74b4d)</p></li>
+<li><p>qbsp: fixes for <code class="docutils literal notranslate"><span class="pre">-wrbrushes</span></code> (cefd20c, 1577981, 209d481)</p></li>
+<li><p>qbsp: fix relative paths for .wad files (79d3aa9)</p></li>
+<li><p>light: fix <code class="docutils literal notranslate"><span class="pre">_shadow</span></code> <code class="docutils literal notranslate"><span class="pre">-1</span></code> being interpreted as <code class="docutils literal notranslate"><span class="pre">_shadow</span></code> <code class="docutils literal notranslate"><span class="pre">1</span></code> for bmodels (b04c06a)</p></li>
+<li><p>light: fix “unexpected geomID” error with bounce (dca61f8)</p></li>
+</ul>
+</section>
+<section id="enhancements">
+<h3>Enhancements<a class="headerlink" href="#enhancements" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>qbsp: initial multithreading support</p></li>
+<li><p>qbsp: experimental Half-Life support (8936594)</p></li>
+<li><p>qbsp: more logging of face line numbers for errors/warnings (4ec22ee)</p></li>
+<li><p>qbsp: Add support for <code class="docutils literal notranslate"><span class="pre">_minlight_excludeN</span></code> where N is in 2..9 (0460165)</p></li>
+<li><p>light: support <code class="docutils literal notranslate"><span class="pre">_minlight_exclude</span></code>, <code class="docutils literal notranslate"><span class="pre">_lightignore</span></code> on func_group, detail, etc. (b343b95, a4c1ce6)</p></li>
+<li><p>light: add _nostaticlight key (2d3aa22)</p></li>
+<li><p>light: add _light_alpha func_group key for making faces translucent for light (d6136c1)</p></li>
+<li><p>light: bounce: also make shadow-casting bmodels bounce (unless they opt-out with <code class="docutils literal notranslate"><span class="pre">_bounce</span></code> <code class="docutils literal notranslate"><span class="pre">-1</span></code>) (5010dc9)</p></li>
+<li><p>light: support “_suntexture” key on “_sun” “1” entities to limit them to being cast from a specific sky texture. (f220b2f)</p></li>
+<li><p>light: support “style” / “targetname” on “_sun” “1” entities. (d2ecc73)</p></li>
+<li><p>light: remove 65536 ray limit, fixes #276</p></li>
+<li><p>light: support sky faces up to 10^6 units away (ba7bdf8)</p></li>
+<li><p>light: allow starting assigning switchable styles before default of 32 (b132152)</p></li>
+<li><p>light: add <code class="docutils literal notranslate"><span class="pre">_sunlight2</span></code>/<code class="docutils literal notranslate"><span class="pre">_sunlight3</span></code> to be configured with a light entity, similar to “_sun” “1” (fa62b20, d4cc19a)</p></li>
+<li><p>light: print key name for <code class="docutils literal notranslate"><span class="pre">Key</span> <span class="pre">length</span> <span class="pre">&gt;</span> <span class="pre">MAX_ENT_KEY-1</span></code> error (af4deba)</p></li>
+<li><p>vis: temporary hack of raising MAX_PORTALS_ON_LEAF to 512 (e2a5f62)</p></li>
+</ul>
+</section>
+<section id="removed">
+<h3>Removed<a class="headerlink" href="#removed" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>qbsp: -oldleak, -bspleak, -contenthack flags</p></li>
+</ul>
+</section>
+</section>
+<section id="ericw-tools-0-18-2-rc1">
+<h2>2019-03-25 ericw-tools 0.18.2-rc1<a class="headerlink" href="#ericw-tools-0-18-2-rc1" title="Permalink to this heading">#</a></h2>
+<section id="id1">
+<h3>Bug fixes<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>qbsp: fix “_mirrorinside” on bmodels</p></li>
+<li><p>qbsp: fix t-junctions on bmodels (fixes sparkles, lightmap seams, phong shading)</p></li>
+<li><p>qbsp: fix a case where func_detail faces were incorrectly deleted during outside-filling</p></li>
+<li><p>light: fix seams on “_mirrorinside” geometry (#236)</p></li>
+<li><p>light: fix black faces with sunlight pointing straight down</p></li>
+<li><p>vis: fix for microleafs blocking vis (e.g. 0.01 units thick).
+This fixes HOMs appearing when a map was vised. (#261)</p></li>
+</ul>
+</section>
+<section id="features">
+<h3>Features<a class="headerlink" href="#features" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>qbsp: support a hybrid Valve 220 texturing + q2/q3 surface flags .map format</p></li>
+<li><p>qbsp: added -worldextent option for large maps (deault=65536, meaning +/-65536 units):</p></li>
+<li><p>light: Add “_bounce” “-1” model entity key to prevent light from bouncing off those brushes</p></li>
+<li><p>light: experimental support for lighting Quake 2 .bsp’s</p></li>
+</ul>
+</section>
+</section>
+<section id="ericw-tools-0-18-1">
+<h2>2018-04-05 ericw-tools 0.18.1<a class="headerlink" href="#ericw-tools-0-18-1" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>qbsp: fix crash when worldspawn has 0 brushes</p></li>
+<li><p>qbsp: support reading Q2/Q3 detail flag</p></li>
+<li><p>qbsp: experimental “_noclipfaces” key</p></li>
+<li><p>qbsp: fix “_mirrorinside” on bmodels</p></li>
+<li><p>qbsp: improve an error message for when BSP2 is needed</p></li>
+<li><p>vis: fix “average leafs visible” message overflowing</p></li>
+<li><p>light: fix crash with surface lights</p></li>
+</ul>
+</section>
+<section id="ericw-tools-0-18">
+<h2>2018-02-18 ericw-tools 0.18<a class="headerlink" href="#ericw-tools-0-18" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>light: tweak phong shading to use area and angle weighting</p></li>
+<li><p>light: add “_phong_angle_concave” key</p></li>
+<li><p>light: fix -bspx option</p></li>
+</ul>
+</section>
+<section id="ericw-tools-0-17">
+<h2>2018-01-29 ericw-tools 0.17<a class="headerlink" href="#ericw-tools-0-17" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>qbsp: fix hint/skip having corrupt texturing with -convert option</p></li>
+<li><p>qbsp: warn and heal invalid texture projections</p></li>
+<li><p>qbsp: fix -omitdetail to affect all types of detail</p></li>
+<li><p>light: warn and ignore invalid texture projections instead of aborting</p></li>
+<li><p>light: make more robust against degenerate tris</p></li>
+</ul>
+</section>
+<section id="ericw-tools-0-16">
+<h2>2017-12-28 ericw-tools 0.16<a class="headerlink" href="#ericw-tools-0-16" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>light: add flood-filling to fix black seams in detailwall.map when no -extra/-extra4 used</p></li>
+<li><p>light: fix color-&gt;greyscale conversion to be compatible with MarkV and some QuakeWorld engines</p></li>
+<li><p>light: don’t mark sample points inside semi-transparent shadow casters as occluded.</p></li>
+<li><p>qbsp: add “_external_map_scale” key for misc_external_map</p></li>
+<li><p>qbsp: experimental func_illusionary_visblocker entity</p></li>
+<li><p>qbsp: better detection of when a map exceeds BSP29 limits. Previously, a corrupt BSP would be written when
+nodes/leafs exceeded BSP29 limits.</p></li>
+<li><p>bsputil: add –convert option. Not very useful, but can convert between BSP2 and 2PSB, for example.</p></li>
+<li><p>bsputil: “–check” option logs world mins/maxs</p></li>
+<li><p>bsputil, bspinfo: can now read Q2 BSP files</p></li>
+</ul>
+</section>
+<section id="tyrutils-ericw-0-15-11">
+<h2>2017-09-17 TyrUtils-ericw 0.15.11<a class="headerlink" href="#tyrutils-ericw-0-15-11" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>light: add “_sun” entity key to configure sunlight in an entity instead of worldspawn.
+More than one “_sun” entity is supported.</p></li>
+<li><p>light: add “_falloff” light entity key to configure light falloff in map units.
+Only supported on linear (delay 0) lights.</p></li>
+<li><p>light: add “_spotlightautofalloff”.</p></li>
+<li><p>light: fix light cutoff on curved surfaces (<a class="reference external" href="https://github.com/ericwa/tyrutils-ericw/issues/172">https://github.com/ericwa/tyrutils-ericw/issues/172</a>)</p></li>
+<li><p>light: adjust -soft to fix regression in 0.15.10 (<a class="reference external" href="https://github.com/ericwa/tyrutils-ericw/issues/171">https://github.com/ericwa/tyrutils-ericw/issues/171</a>)</p></li>
+<li><p>qbsp: add “_mirrorinside” key for mirroring the outside faces of bmodels so they are visible from inside.
+for func_water, or func_illusionary fences, etc.</p></li>
+<li><p>qbsp: fix CSG issue with overlapping off grid brushes (<a class="reference external" href="https://github.com/ericwa/tyrutils-ericw/issues/174">https://github.com/ericwa/tyrutils-ericw/issues/174</a>)</p></li>
+<li><p>qbsp: fix HOMs introduced in 0.15.10, which were caused by an attempt to fix leaks-through-solids in 0.15.10.
+To re-enable the buggy code that may fix leaks through solids but add HOMs, use “-contenthack”
+(<a class="reference external" href="https://github.com/ericwa/tyrutils-ericw/issues/175">https://github.com/ericwa/tyrutils-ericw/issues/175</a>).</p></li>
+</ul>
+</section>
+<section id="tyrutils-ericw-0-15-10">
+<h2>2017-07-30 TyrUtils-ericw 0.15.10<a class="headerlink" href="#tyrutils-ericw-0-15-10" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>light: add “_shadowworldonly” bmodel key - only cast shadows on world, not other bmodels.</p></li>
+<li><p>light: switchable bmodel shadows (requires QuakeC support, see light manual).</p></li>
+<li><p>light: accept “_minlight” in worldspawn as an alias for “light”</p></li>
+<li><p>light: handle degenerate faces, print out the vertex coordinates</p></li>
+<li><p>qbsp: misc_external_map prefab system (see qbsp manual)</p></li>
+<li><p>qbsp: don’t write unused texinfo</p></li>
+<li><p>qbsp: rewrite outside filling similar to q3map</p></li>
+<li><p>qbsp: revert change to SubdivideFace which was increasing faces a bit (see 53743dd)</p></li>
+<li><p>qbsp: add -expand option to dump the hull expansion to a “expanded.map”, from q3map</p></li>
+<li><p>qbsp: add -leaktest option to abort compilation when a leak is found, from qbsp3</p></li>
+<li><p>qbsp: fix handling of duplicate planes, which was causing id1 maps to leak</p></li>
+<li><p>qbsp: try to get more reliable leaf content assignment (see a910dd8)</p></li>
+<li><p>bsputil: –check: print BSP tree heights at the first few levels of the tree</p></li>
+<li><p>bsputil: –check: check for unreferenced texinfo, vertices, planes</p></li>
+<li><p>bsputil: –check: print number of used lightstyles</p></li>
+<li><p>misc: travis-ci now runs qbsp on all id1 maps, the build fails if any maps leak</p></li>
+</ul>
+</section>
+<section id="tyrutils-ericw-0-15-10-beta2">
+<h2>2017-06-10 TyrUtils-ericw 0.15.10-beta2<a class="headerlink" href="#tyrutils-ericw-0-15-10-beta2" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>light: styled lights no longer bounce by default, set “_bouncestyled” “1” to enable.</p></li>
+<li><p>qbsp: map format conversion: fix reversing of epairs in converted maps</p></li>
+<li><p>qbsp: func_detail rewrite to fix vis issues with previous version.
+func_detail no longer seals maps.</p></li>
+<li><p>qbsp: add -omitdetail to omit all func_detail entities from the compile</p></li>
+<li><p>qbsp: new func_detail_illusionary entity. func_detail variant with no collision
+(players / monsters / gunfire) and doesn’t split world faces.
+Doesn’t cast shadows unless enabled with “_shadow” “1”.
+Useful for hanging vines. Still creates BSP leafs. (Possible
+enhancement: avoid creating new leafs and just insert marksurfaces into
+existing leafs?)</p></li>
+<li><p>qbsp: new func_detail_wall entity. func_detail variant that doesn’t split
+world faces. Useful for when you want a decoration touching a floor or wall
+to not split the floor/wall faces (you’ll get some overdraw instead.)
+If it completely covers up a world face, that face will get clipped away, so
+it’s not suitable for fence textures; see func_detail_fence instead.</p></li>
+<li><p>qbsp: new func_detail_fence entity. Similar to func_detail_wall except
+it’s suitable for fence textures, never clips away world faces.
+Useful for fences, grates, etc., that are solid and block gunfire.</p></li>
+<li><p>qbsp: add -forceprt1 option to generate a .prt file that GTKRadiant’s prtview
+plugin can load (but will be unusable by vis).
+When func_detail is in use you normally get a PRT2 file that ptrview
+can’t load.</p></li>
+<li><p>qbsp, light: allow _shadow -1 to stop a func_detail from casting shadows</p></li>
+</ul>
+</section>
+<section id="tyrutils-ericw-0-15-10-beta1">
+<h2>2017-03-26 TyrUtils-ericw 0.15.10-beta1<a class="headerlink" href="#tyrutils-ericw-0-15-10-beta1" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>light: fix Linux binary</p></li>
+<li><p>light: lights with a lightstyle now bounce</p></li>
+<li><p>light: new sample point positioning code</p></li>
+<li><p>light: per-light “_bouncescale” key</p></li>
+<li><p>qbsp: origin brush support</p></li>
+<li><p>qbsp: add -omitdetail option, strips out all func_detail brushes</p></li>
+<li><p>qbsp: add -convert option for converting between .MAP formats</p></li>
+</ul>
+</section>
+<section id="tyrutils-ericw-0-15-9-release">
+<h2>2016-11-20 TyrUtils-ericw 0.15.9 release<a class="headerlink" href="#tyrutils-ericw-0-15-9-release" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>light: fix black fringes on bmodels that are touching against the world</p></li>
+<li><p>light: light passing through glass lights up the back side</p></li>
+<li><p>light: bmodels with “_alpha” &lt; 1 and “_shadow” “1” set cast tinted shadows</p></li>
+<li><p>qbsp: support Quake 3 “Brush Primitives” .MAP format</p></li>
+<li><p>qbsp: save “_mincolor” for func_detail/group to the .texinfo file, now used by light</p></li>
+<li><p>qbsp: performance improvements</p></li>
+</ul>
+</section>
+<section id="tyrutils-ericw-0-15-8-release">
+<h2>2016-10-03 TyrUtils-ericw 0.15.8 release<a class="headerlink" href="#tyrutils-ericw-0-15-8-release" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>light: fix black noise in some cases when using -bounce. (reported by Pritchard)</p></li>
+<li><p>light: try to limit artifacts caused by “too many lightstyles on a face”,
+by saving the 4 brightest lightmaps. The previous behaviour was random,
+so you would likely get bad artifacts when that warning occurred.</p></li>
+<li><p>light: restore and expand the “unmatched target” warnings.
+Now checks “target”, “killtarget”, “target2”, “angrytarget”, “deathtarget”.
+Also checks for any “targetname” that is never targetted.</p></li>
+<li><p>light: restore support for skip-textured bmodels with “_shadow” “1”.
+This is only supported on bmodels where all faces are textured with “skip”.</p></li>
+<li><p>light: add “_lightignore” model key, makes a model receive minlight only.</p></li>
+<li><p>qbsp:  accept absolute path to map (reported by lurq)</p></li>
+</ul>
+</section>
+<section id="tyrutils-ericw-0-15-7-release">
+<h2>2016-09-09 TyrUtils-ericw 0.15.7 release<a class="headerlink" href="#tyrutils-ericw-0-15-7-release" title="Permalink to this heading">#</a></h2>
+<section id="bugfixes">
+<h3>Bugfixes<a class="headerlink" href="#bugfixes" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>light: fix shadow-casting bmodels that touch the world from messing up
+sample points on world faces, and prevent the world from messing up
+bmodel sample points (regression in 0.15.5)</p></li>
+<li><p>light: clamp lightmap samples to 255 before smoothing, downscaling.
+reduces jaggies in cases with very bright lights casting hard shadows.</p></li>
+<li><p>light: fix order of “_project_mangle” value to be consistent with “mangle”</p></li>
+<li><p>light: various crash fixes</p></li>
+<li><p>light: minlight no longer bounces</p></li>
+</ul>
+</section>
+<section id="performance">
+<h3>Performance<a class="headerlink" href="#performance" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>light: new, faster raytracing backend (Embree)</p></li>
+<li><p>light: estimate visible bounding box each light by shooting rays in a sphere.
+this gives a speedup similar to vised maps in 0.15.5, without requiring
+the map to be vised. As a downside, there is a small chance of
+introducing artifacts where lights cut off too soon.
+Disable with “-novisapprox”.</p></li>
+<li><p>light: bounce lighting code redesigned to use less memory</p></li>
+</ul>
+</section>
+<section id="other">
+<h3>Other<a class="headerlink" href="#other" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>all: windows builds now require MSVC 2013 runtime:
+<a class="reference external" href="https://www.microsoft.com/en-ca/download/details.aspx?id=40784">https://www.microsoft.com/en-ca/download/details.aspx?id=40784</a></p></li>
+<li><p>all: restore Windows XP support</p></li>
+</ul>
+</section>
+</section>
+<section id="tyrutils-ericw-0-15-6-release">
+<h2>2016-06-17 TyrUtils-ericw 0.15.6 release<a class="headerlink" href="#tyrutils-ericw-0-15-6-release" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>rebuild OS X binary as it was built in debug mode by accident</p></li>
+</ul>
+</section>
+<section id="tyrutils-ericw-0-15-5-release">
+<h2>2016-06-10 TyrUtils-ericw 0.15.5 release<a class="headerlink" href="#tyrutils-ericw-0-15-5-release" title="Permalink to this heading">#</a></h2>
+<section id="new-features">
+<h3>New features<a class="headerlink" href="#new-features" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>light: added a better options summary with the -help flag</p></li>
+<li><p>light: added -bounce option, “_phong”, “_project_texture” key</p></li>
+<li><p>light: use vis data to accelerate lighting</p></li>
+<li><p>light: “_minlight_exclude” key to exclude a texture from receiving minlight</p></li>
+<li><p>light: add “_sun2” “_sun2_color” “_sun2_mangle” which creates a second sun
+(unrelated to “_sunlight2” which is the sky dome light)</p></li>
+<li><p>vis: support .prt files written by bjptools-xt</p></li>
+<li><p>qbsp: add -objexport flag</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>Bugfixes<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>vis: fix ambient sounds when using func_detail, broken in tyrutils-ericw-v0.15.3</p></li>
+</ul>
+</section>
+</section>
+<section id="tyrutils-ericw-0-15-4-release">
+<h2>2015-12-10 TyrUtils-ericw 0.15.4 release<a class="headerlink" href="#tyrutils-ericw-0-15-4-release" title="Permalink to this heading">#</a></h2>
+<section id="id3">
+<h3>New features<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>light: new “-parse_escape_sequences” command-line flag.
+The “b” escape sequence toggles red text on/off, you can use this
+in any strings in the map file.
+e.g. “message” “Here is bsome red textb…”</p></li>
+<li><p>light: new “-surflight_dump” command-line flag. Saves the lights generated
+by surfacelights to a “mapname-surflights.map” file.</p></li>
+<li><p>light: new “_sunlight3” and “_sunlight3_color” keys. Same as “_sunlight2”,
+except creates suns on the bottom hemispere (“_sunlight2” creates
+suns on the top hemisphere.)</p></li>
+<li><p>build: support compiling with Visual Studio</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>Bugfixes<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>light: fix antilights (broken in last release)</p></li>
+<li><p>light: fix _mincolor to accept 0-1 float colors</p></li>
+<li><p>light: fix surface lights on rotating bmodels from incorrectly spawning
+lights near the origin</p></li>
+<li><p>qbsp: log coordinates for CheckFace errors</p></li>
+<li><p>qbsp: round texture coordinates that are close to integers, for Darkplaces
+compatibility</p></li>
+<li><p>qbsp: remove 128 char limit on entity key/value values</p></li>
+</ul>
+</section>
+</section>
+<section id="tyrutils-ericw-0-15-3-release">
+<h2>2015-10-26 TyrUtils-ericw 0.15.3 release<a class="headerlink" href="#tyrutils-ericw-0-15-3-release" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>hexen2 support, patch from Spike</p></li>
+<li><p>light: add “_surface_spotlight” key for making surface lights into
+spotlights based on the surface normal</p></li>
+<li><p>vis: Reuse each cluster’s visdata for all leafs in the cluster</p></li>
+<li><p>light: add “-sunsamples” flag to control number of samples for
+_sunlight_penumbra and _sunlight2</p></li>
+<li><p>qbsp: add “-epsilon” option to control ON_EPSILON, from txqbsp-xt</p></li>
+<li><p>light: silence “no model has face” warning generated by “skip” faces.</p></li>
+<li><p>light: fix “-gate” (was calculating too-large bounding spheres for delay 2
+lights.)</p></li>
+<li><p>qbsp: updates to the “-maxNodeSize” feature added in 0.15.2 to be closer to
+the txqbsp-xt version.</p></li>
+<li><p>light: Adjust the trace algorithm to match that in q3map.</p></li>
+<li><p>qbsp: print coordinates for “New portal was clipped away” warning</p></li>
+</ul>
+</section>
+<section id="tyrutils-ericw-0-15-2-release">
+<h2>2015-08-09 TyrUtils-ericw 0.15.2 release<a class="headerlink" href="#tyrutils-ericw-0-15-2-release" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>qbsp: add “-maxNodeSize” option, from txqbsp-xt. Defaults to 1024. Makes large
+maps process much faster and should generate better bsp trees.
+If it causes a problem disable with “-maxNodeSize 0”</p></li>
+<li><p>qbsp: make “mixed face contents” and “degenerate edge” non-fatal, from txqbsp-xt</p></li>
+<li><p>qbsp: make “-oldaxis” the default. new “-nooldaxis” flag to get the previous behaviour.</p></li>
+<li><p>light: add “-surflight_subdivide” flag to control amount of surface lights created</p></li>
+<li><p>light, vis: use below normal process priority on Windows</p></li>
+<li><p>light: allow negative surface light offset</p></li>
+<li><p>light: average the lit file color components to generate the bsp lightmap value.
+TODO: use a perceptually weighted average.</p></li>
+<li><p>light: fix lighting of hipnotic rotating entities.</p></li>
+<li><p>light: fix crash in “Bad texture axes on face:”</p></li>
+<li><p>light: fix surface lights being mistakenly duplicated</p></li>
+<li><p>light: add “-onlyents”</p></li>
+<li><p>light: add “-dirtangle” setting to control dirtmapping cone angle, default 88 degrees.</p></li>
+</ul>
+</section>
+<section id="tyrutils-ericw-0-15-1-release">
+<h2>2015-07-09 TyrUtils-ericw 0.15.1 release<a class="headerlink" href="#tyrutils-ericw-0-15-1-release" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>light: .lux file support from Spike, for deluxemapping</p></li>
+<li><p>light: add gamma control with -gamma flag and “_gamma” key</p></li>
+<li><p>light: various optimizations</p></li>
+<li><p>light: rename -dirty flag to -dirt for consistency</p></li>
+<li><p>light: make fence texture tracing opt-in with the “-fence” flag.
+fix an issue with fence texture coords.</p></li>
+<li><p>light: support switchable lights with any light* classname, not just “light”</p></li>
+<li><p>light: fix debugging spam output from last build</p></li>
+</ul>
+</section>
+<section id="tyrutils-ericw-snapshot">
+<h2>2015-05-01 TyrUtils-ericw snapshot<a class="headerlink" href="#tyrutils-ericw-snapshot" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>light: fix hang when using _deviance, make _samples default to 16 when
+_deviance is set.</p></li>
+<li><p>light: fix for always generating a .lit file when surface lights are used</p></li>
+</ul>
+</section>
+<section id="id5">
+<h2>2015-04-29 TyrUtils-ericw snapshot<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>qbsp: fix broken -onlyents flag</p></li>
+<li><p>qbsp: fix texture offset on rotate_object, so they match in the
+editor. Added “-oldrottex” flag to revert to old behaviour. From txqbsp-xt.</p></li>
+</ul>
+</section>
+<section id="id6">
+<h2>2015-04-27 TyrUtils-ericw snapshot<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<section id="id7">
+<h3>new features<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>light: fence texture tracing, for bmodels with “_shadow” “1”</p></li>
+<li><p>light: surface light support via “_surface” “texturename” light key</p></li>
+</ul>
+</section>
+<section id="convenience">
+<h3>convenience<a class="headerlink" href="#convenience" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>light: respect “_dirt” “-1” bmodel key in -dirtdebug mode</p></li>
+<li><p>light: allow setting “-dist” and “-range” command-line flags in worldspawn
+(“_dist”, “_range”)</p></li>
+<li><p>light: accept “_sunlight_mangle” as an alternative for “_sun_mangle”</p></li>
+</ul>
+</section>
+<section id="id8">
+<h3>other<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>all: increase stack size to 8MB. Fixes qbsp crash with bbin1.map on Windows,
+light crashes.</p></li>
+<li><p>qbsp: switch to hardcoded MAX_MAP_PLANES (262K), speeds up map file loading
+phase.</p></li>
+<li><p>qbsp: MakeFaceEdges: accelerate with a hash table to avoid slow O(n^2) search
+for edges</p></li>
+<li><p>qbsp: ChooseMidPlaneFromList: fix off-by-one error in axial plane test. On
+the first SolidBSP pass, gives fewer split nodes on bbin1.map (128k vs 199k)</p></li>
+<li><p>light: MatchTargets: disable copying “style” key/value from a light to the
+entity that targets it. Don’t see any point, and causes problems if “style”
+is meaningful for the targetting entity (e.g. a monster).</p></li>
+</ul>
+</section>
+</section>
+<section id="tyrutils-ericw-shapshot">
+<h2>2015-03-05 TyrUtils-ericw shapshot<a class="headerlink" href="#tyrutils-ericw-shapshot" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>light: support “_dirt” “-1” on bmodels to disable dirtmapping</p></li>
+</ul>
+</section>
+<section id="id9">
+<h2>2015-02-24 TyrUtils-ericw snapshot<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>light: _sunlight2 (sky light/light dome) support from q3map2</p></li>
+<li><p>light: _sunlight_penumbra (deviance) from q3map2</p></li>
+</ul>
+</section>
+<section id="id10">
+<h2>2015-01-31 TyrUtils-ericw snapshot<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>light: per-light dirtmapping control</p></li>
+</ul>
+</section>
+<section id="id11">
+<h2>2015-01-21 TyrUtils-ericw snapshot<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>light: revert trace change in TyrUtils 0.7 that was causing artifacts.
+fix bug in determining trace hitpoint</p></li>
+</ul>
+</section>
+<section id="id12">
+<h2>2015-01-19 TyrUtils-ericw snapshot<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>light: handle colours in the range 0-1</p></li>
+<li><p>light: ambient occlusion / dirtmapping from q3map2 support</p></li>
+<li><p>qbsp: account for miptex struct in wad3 lump disksize</p></li>
+<li><p>light: Increase precision of lightmap extents calculations</p></li>
+<li><p>qbsp: fix coordinates in degenerate edge error in tjunc.c</p></li>
+<li><p>build: bump the fallback version number in Makefile</p></li>
+<li><p>bsputil: fix wad export from bsp with missing textures</p></li>
+</ul>
+</section>
+<section id="tyrutils-v0-15">
+<h2>2014-02-16 TyrUtils v0.15<a class="headerlink" href="#tyrutils-v0-15" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>qbsp: Cope with textures names containing ‘{’ or ‘}’ (e.g. for alpha mask)</p></li>
+<li><p>qbsp: Increase MAXEDGES limit from 32 to 64</p></li>
+<li><p>qbsp: Make transparent water the default (same as txqbsp)</p></li>
+<li><p>qbsp: Improve some clip hull errors with map source line numbers</p></li>
+<li><p>qbsp: Ignore func_detail entities on -onlyents compiles</p></li>
+<li><p>light: Fix bug with minglight clamping with coloured lighting</p></li>
+</ul>
+</section>
+<section id="tyrutils-v0-14">
+<h2>2013-10-03 TyrUtils v0.14<a class="headerlink" href="#tyrutils-v0-14" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>qbsp: Added Quake 2 map compatibility (extra surface attributes ignored)</p></li>
+<li><p>qbsp: Add -2psb option to output in RMQ compatible BSP2 format</p></li>
+</ul>
+</section>
+<section id="tyrutils-v0-13">
+<h2>2013-09-30 TyrUtils v0.13<a class="headerlink" href="#tyrutils-v0-13" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Fix handling of func_group/detail entities with no solid brushes</p></li>
+<li><p>Fix automatic adding of animated texture frames</p></li>
+</ul>
+</section>
+<section id="tyrutils-v0-12">
+<h2>2013-09-29 TyrUtils v0.12<a class="headerlink" href="#tyrutils-v0-12" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Implement the Darkplaces (LordHavoc) style BSP2 format and use as default</p></li>
+<li><p>Still support the RMQ style BSP2 format (but don’t create any new ones)</p></li>
+<li><p>qbsp: Fix bug causing sky brushes to be non-solid</p></li>
+</ul>
+</section>
+<section id="tyrutils-v0-11">
+<h2>2013-09-24 TyrUtils v0.11<a class="headerlink" href="#tyrutils-v0-11" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Support BSP2 format (qbsp requires the “-bsp2” command line option)</p></li>
+<li><p>qbsp: Fix animating texture bug when brushes are textured with alt-animations</p></li>
+<li><p>qbsp: Fix a crash in tjunc calculations</p></li>
+<li><p>qbsp: Exit with error if verticies exceed 65535 (BSP29 limit)</p></li>
+<li><p>qbsp: Add experimental “-forcegoodtree” command line option (thanks Rebb)</p></li>
+<li><p>vis: reduce “leaf recursion” error to a warning and continue processing</p></li>
+</ul>
+</section>
+<section id="tyrutils-v0-10">
+<h2>2013-04-25 TyrUtils v0.10<a class="headerlink" href="#tyrutils-v0-10" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Documentation added for bspinfo and bsputil</p></li>
+<li><p>Fix vis bug due to missing vertex copy in v0.9 portal clip changes</p></li>
+</ul>
+</section>
+<section id="tyrutils-v0-9">
+<h2>2013-04-24 TyrUtils v0.9<a class="headerlink" href="#tyrutils-v0-9" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>qbsp: fixed bad pointfile generation</p></li>
+</ul>
+</section>
+<section id="tyrutils-v0-8">
+<h2>2013-04-23 TyrUtils v0.8<a class="headerlink" href="#tyrutils-v0-8" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>qbsp: fixed surface edge corruption when using skip surfaces</p></li>
+<li><p>qbsp: fixed portal generation for transparent water and detail nodes</p></li>
+<li><p>qbsp: added “-noskip” option for troubleshooting skip related problems</p></li>
+<li><p>light: reduce “no model has face ###” to a warning</p></li>
+<li><p>vis: fix portal stack corruption in ClipStackWinding</p></li>
+<li><p>bsputil: added a “–check” option (beta!) to check internal data consistency</p></li>
+</ul>
+</section>
+<section id="tyrutils-v0-7">
+<h2>2013-04-10 TyrUtils v0.7<a class="headerlink" href="#tyrutils-v0-7" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Unix man page documentation for the main tools (qbsp, light, vis)</p></li>
+<li><p>HTML and text documentation is generated from the man page sources</p></li>
+<li><p>qbsp: added support for using WAD3 texture wads used by Hammer</p></li>
+<li><p>qbsp: include clip brushes when calculating bmodel bounding box</p></li>
+<li><p>qbsp: enable creation of clip-only bmodels</p></li>
+<li><p>qbsp: recognise and remove <code class="xref std std-texture docutils literal notranslate"><span class="pre">*waterskip</span></code>, <code class="xref std std-texture docutils literal notranslate"><span class="pre">*slimeskip</span></code> and <code class="xref std std-texture docutils literal notranslate"><span class="pre">*lavaskip</span></code> surfaces</p></li>
+<li><p>qbsp: added <code class="xref std std-texture docutils literal notranslate"><span class="pre">hintskip</span></code> texture support</p></li>
+<li><p>qbsp: fixed some bugs parsing empty func_group/func_detail entities</p></li>
+<li><p>light: implemented self shadowing and full shadows for brush models</p></li>
+<li><p>light: implemented the “-soft” command line option</p></li>
+<li><p>light: implemented the “-addmin” command line option</p></li>
+<li><p>light: implemented the “_anglescale” (aka “_anglesense”) key and cmdline</p></li>
+<li><p>light: remove support for negative color components (never worked properly)</p></li>
+<li><p>light: removed the “-nominlimit” option (now the default behaviour)</p></li>
+<li><p>light: removed the “-compress” option (a bad idea from long ago)</p></li>
+<li><p>light: make -gate command line affect linear falloff lights as well</p></li>
+<li><p>vis: changed the default testlevel to 4</p></li>
+<li><p>vis: added the ‘-noambient*’ options to disable auto ambient sounds.</p></li>
+</ul>
+</section>
+<section id="tyrutils-v0-6">
+<h2>2013-03-07 TyrUtils v0.6<a class="headerlink" href="#tyrutils-v0-6" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>qbsp: respect floating point texture rotation and shift in map files</p></li>
+<li><p>qbsp: support for Valve’s 220 map format used in later Worldcraft/Hammer</p></li>
+<li><p>qbsp: support func_group entities used by Radiant and similar editors</p></li>
+<li><p>qbsp: surfaces with the skip texture are now removed from the compiled bsp</p></li>
+<li><p>qbsp: hint brush support similar to Quake 2 for hand-tweaking the PVS</p></li>
+<li><p>qbsp: fixed a problem where leak files were not written for hull0 or hull1</p></li>
+<li><p>light: fixed a race condition in multithreaded coloured light processing</p></li>
+<li><p>light: fixed bug preventing use of all 4 light styles in a common case</p></li>
+<li><p>light: implemented attenutation formulae “delay” 4+5, ala Bengt’s tools</p></li>
+<li><p>light: removed old bsp30 support</p></li>
+<li><p>light: lit files now automatically generated when coloured lights detected</p></li>
+<li><p>light: implemented 4x4 oversampling with -extra4 command line</p></li>
+<li><p>light: implemented the -gate option to help speed processing (default 0.001)</p></li>
+<li><p>light: implemented the “_softangle” key for spotlights</p></li>
+<li><p>light: implemented minlighting for brush models</p></li>
+</ul>
+</section>
+<section id="tyrutils-v0-5">
+<h2>2013-02-25 TyrUtils v0.5<a class="headerlink" href="#tyrutils-v0-5" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>New changelog to summarise changes going forward</p></li>
+<li><p>light and vis both now multithreaded on Unix and Windows platforms</p></li>
+<li><p>vis now writes a state file every 5 minutes so it can resume if needed</p></li>
+<li><p>qbsp and vis now support a form of detail brushes, similar to Quake 2. See
+qbsp.txt for further details.</p></li>
+<li><p>added a small optimisation to vis for a minor speedup (usually only 1-2%)</p></li>
+<li><p>build system re-written and lots of cleanups all over the code</p></li>
+</ul>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          <a class="prev-page" href="bsputil.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">bsputil</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Changelog</a><ul>
+<li><a class="reference internal" href="#upcoming">Upcoming</a><ul>
+<li><a class="reference internal" href="#note">Note</a></li>
+<li><a class="reference internal" href="#bug-fixes">Bug fixes</a></li>
+<li><a class="reference internal" href="#enhancements">Enhancements</a></li>
+<li><a class="reference internal" href="#removed">Removed</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ericw-tools-0-18-2-rc1">2019-03-25 ericw-tools 0.18.2-rc1</a><ul>
+<li><a class="reference internal" href="#id1">Bug fixes</a></li>
+<li><a class="reference internal" href="#features">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ericw-tools-0-18-1">2018-04-05 ericw-tools 0.18.1</a></li>
+<li><a class="reference internal" href="#ericw-tools-0-18">2018-02-18 ericw-tools 0.18</a></li>
+<li><a class="reference internal" href="#ericw-tools-0-17">2018-01-29 ericw-tools 0.17</a></li>
+<li><a class="reference internal" href="#ericw-tools-0-16">2017-12-28 ericw-tools 0.16</a></li>
+<li><a class="reference internal" href="#tyrutils-ericw-0-15-11">2017-09-17 TyrUtils-ericw 0.15.11</a></li>
+<li><a class="reference internal" href="#tyrutils-ericw-0-15-10">2017-07-30 TyrUtils-ericw 0.15.10</a></li>
+<li><a class="reference internal" href="#tyrutils-ericw-0-15-10-beta2">2017-06-10 TyrUtils-ericw 0.15.10-beta2</a></li>
+<li><a class="reference internal" href="#tyrutils-ericw-0-15-10-beta1">2017-03-26 TyrUtils-ericw 0.15.10-beta1</a></li>
+<li><a class="reference internal" href="#tyrutils-ericw-0-15-9-release">2016-11-20 TyrUtils-ericw 0.15.9 release</a></li>
+<li><a class="reference internal" href="#tyrutils-ericw-0-15-8-release">2016-10-03 TyrUtils-ericw 0.15.8 release</a></li>
+<li><a class="reference internal" href="#tyrutils-ericw-0-15-7-release">2016-09-09 TyrUtils-ericw 0.15.7 release</a><ul>
+<li><a class="reference internal" href="#bugfixes">Bugfixes</a></li>
+<li><a class="reference internal" href="#performance">Performance</a></li>
+<li><a class="reference internal" href="#other">Other</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tyrutils-ericw-0-15-6-release">2016-06-17 TyrUtils-ericw 0.15.6 release</a></li>
+<li><a class="reference internal" href="#tyrutils-ericw-0-15-5-release">2016-06-10 TyrUtils-ericw 0.15.5 release</a><ul>
+<li><a class="reference internal" href="#new-features">New features</a></li>
+<li><a class="reference internal" href="#id2">Bugfixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tyrutils-ericw-0-15-4-release">2015-12-10 TyrUtils-ericw 0.15.4 release</a><ul>
+<li><a class="reference internal" href="#id3">New features</a></li>
+<li><a class="reference internal" href="#id4">Bugfixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tyrutils-ericw-0-15-3-release">2015-10-26 TyrUtils-ericw 0.15.3 release</a></li>
+<li><a class="reference internal" href="#tyrutils-ericw-0-15-2-release">2015-08-09 TyrUtils-ericw 0.15.2 release</a></li>
+<li><a class="reference internal" href="#tyrutils-ericw-0-15-1-release">2015-07-09 TyrUtils-ericw 0.15.1 release</a></li>
+<li><a class="reference internal" href="#tyrutils-ericw-snapshot">2015-05-01 TyrUtils-ericw snapshot</a></li>
+<li><a class="reference internal" href="#id5">2015-04-29 TyrUtils-ericw snapshot</a></li>
+<li><a class="reference internal" href="#id6">2015-04-27 TyrUtils-ericw snapshot</a><ul>
+<li><a class="reference internal" href="#id7">new features</a></li>
+<li><a class="reference internal" href="#convenience">convenience</a></li>
+<li><a class="reference internal" href="#id8">other</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tyrutils-ericw-shapshot">2015-03-05 TyrUtils-ericw shapshot</a></li>
+<li><a class="reference internal" href="#id9">2015-02-24 TyrUtils-ericw snapshot</a></li>
+<li><a class="reference internal" href="#id10">2015-01-31 TyrUtils-ericw snapshot</a></li>
+<li><a class="reference internal" href="#id11">2015-01-21 TyrUtils-ericw snapshot</a></li>
+<li><a class="reference internal" href="#id12">2015-01-19 TyrUtils-ericw snapshot</a></li>
+<li><a class="reference internal" href="#tyrutils-v0-15">2014-02-16 TyrUtils v0.15</a></li>
+<li><a class="reference internal" href="#tyrutils-v0-14">2013-10-03 TyrUtils v0.14</a></li>
+<li><a class="reference internal" href="#tyrutils-v0-13">2013-09-30 TyrUtils v0.13</a></li>
+<li><a class="reference internal" href="#tyrutils-v0-12">2013-09-29 TyrUtils v0.12</a></li>
+<li><a class="reference internal" href="#tyrutils-v0-11">2013-09-24 TyrUtils v0.11</a></li>
+<li><a class="reference internal" href="#tyrutils-v0-10">2013-04-25 TyrUtils v0.10</a></li>
+<li><a class="reference internal" href="#tyrutils-v0-9">2013-04-24 TyrUtils v0.9</a></li>
+<li><a class="reference internal" href="#tyrutils-v0-8">2013-04-23 TyrUtils v0.8</a></li>
+<li><a class="reference internal" href="#tyrutils-v0-7">2013-04-10 TyrUtils v0.7</a></li>
+<li><a class="reference internal" href="#tyrutils-v0-6">2013-03-07 TyrUtils v0.6</a></li>
+<li><a class="reference internal" href="#tyrutils-v0-5">2013-02-25 TyrUtils v0.5</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>

@@ -1,0 +1,1678 @@
+/*QUAKED func_plat (0 .5 .8) ? PLAT_LOW_TRIGGER
+speed	default 150
+
+Plats are always drawn in the extended position, so they will light correctly.
+
+If the plat is the target of another trigger or button, it will start out disabled in the extended position until it is triggered, when it will lower and become a normal plat.
+
+"speed"	overrides default 200.
+"accel" overrides default 500
+"lip"	overrides default 8 pixel lip
+
+If the "height" key is set, that will determine the amount the plat moves, instead of being implicitly determined by the model's height.
+
+Set "sounds" to one of the following:
+1) base fast
+2) chain slow
+*/
+
+
+/*QUAKED func_rotating (0 .5 .8) ? START_ON REVERSE X_AXIS Y_AXIS TOUCH_PAIN STOP ANIMATED ANIMATED_FAST NOT_EASY NOT_MEDIUM NOT_HARD NOT_DM NOT_COOP RESERVED1 COOP_ONLY RESERVED2 ACCEL
+You need to have an origin brush as part of this entity.
+The center of that brush will be the point around which it is rotated. It will rotate around the Z axis by default.
+You can check either the X_AXIS or Y_AXIS box to change that.
+
+func_rotating will use it's targets when it stops and starts.
+
+"speed" determines how fast it moves; default value is 100.
+"dmg"	damage to inflict when blocked (2 default)
+"accel" if specified, is how much the rotation speed will increase per .1sec.
+
+REVERSE will cause the it to rotate in the opposite direction.
+STOP mean it will stop moving instead of pushing entities
+ACCEL means it will accelerate to it's final speed and decelerate when shutting down.
+*/
+
+
+/*QUAKED func_button (0 .5 .8) ?
+When a button is touched, it moves some distance in the direction of it's angle, triggers all of it's targets, waits some time, then returns to it's original position where it can be triggered again.
+
+"angle"		determines the opening direction
+"target"	all entities with a matching targetname will be used
+"speed"		override the default 40 speed
+"wait"		override the default 1 second wait (-1 = never return)
+"lip"		override the default 4 pixel lip remaining at end of move
+"health"	if set, the button must be killed instead of touched
+"sounds"
+1) silent
+2) steam metal
+3) wooden clunk
+4) metallic click
+5) in-out
+*/
+
+
+/*QUAKED func_door (0 .5 .8) ? START_OPEN x CRUSHER NOMONSTER ANIMATED TOGGLE ANIMATED_FAST
+TOGGLE		wait in both the start and end states for a trigger event.
+START_OPEN	the door to moves to its destination when spawned, and operate in reverse.  It is used to temporarily or permanently close off an area when triggered (not useful for touch or takedamage doors).
+NOMONSTER	monsters will not trigger this door
+
+"message"	is printed when the door is touched if it is a trigger door and it hasn't been fired yet
+"angle"		determines the opening direction
+"targetname" if set, no touch field will be spawned and a remote button or trigger field activates the door.
+"health"	if set, door must be shot open
+"speed"		movement speed (100 default)
+"wait"		wait before returning (3 default, -1 = never return)
+"lip"		lip remaining at end of move (8 default)
+"dmg"		damage to inflict when blocked (2 default)
+"sounds"
+1)	silent
+2)	light
+3)	medium
+4)	heavy
+*/
+
+
+/*QUAKED func_door_rotating (0 .5 .8) ? START_OPEN REVERSE CRUSHER NOMONSTER ANIMATED TOGGLE X_AXIS Y_AXIS NOT_EASY NOT_MEDIUM NOT_HARD NOT_DM NOT_COOP RESERVED1 COOP_ONLY RESERVED2 INACTIVE
+TOGGLE causes the door to wait in both the start and end states for a trigger event.
+
+START_OPEN	the door to moves to its destination when spawned, and operate in reverse.  It is used to temporarily or permanently close off an area when triggered (not useful for touch or takedamage doors).
+NOMONSTER	monsters will not trigger this door
+
+You need to have an origin brush as part of this entity.  The center of that brush will be
+the point around which it is rotated. It will rotate around the Z axis by default.  You can
+check either the X_AXIS or Y_AXIS box to change that.
+
+"distance" is how many degrees the door will be rotated.
+"speed" determines how fast the door moves; default value is 100.
+"accel" if specified,is how much the rotation speed will increase each .1 sec. (default: no accel)
+
+REVERSE will cause the door to rotate in the opposite direction.
+INACTIVE will cause the door to be inactive until triggered.
+
+"message"	is printed when the door is touched if it is a trigger door and it hasn't been fired yet
+"angle"		determines the opening direction
+"targetname" if set, no touch field will be spawned and a remote button or trigger field activates the door.
+"health"	if set, door must be shot open
+"speed"		movement speed (100 default)
+"wait"		wait before returning (3 default, -1 = never return)
+"dmg"		damage to inflict when blocked (2 default)
+"sounds"
+1)	silent
+2)	light
+3)	medium
+4)	heavy
+*/
+
+
+/*QUAKED func_water (0 .5 .8) ? START_OPEN SMART
+func_water is a moveable water brush.  It must be targeted to operate.  Use a non-water texture at your own risk.
+
+START_OPEN causes the water to move to its destination when spawned and operate in reverse.
+
+SMART causes the water to adjust its speed depending on distance to player.
+(speed = distance/accel, min 5, max self->speed)
+"accel"		for smart water, the divisor to determine water speed. default 20 (smaller = faster)
+
+"health"	maximum height of this water brush
+"angle"		determines the opening direction (up or down only)
+"speed"		movement speed (25 default)
+"wait"		wait before returning (-1 default, -1 = TOGGLE)
+"lip"		lip remaining at end of move (0 default)
+"sounds"	(yes, these need to be changed)
+0)	no sound
+1)	water
+2)	lava
+*/
+
+
+/*QUAKED func_train (0 .5 .8) ? START_ON TOGGLE BLOCK_STOPS MOVE_TEAMCHAIN
+Trains are moving platforms that players can ride.
+The targets origin specifies the min point of the train at each corner.
+The train spawns at the first target it is pointing at.
+If the train is the target of a button or trigger, it will not begin moving until activated.
+speed	default 100
+dmg		default	2
+noise	looping sound to play when the train is in motion
+
+To have other entities move with the train, set all the piece's team value to the same thing. They will move in unison.
+*/
+
+
+/*QUAKED trigger_elevator (0.3 0.1 0.6) (-8 -8 -8) (8 8 8)
+*/
+
+
+/*QUAKED func_timer (0.3 0.1 0.6) (-8 -8 -8) (8 8 8) START_ON
+"wait"			base time between triggering all targets, default is 1
+"random"		wait variance, default is 0
+
+so, the basic time between firing is a random time between
+(wait - random) and (wait + random)
+
+"delay"			delay before first firing when turned on, default is 0
+
+"pausetime"		additional delay used only the very first time
+				and only if spawned with START_ON
+
+These can used but not touched.
+*/
+
+
+/*QUAKED func_conveyor (0 .5 .8) ? START_ON TOGGLE
+Conveyors are stationary brushes that move what's on them.
+The brush should be have a surface with at least one current content enabled.
+speed	default 100
+*/
+
+
+/*QUAKED func_door_secret (0 .5 .8) ? always_shoot 1st_left 1st_down
+A secret door.  Slide back and then to the side.
+
+open_once		doors never closes
+1st_left		1st move is left of arrow
+1st_down		1st move is down from arrow
+always_shoot	door is shootebale even if targeted
+
+"angle"		determines the direction
+"dmg"		damage to inflic when blocked (default 2)
+"wait"		how long to hold in the open position (default 5, -1 means hold)
+*/
+
+
+/*QUAKED func_killbox (1 0 0) ?
+Kills everything inside when fired, irrespective of protection.
+*/
+
+
+/*QUAKED item_armor_body (.3 .3 1) (-16 -16 -16) (16 16 16)
+-------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
+model="models/items/armor/body/tris.md2"
+*/
+
+
+/*QUAKED item_armor_combat (.3 .3 1) (-16 -16 -16) (16 16 16)
+-------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
+model="models/items/armor/combat/tris.md2"
+*/
+
+
+/*QUAKED item_armor_jacket (.3 .3 1) (-16 -16 -16) (16 16 16)
+-------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
+model="models/items/armor/jacket/tris.md2"
+*/
+
+
+/*QUAKED item_armor_shard (.3 .3 1) (-16 -16 -16) (16 16 16)
+-------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
+model="models/items/armor/shard/tris.md2"
+*/
+
+
+/*QUAKED item_power_screen (.3 .3 1) (-16 -16 -16) (16 16 16)
+-------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
+model="models/items/armor/screen/tris.md2"
+*/
+
+
+/*QUAKED item_power_shield (.3 .3 1) (-16 -16 -16) (16 16 16)
+-------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
+model="models/items/armor/shield/tris.md2"
+*/
+
+
+/*QUAKED weapon_shotgun (.3 .3 1) (-16 -16 -16) (16 16 16)
+-------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
+model="models/weapons/g_shotg/tris.md2"
+*/
+
+
+/*QUAKED weapon_supershotgun (.3 .3 1) (-16 -16 -16) (16 16 16)
+-------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
+model="models/weapons/g_shotg2/tris.md2"
+*/
+
+
+/*QUAKED weapon_machinegun (.3 .3 1) (-16 -16 -16) (16 16 16)
+-------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
+model="models/weapons/g_machn/tris.md2"
+*/
+
+
+/*QUAKED weapon_chaingun (.3 .3 1) (-16 -16 -16) (16 16 16)
+-------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
+model="models/weapons/g_chain/tris.md2"
+*/
+
+
+/*QUAKED weapon_grenadelauncher (.3 .3 1) (-16 -16 -16) (16 16 16)
+-------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
+model="models/weapons/g_launch/tris.md2"
+*/
+
+
+/*QUAKED weapon_rocketlauncher (.3 .3 1) (-16 -16 -16) (16 16 16)
+-------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
+model="models/weapons/g_rocket/tris.md2"
+*/
+
+
+/*QUAKED weapon_hyperblaster (.3 .3 1) (-16 -16 -16) (16 16 16)
+-------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
+model="models/weapons/g_blast/tris.md2"
+*/
+
+
+/*QUAKED weapon_railgun (.3 .3 1) (-16 -16 -16) (16 16 16)
+-------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
+model="models/weapons/g_rail/tris.md2"
+*/
+
+
+/*QUAKED weapon_bfg (.3 .3 1) (-16 -16 -16) (16 16 16)
+model="models/weapons/g_bfg/tris.md2"
+*/
+
+
+/*QUAKED ammo_shells (.3 .3 1) (-16 -16 -16) (16 16 16)
+model="models/items/ammo/shells/medium/tris.md2"
+*/
+
+
+/*QUAKED ammo_bullets (.3 .3 1) (-16 -16 -16) (16 16 16)
+model="models/items/ammo/bullets/medium/tris.md2"
+*/
+
+
+/*QUAKED ammo_cells (.3 .3 1) (-16 -16 -16) (16 16 16)
+model="models/items/ammo/cells/medium/tris.md2"
+*/
+
+
+/*QUAKED ammo_grenades (.3 .3 1) (-16 -16 -16) (16 16 16)
+model="models/items/ammo/grenades/medium/tris.md2"
+*/
+
+
+/*QUAKED ammo_rockets (.3 .3 1) (-16 -16 -16) (16 16 16)
+model="models/items/ammo/rockets/medium/tris.md2"
+*/
+
+
+/*QUAKED ammo_slugs (.3 .3 1) (-16 -16 -16) (16 16 16)
+model="models/items/ammo/slugs/medium/tris.md2"
+*/
+
+
+/*QUAKED item_quad (.3 .3 1) (-16 -16 -16) (16 16 16)
+model="models/items/quaddama/tris.md2"
+*/
+
+
+/*QUAKED item_invulnerability (.3 .3 1) (-16 -16 -16) (16 16 16)
+model="models/items/invulner/tris.md2"
+*/
+
+
+/*QUAKED item_silencer (.3 .3 1) (-16 -16 -16) (16 16 16)
+model="models/items/silencer/tris.md2"
+*/
+
+
+/*QUAKED item_breather (.3 .3 1) (-16 -16 -16) (16 16 16)
+model="models/items/breather/tris.md2"
+*/
+
+
+/*QUAKED item_enviro (.3 .3 1) (-16 -16 -16) (16 16 16)
+model="models/items/enviro/tris.md2"
+*/
+
+
+/*QUAKED item_ancient_head (.3 .3 1) (-16 -16 -16) (16 16 16)
+Special item that gives +2 to maximum health
+model="models/items/c_head/tris.md2"
+*/
+
+
+/*QUAKED item_adrenaline (.3 .3 1) (-16 -16 -16) (16 16 16)
+gives +1 to maximum health
+model="models/items/adrenal/tris.md2"
+*/
+
+
+/*QUAKED item_bandolier (.3 .3 1) (-16 -16 -16) (16 16 16)
+model="models/items/band/tris.md2"
+*/
+
+
+/*QUAKED item_pack (.3 .3 1) (-16 -16 -16) (16 16 16)
+model="models/items/pack/tris.md2"
+*/
+
+
+/*QUAKED key_data_cd (0 .5 .8) (-16 -16 -16) (16 16 16)
+key for computer centers
+model="models/items/keys/data_cd/tris.md2"
+*/
+
+
+/*QUAKED key_power_cube (0 .5 .8) (-16 -16 -16) (16 16 16) TRIGGER_SPAWN NO_TOUCH
+warehouse circuits
+model="models/items/keys/power/tris.md2"
+*/
+
+
+/*QUAKED key_pyramid (0 .5 .8) (-16 -16 -16) (16 16 16)
+key for the entrance of jail3
+model="models/items/keys/pyramid/tris.md2"
+*/
+
+
+/*QUAKED key_data_spinner (0 .5 .8) (-16 -16 -16) (16 16 16)
+key for the city computer
+model="models/items/keys/spinner/tris.md2"
+*/
+
+
+/*QUAKED key_pass (0 .5 .8) (-16 -16 -16) (16 16 16)
+security pass for the security level
+model="models/items/keys/pass/tris.md2"
+*/
+
+
+/*QUAKED key_blue_key (0 .5 .8) (-16 -16 -16) (16 16 16)
+normal door key - blue
+model="models/items/keys/key/tris.md2"
+*/
+
+
+/*QUAKED key_red_key (0 .5 .8) (-16 -16 -16) (16 16 16)
+normal door key - red
+model="models/items/keys/red_key/tris.md2"
+*/
+
+
+/*QUAKED key_commander_head (0 .5 .8) (-16 -16 -16) (16 16 16)
+tank commander's head
+model="models/items/c_head/tris.md2"
+*/
+
+
+/*QUAKED key_airstrike_target (0 .5 .8) (-16 -16 -16) (16 16 16)
+model="models/items/keys/target/tris.md2"
+*/
+
+
+/*QUAKED item_health (.3 .3 1) (-16 -16 -16) (16 16 16)
+model="models/items/healing/medium/tris.md2"
+*/
+
+
+/*QUAKED item_health_small (.3 .3 1) (-16 -16 -16) (16 16 16)
+model="models/items/healing/stimpack/tris.md2"
+*/
+
+
+/*QUAKED item_health_large (.3 .3 1) (-16 -16 -16) (16 16 16)
+model="models/items/healing/large/tris.md2"
+*/
+
+
+/*QUAKED item_health_mega (.3 .3 1) (-16 -16 -16) (16 16 16)
+model="models/items/mega_h/tris.md2"
+*/
+
+
+/*QUAKED func_group (0 0 0) ?
+Used to group brushes together just for editor convenience.
+*/
+
+
+/*QUAKED func_areaportal (0 0 0) ?
+
+This is a non-visible object that divides the world into
+areas that are seperated when this portal is not activated.
+Usually enclosed in the middle of a door.
+*/
+
+
+/*QUAKED path_corner (.5 .3 0) (-8 -8 -8) (8 8 8) TELEPORT
+Target: next path corner
+Pathtarget: gets used when an entity that has
+	this path_corner targeted touches it
+*/
+
+
+/*QUAKED point_combat (0.5 0.3 0) (-8 -8 -8) (8 8 8) Hold
+Makes this the target of a monster and it will head here
+when first activated before going after the activator.  If
+hold is selected, it will stay here.
+*/
+
+
+/*QUAKED viewthing (0 .5 .8) (-8 -8 -8) (8 8 8)
+Just for the debugging level.  Don't use
+*/
+
+
+/*QUAKED info_null (0 0.5 0) (-4 -4 -4) (4 4 4)
+Used as a positional target for spotlights, etc.
+*/
+
+
+/*QUAKED info_notnull (0 0.5 0) (-4 -4 -4) (4 4 4)
+Used as a positional target for lightning.
+*/
+
+
+/*QUAKED light (0 1 0) (-8 -8 -8) (8 8 8) START_OFF
+Non-displayed light.
+Default light value is 300.
+Default style is 0.
+If targeted, will toggle between on and off.
+Default _cone value is 10 (used to set size of light for spotlights)
+*/
+
+
+/*QUAKED func_wall (0 .5 .8) ? TRIGGER_SPAWN TOGGLE START_ON ANIMATED ANIMATED_FAST
+This is just a solid wall if not inhibited
+
+TRIGGER_SPAWN	the wall will not be present until triggered
+				it will then blink in to existance; it will
+				kill anything that was in it's way
+
+TOGGLE			only valid for TRIGGER_SPAWN walls
+				this allows the wall to be turned on and off
+
+START_ON		only valid for TRIGGER_SPAWN walls
+				the wall will initially be present
+*/
+
+
+/*QUAKED func_object (0 .5 .8) ? TRIGGER_SPAWN ANIMATED ANIMATED_FAST
+This is solid bmodel that will fall if it's support it removed.
+*/
+
+
+/*QUAKED func_explosive (0 .5 .8) ? Trigger_Spawn ANIMATED ANIMATED_FAST INACTIVE
+Any brush that you want to explode or break apart.  If you want an
+ex0plosion, set dmg and it will do a radius explosion of that amount
+at the center of the bursh.
+
+If targeted it will not be shootable.
+
+INACTIVE - specifies that the entity is not explodable until triggered. If you use this you must
+target the entity you want to trigger it. This is the only entity approved to activate it.
+
+health defaults to 100.
+
+mass defaults to 75.  This determines how much debris is emitted when
+it explodes.  You get one large chunk per 100 of mass (up to 8) and
+one small chunk per 25 of mass (up to 16).  So 800 gives the most.
+*/
+
+
+/*QUAKED misc_explobox (0 .5 .8) (-16 -16 0) (16 16 40)
+Large exploding box.  You can override its mass (100),
+health (80), and dmg (150).
+model="models/objects/barrels/tris.md2"
+*/
+
+
+/*QUAKED misc_blackhole (1 .5 0) (-8 -8 -8) (8 8 8) AUTO_NOISE
+model="models/objects/black/tris.md2"
+*/
+
+
+/*QUAKED misc_eastertank (1 .5 0) (-32 -32 -16) (32 32 32)
+model="models/monsters/tank/tris.md2"
+*/
+
+
+/*QUAKED misc_easterchick (1 .5 0) (-32 -32 0) (32 32 32)
+model="models/monsters/bitch/tris.md2"
+*/
+
+
+/*QUAKED misc_easterchick2 (1 .5 0) (-32 -32 0) (32 32 32)
+model="models/monsters/bitch/tris.md2"
+*/
+
+
+/*QUAKED monster_commander_body (1 .5 0) (-32 -32 0) (32 32 48)
+Not really a monster, this is the Tank Commander's decapitated body.
+There should be a item_commander_head that has this as it's target.
+model="models/monsters/commandr/tris.md2"
+*/
+
+
+/*QUAKED misc_banner (1 .5 0) (-4 -4 -4) (4 4 4)
+The origin is the bottom of the banner.
+The banner is 128 tall.
+model="models/objects/banner/tris.md2"
+*/
+
+
+/*QUAKED misc_deadsoldier (1 .5 0) (-16 -16 0) (16 16 16) ON_BACK ON_STOMACH BACK_DECAP FETAL_POS SIT_DECAP IMPALED
+This is the dead player model. Comes in 6 exciting different poses!
+model="models/deadbods/dude/tris.md2"
+*/
+
+
+/*QUAKED misc_viper (1 .5 0) (-16 -16 0) (16 16 32)
+This is the Viper for the flyby bombing.
+It is trigger_spawned, so you must have something use it for it to show up.
+There must be a path for it to follow once it is activated.
+
+"speed"		How fast the Viper should fly
+model="models/ships/viper/tris.md2"
+*/
+
+
+/*QUAKED misc_bigviper (1 .5 0) (-176 -120 -24) (176 120 72)
+This is a large stationary viper as seen in Paul's intro
+model="models/ships/bigviper/tris.md2"
+*/
+
+
+/*QUAKED misc_viper_bomb (1 0 0) (-8 -8 -8) (8 8 8)
+"dmg"	how much boom should the bomb make?
+model="models/objects/bomb/tris.md2"
+*/
+
+
+/*QUAKED misc_strogg_ship (1 .5 0) (-16 -16 0) (16 16 32)
+This is a Storgg ship for the flybys.
+It is trigger_spawned, so you must have something use it for it to show up.
+There must be a path for it to follow once it is activated.
+
+"speed"		How fast it should fly
+model="models/ships/strogg1/tris.md2"
+*/
+
+
+/*QUAKED misc_satellite_dish (1 .5 0) (-64 -64 0) (64 64 128)
+model="models/objects/satellite/tris.md2"
+*/
+
+
+/*QUAKED light_mine1 (0 1 0) (-2 -2 -12) (2 2 12)
+model="models/objects/minelite/light1/tris.md2"
+*/
+
+
+/*QUAKED light_mine2 (0 1 0) (-2 -2 -12) (2 2 12)
+model="models/objects/minelite/light2/tris.md2"
+*/
+
+
+/*QUAKED misc_gib_arm (1 0 0) (-8 -8 -8) (8 8 8)
+Intended for use with the target_spawner
+model="models/objects/gibs/arm/tris.md2"
+*/
+
+
+/*QUAKED misc_gib_leg (1 0 0) (-8 -8 -8) (8 8 8)
+Intended for use with the target_spawner
+model="models/objects/gibs/leg/tris.md2"
+*/
+
+
+/*QUAKED misc_gib_head (1 0 0) (-8 -8 -8) (8 8 8)
+Intended for use with the target_spawner
+model="models/objects/gibs/head/tris.md2"
+*/
+
+
+/*QUAKED target_character (0 0 1) ?
+used with target_string (must be on same "team")
+"count" is position in the string (starts at 1)
+*/
+
+
+/*QUAKED target_string (0 0 1) (-8 -8 -8) (8 8 8)
+*/
+
+
+/*QUAKED func_clock (0 0 1) (-8 -8 -8) (8 8 8) TIMER_UP TIMER_DOWN START_OFF MULTI_USE
+target a target_string with this
+
+The default is to be a time of day clock
+
+TIMER_UP and TIMER_DOWN run for "count" seconds and the fire "pathtarget"
+If START_OFF, this entity must be used before it starts
+
+"style"		0 "xx"
+			1 "xx:xx"
+			2 "xx:xx:xx"
+*/
+
+
+/*QUAKED misc_teleporter (1 0 0) (-32 -32 -24) (32 32 -16) NO_SOUND NO_TELEPORT_EFFECT N64_EFFECT
+Stepping onto this disc will teleport players to the targeted misc_teleporter_dest object.
+model="models/objects/dmspot/tris.md2"
+*/
+
+
+/*QUAKED misc_teleporter_dest (1 0 0) (-32 -32 -24) (32 32 -16)
+Point teleporters at these.
+model="models/objects/dmspot/tris.md2"
+*/
+
+
+/*QUAKED worldspawn (0 0 0) ?
+
+Only used for the world.
+"sky"	environment map name
+"skyaxis"	vector axis for rotating sky
+"skyrotate"	speed of rotation in degrees/second
+"sounds"	music cd track number
+"gravity"	800 is default gravity
+"message"	text to print at user logon
+*/
+
+
+/*QUAKED target_temp_entity (1 0 0) (-8 -8 -8) (8 8 8)
+Fire an origin based temp entity event to the clients.
+"style"		type byte
+*/
+
+
+/*QUAKED target_speaker (1 0 0) (-8 -8 -8) (8 8 8) looped-on looped-off reliable
+"noise"		wav file to play
+"attenuation"
+-1 = none, send to whole level
+1 = normal fighting sounds
+2 = idle sound level
+3 = ambient sound level
+"volume"	0.0 to 1.0
+
+Normal sounds play each time the target is used.  The reliable flag can be set for crucial voiceovers.
+
+[Paril-KEX] looped sounds are by default atten 3 / vol 1, and the use function toggles it on/off.
+*/
+
+
+/*QUAKED target_help (1 0 1) (-16 -16 -24) (16 16 24) help1
+When fired, the "message" key becomes the current personal computer string, and the message light will be set on all clients status bars.
+*/
+
+
+/*QUAKED target_secret (1 0 1) (-8 -8 -8) (8 8 8)
+Counts a secret found.
+These are single use targets.
+*/
+
+
+/*QUAKED target_goal (1 0 1) (-8 -8 -8) (8 8 8)
+Counts a goal completed.
+These are single use targets.
+*/
+
+
+/*QUAKED target_explosion (1 0 0) (-8 -8 -8) (8 8 8)
+Spawns an explosion temporary entity when used.
+
+"delay"		wait this long before going off
+"dmg"		how much radius damage should be done, defaults to 0
+*/
+
+
+/*QUAKED target_changelevel (1 0 0) (-8 -8 -8) (8 8 8) END_OF_UNIT UNKNOWN UNKNOWN CLEAR_INVENTORY NO_END_OF_UNIT FADE_OUT IMMEDIATE_LEAVE
+Changes level to "map" when fired
+*/
+
+
+/*QUAKED target_splash (1 0 0) (-8 -8 -8) (8 8 8)
+Creates a particle splash effect when used.
+
+Set "sounds" to one of the following:
+  1) sparks
+  2) blue water
+  3) brown water
+  4) slime
+  5) lava
+  6) blood
+
+"count"	how many pixels in the splash
+"dmg"	if set, does a radius damage at this location when it splashes
+		useful for lava/sparks
+*/
+
+
+/*QUAKED target_spawner (1 0 0) (-8 -8 -8) (8 8 8)
+Set target to the type of entity you want spawned.
+Useful for spawning monsters and gibs in the factory levels.
+
+For monsters:
+	Set direction to the facing you want it to have.
+
+For gibs:
+	Set direction if you want it moving and
+	speed how fast it should be moving otherwise it
+	will just be dropped
+*/
+
+
+/*QUAKED target_blaster (1 0 0) (-8 -8 -8) (8 8 8) NOTRAIL NOEFFECTS
+Fires a blaster bolt in the set direction when triggered.
+
+dmg		default is 15
+speed	default is 1000
+*/
+
+
+/*QUAKED target_crosslevel_trigger (.5 .5 .5) (-8 -8 -8) (8 8 8) trigger1 trigger2 trigger3 trigger4 trigger5 trigger6 trigger7 trigger8
+Once this trigger is touched/used, any trigger_crosslevel_target with the same trigger number is automatically used when a level is started within the same unit.  It is OK to check multiple triggers.  Message, delay, target, and killtarget also work.
+*/
+
+
+/*QUAKED target_crosslevel_target (.5 .5 .5) (-8 -8 -8) (8 8 8) trigger1 trigger2 trigger3 trigger4 trigger5 trigger6 trigger7 trigger8
+Triggered by a trigger_crosslevel elsewhere within a unit.  If multiple triggers are checked, all must be true.  Delay, target and
+killtarget also work.
+
+"delay"		delay before using targets if the trigger has been activated (default 1)
+*/
+
+
+/*QUAKED target_laser (0 .5 .8) (-8 -8 -8) (8 8 8) START_ON RED GREEN BLUE YELLOW ORANGE FAT WINDOWSTOP
+When triggered, fires a laser.  You can either set a target or a direction.
+
+WINDOWSTOP - stops at CONTENTS_WINDOW
+*/
+
+
+/*QUAKED target_lightramp (0 .5 .8) (-8 -8 -8) (8 8 8) TOGGLE
+speed		How many seconds the ramping will take
+message		two letters; starting lightlevel and ending lightlevel
+*/
+
+
+/*QUAKED target_earthquake (1 0 0) (-8 -8 -8) (8 8 8) SILENT TOGGLE UNKNOWN_ROGUE
+When triggered, this initiates a level-wide earthquake.
+All players are affected with a screen shake.
+"speed"		severity of the quake (default:200)
+"count"		duration of the quake (default:5)
+*/
+
+
+/*QUAKED trigger_multiple (.5 .5 .5) ? MONSTER NOT_PLAYER TRIGGERED TOGGLE
+Variable sized repeatable trigger.  Must be targeted at one or more entities.
+If "delay" is set, the trigger waits some time after activating before firing.
+"wait" : Seconds between triggerings. (.2 default)
+
+TOGGLE - using this trigger will activate/deactivate it. trigger will begin inactive.
+
+sounds
+1)	secret
+2)	beep beep
+3)	large switch
+4)
+set "message" to text string
+*/
+
+
+/*QUAKED trigger_once (.5 .5 .5) ? x x TRIGGERED
+Triggers once, then removes itself.
+You must set the key "target" to the name of another object in the level that has a matching "targetname".
+
+If TRIGGERED, this trigger must be triggered before it is live.
+
+sounds
+ 1)	secret
+ 2)	beep beep
+ 3)	large switch
+ 4)
+
+"message"	string to be displayed when triggered
+*/
+
+
+/*QUAKED trigger_relay (.5 .5 .5) (-8 -8 -8) (8 8 8)
+This fixed size trigger cannot be touched, it can only be fired by other events.
+*/
+
+
+/*QUAKED trigger_key (.5 .5 .5) (-8 -8 -8) (8 8 8)
+A relay trigger that only fires it's targets if player has the proper key.
+Use "item" to specify the required key, for example "key_data_cd"
+*/
+
+
+/*QUAKED trigger_counter (.5 .5 .5) ? nomessage
+Acts as an intermediary for an action that takes multiple inputs.
+
+If nomessage is not set, t will print "1 more.. " etc when triggered and "sequence complete" when finished.
+
+After the counter has been triggered "count" times (default 2), it will fire all of it's targets and remove itself.
+*/
+
+
+/*QUAKED trigger_always (.5 .5 .5) (-8 -8 -8) (8 8 8)
+This trigger will always fire.  It is activated by the world.
+*/
+
+
+/*QUAKED trigger_push (.5 .5 .5) ? PUSH_ONCE PUSH_PLUS PUSH_SILENT START_OFF
+Pushes the player
+"speed"	defaults to 1000
+"wait"  defaults to 10, must use PUSH_PLUS
+
+If targeted, it will toggle on and off when used.
+
+START_OFF - toggled trigger_push begins in off setting
+SILENT - doesn't make wind noise
+*/
+
+
+/*QUAKED trigger_hurt (.5 .5 .5) ? START_OFF TOGGLE SILENT NO_PROTECTION SLOW
+Any entity that touches this will be hurt.
+
+It does dmg points of damage each server frame
+
+SILENT			supresses playing the sound
+SLOW			changes the damage rate to once per second
+NO_PROTECTION	*nothing* stops the damage
+
+"dmg"			default 5 (whole numbers only)
+
+*/
+
+
+/*QUAKED trigger_gravity (.5 .5 .5) ? TOGGLE START_OFF
+Changes the touching entites gravity to the value of "gravity".
+1.0 is standard gravity for the level.
+
+TOGGLE - trigger_gravity can be turned on and off
+START_OFF - trigger_gravity starts turned off (implies TOGGLE)
+*/
+
+
+/*QUAKED trigger_monsterjump (.5 .5 .5) ?
+Walking monsters that touch this will jump in the direction of the trigger's angle
+"speed" default to 200, the speed thrown forward
+"height" default to 200, the speed thrown upwards
+
+TOGGLE - trigger_monsterjump can be turned on and off
+START_OFF - trigger_monsterjump starts turned off (implies TOGGLE)
+*/
+
+
+/*QUAKED turret_breach (0 0 0) ?
+This portion of the turret can change both pitch and yaw.
+The model  should be made with a flat pitch.
+It (and the associated base) need to be oriented towards 0.
+Use "angle" to set the starting angle.
+
+"speed"		default 50
+"dmg"		default 10
+"angle"		point this forward
+"target"	point this at an info_notnull at the muzzle tip
+"minpitch"	min acceptable pitch angle : default -30
+"maxpitch"	max acceptable pitch angle : default 30
+"minyaw"	min acceptable yaw angle   : default 0
+"maxyaw"	max acceptable yaw angle   : default 360
+*/
+
+
+/*QUAKED turret_base (0 0 0) ?
+This portion of the turret changes yaw only.
+MUST be teamed with a turret_breach.
+*/
+
+
+/*QUAKED turret_driver (1 .5 0) (-16 -16 -24) (16 16 32)
+Must NOT be on the team with the rest of the turret parts.
+Instead it must target the turret_breach.
+model="models/monsters/infantry/tris.md2"
+*/
+
+
+/*QUAKED misc_actor (1 .5 0) (-16 -16 -24) (16 16 32)
+*/
+
+
+/*QUAKED target_actor (.5 .3 0) (-8 -8 -8) (8 8 8) JUMP SHOOT ATTACK x HOLD BRUTAL
+JUMP			jump in set direction upon reaching this target
+SHOOT			take a single shot at the pathtarget
+ATTACK			attack pathtarget until it or actor is dead
+
+"target"		next target_actor
+"pathtarget"	target of any action to be taken at this point
+"wait"			amount of time actor should pause at this point
+"message"		actor will "say" this to the player
+
+for JUMP only:
+"speed"			speed thrown forward (default 200)
+"height"		speed thrown upwards (default 200)
+*/
+
+
+/*QUAKED monster_berserk (1 .5 0) (-16 -16 -24) (16 16 32) Ambush Trigger_Spawn Sight
+model="models/monsters/beserk/tris.md2"
+*/
+
+
+/*QUAKED monster_boss2 (1 .5 0) (-56 -56 0) (56 56 80) Ambush Trigger_Spawn Sight Hyperblaster
+model="models/monsters/boss2/tris.md2"
+*/
+
+
+/*QUAKED monster_boss3_stand (1 .5 0) (-32 -32 0) (32 32 90)
+Just stands and cycles in one place until targeted, then teleports away.
+model="models/monsters/boss3/jorg/tris.md2"
+*/
+
+
+/*QUAKED monster_jorg (1 .5 0) (-80 -80 0) (90 90 140) Ambush Trigger_Spawn Sight
+model="models/monsters/boss3/jorg/tris.md2"
+*/
+
+
+/*QUAKED monster_makron (1 .5 0) (-30 -30 0) (30 30 90) Ambush Trigger_Spawn Sight
+model="models/monsters/boss3/rider/tris.md2"
+*/
+
+
+/*QUAKED monster_brain (1 .5 0) (-16 -16 -24) (16 16 32) Ambush Trigger_Spawn Sight
+model="models/monsters/brain/tris.md2"
+*/
+
+
+/*QUAKED monster_chick (1 .5 0) (-16 -16 -24) (16 16 32) Ambush Trigger_Spawn Sight
+model="models/monsters/bitch/tris.md2"
+*/
+
+
+/*QUAKED monster_flipper (1 .5 0) (-16 -16 -24) (16 16 32) Ambush Trigger_Spawn Sight
+model="models/monsters/flipper/tris.md2"
+*/
+
+
+/*QUAKED monster_floater (1 .5 0) (-16 -16 -24) (16 16 32) Ambush Trigger_Spawn Sight Disguise
+model="models/monsters/float/tris.md2"
+*/
+
+
+/*QUAKED monster_flyer (1 .5 0) (-16 -16 -24) (16 16 32) Ambush Trigger_Spawn Sight
+model="models/monsters/flyer/tris.md2"
+*/
+
+
+/*QUAKED monster_gladiator (1 .5 0) (-32 -32 -24) (32 32 64) Ambush Trigger_Spawn Sight
+model="models/monsters/gladiatr/tris.md2"
+*/
+
+
+/*QUAKED monster_gunner (1 .5 0) (-16 -16 -24) (16 16 32) Ambush Trigger_Spawn Sight
+model="models/monsters/gunner/tris.md2"
+*/
+
+
+/*QUAKED monster_hover (1 .5 0) (-16 -16 -24) (16 16 32) Ambush Trigger_Spawn Sight
+model="models/monsters/hover/tris.md2"
+*/
+
+
+/*QUAKED monster_infantry (1 .5 0) (-16 -16 -24) (16 16 32) Ambush Trigger_Spawn Sight
+model="models/monsters/infantry/tris.md2"
+*/
+
+
+/*QUAKED misc_insane (1 .5 0) (-16 -16 -24) (16 16 32) Ambush Trigger_Spawn CRAWL CRUCIFIED STAND_GROUND ALWAYS_STAND
+model="models/monsters/insane/tris.md2"
+*/
+
+
+/*QUAKED monster_medic (1 .5 0) (-16 -16 -24) (16 16 32) Ambush Trigger_Spawn Sight
+model="models/monsters/medic/tris.md2"
+*/
+
+
+/*QUAKED monster_mutant (1 .5 0) (-32 -32 -24) (32 32 32) Ambush Trigger_Spawn Sight NoJumping
+model="models/monsters/mutant/tris.md2"
+*/
+
+
+/*QUAKED monster_parasite (1 .5 0) (-16 -16 -24) (16 16 32) Ambush Trigger_Spawn Sight
+model="models/monsters/parasite/tris.md2"
+*/
+
+
+/*QUAKED monster_soldier_light (1 .5 0) (-16 -16 -24) (16 16 32) Ambush Trigger_Spawn Sight
+model="models/monsters/soldier/tris.md2"
+*/
+
+
+/*QUAKED monster_soldier (1 .5 0) (-16 -16 -24) (16 16 32) Ambush Trigger_Spawn Sight
+model="models/monsters/soldier/tris.md2"
+*/
+
+
+/*QUAKED monster_soldier_ss (1 .5 0) (-16 -16 -24) (16 16 32) Ambush Trigger_Spawn Sight
+model="models/monsters/soldier/tris.md2"
+
+*/
+
+
+/*QUAKED monster_supertank (1 .5 0) (-64 -64 0) (64 64 72) Ambush Trigger_Spawn Sight Powershield
+model="models/monsters/boss1/tris.md2"
+*/
+
+
+/*QUAKED monster_tank (1 .5 0) (-32 -32 -16) (32 32 72) Ambush Trigger_Spawn Sight
+model="models/monsters/tank/tris.md2"
+*/
+
+
+/*QUAKED monster_tank_commander (1 .5 0) (-32 -32 -16) (32 32 72) Ambush Trigger_Spawn Sight
+model="models/monsters/commandr/tris.md2"
+*/
+
+
+/*QUAKED info_player_start (1 0 0) (-16 -16 -24) (16 16 32)
+The normal starting point for a level.
+*/
+
+
+/*QUAKED info_player_deathmatch (1 0 1) (-16 -16 -24) (16 16 32)
+potential spawning position for deathmatch games
+*/
+
+
+/*QUAKED info_player_coop (1 0 1) (-16 -16 -24) (16 16 32)
+potential spawning position for coop games
+*/
+
+
+/*QUAKED info_player_intermission (1 0 1) (-16 -16 -24) (16 16 32)
+The deathmatch intermission point will be at one of these
+Use 'angles' instead of 'angle', so you can set pitch or roll as well as yaw.  'pitch yaw roll'
+*/
+
+
+/*QUAKED info_player_team1 (1 0 0) (-16 -16 -24) (16 16 32)
+potential team1 spawning position for ctf games
+*/
+
+
+/*QUAKED info_player_team2 (0 0 1) (-16 -16 -24) (16 16 32)
+potential team2 spawning position for ctf games
+*/
+
+
+/*QUAKED misc_ctf_banner (1 .5 0) (-4 -64 0) (4 64 248) TEAM2
+The origin is the bottom of the banner.
+The banner is 248 tall.
+*/
+
+
+/*QUAKED misc_ctf_small_banner (1 .5 0) (-4 -32 0) (4 32 124) TEAM2
+The origin is the bottom of the banner.
+The banner is 124 tall.
+*/
+
+/*QUAKED item_flag_team1 (1 0.2 0) (-16 -16 -24) (16 16 32)
+*/
+
+
+/*QUAKED item_flag_team2 (1 0.2 0) (-16 -16 -24) (16 16 32)
+*/
+
+
+/*QUAKED trigger_flashlight (.5 .5 .5) ?
+Players moving against this trigger will have their flashlight turned on or off.
+"style" default to 0, set to 1 to always turn flashlight on, 2 to always turn off,
+        otherwise "angles" are used to control on/off state
+*/
+
+
+/*QUAKED monster_soldier_hypergun (1 .5 0) (-16 -16 -24) (16 16 32) Ambush Trigger_Spawn Sight
+*/
+
+
+/*QUAKED target_killplayers (1 0 0) (-8 -8 -8) (8 8 8)
+When triggered, this will kill all the players on the map.
+*/
+
+
+/*QUAKED dm_dball_goal (1 .5 .5) ? TEAM1 TEAM2
+Deathball goal
+
+Team1/Team2 - beneficiary of this goal. when the ball enters this goal, the beneficiary team will score.
+
+"wait": score to be given for this goal (default 10) player gets score+5.
+*/
+
+
+/*QUAKED target_mal_laser (1 0 0) (-4 -4 -4) (4 4 4) START_ON RED GREEN BLUE YELLOW ORANGE FAT
+Mal's laser
+*/
+
+
+/*QUAKED target_light (1 0 0) (-8 -8 -8) (8 8 8) START_ON NO_LERP unknown3
+[Paril-KEX] dynamic light entity that follows a lightstyle.
+
+*/
+
+
+/*QUAKED misc_hologram (1.0 1.0 0.0) (-16 -16 0) (16 16 32)
+Ship hologram seen in the N64 version.
+*/
+
+
+/*QUAKED monster_gladb (1 .5 0) (-32 -32 -24) (32 32 64) Ambush Trigger_Spawn Sight
+ */
+
+
+/*QUAKED monster_soldier_lasergun (1 .5 0) (-16 -16 -24) (16 16 32) Ambush Trigger_Spawn Sight
+ */
+
+
+/*QUAKED info_ctf_teleport_destination (0.5 0.5 0.5) (-16 -16 -24) (16 16 32)
+Point trigger_teleports at these.
+*/
+
+
+/*QUAKED dm_dball_team2_start (1 .5 .5) (-16 -16 -24) (16 16 32)
+Deathball team 2 start point
+*/
+
+
+/*QUAKED monster_tank_stand (1 .5 0) (-32 -32 0) (32 32 90)
+
+Just stands and cycles in one place until targeted, then teleports away.
+N64 edition!
+*/
+
+
+/*QUAKED weapon_phalanx (.3 .3 1) (-16 -16 -16) (16 16 16)
+*/
+
+
+/*QUAKED key_explosive_charges (0 .5 .8) (-16 -16 -16) (16 16 16) TRIGGER_SPAWN NO_TOUCH
+warehouse circuits
+*/
+
+
+/*QUAKED key_nuke (.3 .3 1) (-16 -16 -16) (16 16 16) TRIGGER_SPAWN
+*/
+
+
+/*QUAKED target_gravity (1 0 0) (-8 -8 -8) (8 8 8) NOTRAIL NOEFFECTS
+[Sam-KEX] Changes gravity, as seen in the N64 version
+*/
+
+
+/*QUAKED ammo_magslug (.3 .3 1) (-16 -16 -16) (16 16 16)
+*/
+
+
+/*QUAKED misc_transport (1 0 0) (-8 -8 -8) (8 8 8)
+Maxx's transport at end of game
+*/
+
+
+/*QUAKED monster_guardian (1 .5 0) (-96 -96 -66) (96 96 62) Ambush Trigger_Spawn Sight
+*/
+
+
+/*QUAKED item_invisibility (.3 .3 1) (-16 -16 -16) (16 16 16)
+*/
+
+
+/*QUAKED target_steam (1 0 0) (-8 -8 -8) (8 8 8)
+Creates a steam effect (particles w/ velocity in a line).
+
+  speed = velocity of particles (default 50)
+  count = number of particles (default 32)
+  sounds = color of particles (default 8 for steam)
+	 the color range is from this color to this color + 6
+  wait = seconds to run before stopping (overrides default
+	 value derived from func_timer)
+
+  best way to use this is to tie it to a func_timer that "pokes"
+  it every second (or however long you set the wait time, above)
+
+  note that the width of the base is proportional to the speed
+  good colors to use:
+  6-9 - varying whites (darker to brighter)
+  224 - sparks
+  176 - blue water
+  80  - brown water
+  208 - slime
+  232 - blood
+*/
+
+
+/*QUAKED ammo_flechettes (.3 .3 1) (-16 -16 -16) (16 16 16) TRIGGER_SPAWN
+*/
+
+
+/*QUAKED trigger_coop_relay (.5 .5 .5) ? 
+Like a trigger_relay, but all players must be touching its
+mins/maxs in order to fire, otherwise a message will be printed.
+"message"; message to print to the one activating the relay if
+           not all players are inside the bounds
+"message2"; message to print to players not inside the trigger
+            if they aren't in the bounds
+*/
+
+
+/*QUAKED item_sphere_vengeance (.3 .3 1) (-16 -16 -16) (16 16 16) TRIGGER_SPAWN
+*/
+
+
+/*QUAKED info_teleport_destination (.5 .5 .5) (-16 -16 -24) (16 16 32)
+Destination marker for a teleporter.
+*/
+
+
+/*QUAKED trigger_fog (.5 .5 .5) ? AFFECT_FOG AFFECT_HEIGHTFOG INSTANTANEOUS FORCE
+Players moving against this trigger will have their fog settings changed.
+Fog/heightfog will be adjusted if the spawnflags are set. Instantaneous
+ignores any delays. Force causes it to ignore movement dir and always use
+the "on" values.
+"target" can target an info_notnull to pull the keys below from.
+"delay" default to 0.5; time in seconds a change in fog will occur over
+
+"fog_density"; density value of fog, 0-1
+"fog_color"; color value of fog, 3d vector with values between 0-1 (r g b)
+"fog_density_off"; transition density value of fog, 0-1
+"fog_color_off"; transition color value of fog, 3d vector with values between 0-1 (r g b)
+
+"heightfog_falloff"; falloff value of heightfog, 0-1
+"heightfog_density"; density value of heightfog, 0-1
+"heightfog_start_color"; the start color for the fog (r g b, 0-1)
+"heightfog_start_dist"; the start distance for the fog (units)
+"heightfog_end_color"; the start color for the fog (r g b, 0-1)
+"heightfog_end_dist"; the end distance for the fog (units)
+
+"heightfog_falloff_off"; transition falloff value of heightfog, 0-1
+"heightfog_density_off"; transition density value of heightfog, 0-1
+"heightfog_start_color_off"; transition the start color for the fog (r g b, 0-1)
+"heightfog_start_dist_off"; transition the start distance for the fog (units)
+"heightfog_end_color_off"; transition the start color for the fog (r g b, 0-1)
+"heightfog_end_dist_off"; transition the end distance for the fog (units)
+*/
+
+
+/*QUAKED dm_tag_token (.3 .3 1) (-16 -16 -16) (16 16 16)
+The tag token for deathmatch tag games.
+*/
+
+
+/*QUAKED ammo_nuke (.3 .3 1) (-16 -16 -16) (16 16 16) TRIGGER_SPAWN
+*/
+
+
+/*QUAKED trigger_teleport (.5 .5 .5) ? player_only silent ctf_only start_on
+Any object touching this will be transported to the corresponding
+info_teleport_destination entity. You must set the "target" field,
+and create an object with a "targetname" field that matches.
+
+If the trigger_teleport has a targetname, it will only teleport
+entities when it has been fired.
+
+player_only: only players are teleported
+silent: <not used right now>
+ctf_only: <not used right now>
+start_on: when trigger has targetname, start active, deactivate when used.
+*/
+
+
+/*QUAKED func_plat2 (0 .5 .8) ? PLAT_LOW_TRIGGER PLAT2_TOGGLE PLAT2_TOP PLAT2_TRIGGER_TOP PLAT2_TRIGGER_BOTTOM BOX_LIFT
+speed	default 150
+
+PLAT_LOW_TRIGGER - creates a short trigger field at the bottom
+PLAT2_TOGGLE - plat will not return to default position.
+PLAT2_TOP - plat's default position will the the top.
+PLAT2_TRIGGER_TOP - plat will trigger it's targets each time it hits top
+PLAT2_TRIGGER_BOTTOM - plat will trigger it's targets each time it hits bottom
+BOX_LIFT - this indicates that the lift is a box, rather than just a platform
+
+Plats are always drawn in the extended position, so they will light correctly.
+
+If the plat is the target of another trigger or button, it will start out disabled in the extended position until it is trigger, when it will lower and become a normal plat.
+
+"speed"	overrides default 200.
+"accel" overrides default 500
+"lip"	no default
+
+If the "height" key is set, that will determine the amount the plat moves, instead of being implicitly determoveinfoned by the model's height.
+
+*/
+
+
+/*QUAKED target_camera (1 0 0) (-8 -8 -8) (8 8 8) NOTRAIL NOEFFECTS
+[Sam-KEX] Creates a camera path as seen in the N64 version.
+*/
+
+
+/*QUAKED monster_widow (1 .5 0) (-40 -40 0) (40 40 144) Ambush Trigger_Spawn Sight
+ */
+
+
+/*QUAKED item_sphere_defender (.3 .3 1) (-16 -16 -16) (16 16 16) TRIGGER_SPAWN
+*/
+
+
+/*QUAKED trigger_ctf_teleport (0.5 0.5 0.5) ?
+Players touching this will be teleported
+*/
+
+
+/*QUAKED monster_carrier (1 .5 0) (-56 -56 -44) (56 56 44) Ambush Trigger_Spawn Sight
+*/
+
+
+/*QUAKED monster_daedalus (1 .5 0) (-16 -16 -24) (16 16 32) Ambush Trigger_Spawn Sight
+This is the improved icarus monster.
+*/
+
+
+/*QUAKED weapon_plasmabeam (.3 .3 1) (-16 -16 -16) (16 16 16) TRIGGER_SPAWN
+	*/
+
+
+/*QUAKED item_sphere_hunter (.3 .3 1) (-16 -16 -16) (16 16 16) TRIGGER_SPAWN
+*/
+
+
+/*QUAKED dm_dball_ball (1 .5 .5) (-48 -48 -48) (48 48 48) ONEWAY
+Deathball Ball
+*/
+
+
+/*QUAKED monster_widow2 (1 .5 0) (-70 -70 0) (70 70 144) Ambush Trigger_Spawn Sight
+ */
+
+
+/*QUAKED target_orb (1 0 1) (-16 -16 -24) (16 16 24)
+Translucent pulsing orb with speckles
+*/
+
+
+/*QUAKED misc_viper_missile (1 0 0) (-8 -8 -8) (8 8 8)
+"dmg"	how much boom should the bomb make? the default value is 250
+*/
+
+
+/*QUAKED info_player_coop_lava (1 0 1) (-16 -16 -24) (16 16 32)
+potential spawning position for coop games on rmine2 where lava level
+needs to be checked
+*/
+
+
+/*QUAKED misc_amb4 (1 0 0) (-16 -16 -16) (16 16 16)
+Mal's amb4 loop entity
+*/
+
+
+/*QUAKED func_eye (0 1 0) ?
+Camera-like eye that can track entities.
+"pathtarget" point to an info_notnull (which gets freed after spawn) to automatically set
+the eye_position
+"target"/"killtarget"/"delay"/"message" target keys to fire when we first spot a player
+"eye_position" manually set the eye position; note that this is in "forward right up" format, relative to
+the origin of the brush and using the entity's angles
+"radius" default 512, detection radius for entities
+"speed" default 45, how fast, in degrees per second, we should move on each axis to reach the target
+"vision_cone" default 0.5 for half cone; how wide the cone of vision should be (relative to their initial angles)
+"wait" default 0, the amount of time to wait before returning to neutral angles
+*/
+
+
+/*QUAKED weapon_boomer (.3 .3 1) (-16 -16 -16) (16 16 16)
+*/
+
+
+/*QUAKED key_power_core (0 .5 .8) (-16 -16 -16) (16 16 16)
+key for N64
+*/
+
+
+/*QUAKED monster_arachnid (1 .5 0) (-48 -48 -20) (48 48 48) Ambush Trigger_Spawn Sight
+*/
+
+
+/*QUAKED monster_soldier_ripper (1 .5 0) (-16 -16 -24) (16 16 32) Ambush Trigger_Spawn Sight
+*/
+
+
+/*QUAKED trigger_disguise (.5 .5 .5) ? TOGGLE START_ON REMOVE
+Anything passing through this trigger when it is active will
+be marked as disguised.
+
+TOGGLE - field is turned off and on when used. (Paril N.B.: always the case)
+START_ON - field is active when spawned.
+REMOVE - field removes the disguise
+*/
+
+
+/*QUAKED ammo_tesla (.3 .3 1) (-16 -16 -16) (16 16 16) TRIGGER_SPAWN
+*/
+
+
+/*QUAKED turret_invisible_brain (1 .5 0) (-16 -16 -16) (16 16 16)
+Invisible brain to drive the turret.
+
+Does not search for targets. If targeted, can only be turned on once
+and then off once. After that they are completely disabled.
+
+"delay" the delay between firing (default ramps for skill level)
+"Target" the turret breach
+"Killtarget" the item you want it to attack.
+Target the brain if you want it activated later, instead of immediately. It will wait 3 seconds
+before firing to acquire the target.
+*/
+
+
+/*QUAKED misc_nuke_core (1 0 0) (-16 -16 -16) (16 16 16)
+toggles visible/not visible. starts visible.
+*/
+
+
+/*QUAKED weapon_proxlauncher (.3 .3 1) (-16 -16 -16) (16 16 16) TRIGGER_SPAWN
+*/
+
+
+/*QUAKED key_nuke_container (.3 .3 1) (-16 -16 -16) (16 16 16) TRIGGER_SPAWN
+*/
+
+
+/*QUAKED dm_dball_team1_start (1 .5 .5) (-16 -16 -24) (16 16 32)
+Deathball team 1 start point
+*/
+
+
+/*QUAKED item_quadfire (.3 .3 1) (-16 -16 -16) (16 16 16)
+*/
+
+
+/*QUAKED item_ir_goggles (.3 .3 1) (-16 -16 -16) (16 16 16) TRIGGER_SPAWN
+gives +1 to maximum health
+*/
+
+
+/*QUAKED monster_stalker (1 .5 0) (-28 -28 -18) (28 28 18) Ambush Trigger_Spawn Sight OnRoof
+Spider Monster
+
+  ONROOF - Monster starts sticking to the roof.
+*/
+
+
+/*QUAKED misc_flare (1.0 1.0 0.0) (-32 -32 -32) (32 32 32) RED GREEN BLUE LOCK_ANGLE
+Creates a flare seen in the N64 version.
+*/
+
+
+/*QUAKED weapon_chainfist (.3 .3 1) (-16 -16 -16) (16 16 16) TRIGGER_SPAWN
+*/
+
+
+/*QUAKED weapon_etf_rifle (.3 .3 1) (-16 -16 -16) (16 16 16) TRIGGER_SPAWN
+*/
+
+
+/*QUAKED func_object_repair (1 .5 0) (-8 -8 -8) (8 8 8)
+object to be repaired.
+The default delay is 1 second
+"delay" the delay in seconds for spark to occur
+*/
+
+
+/*QUAKED target_soundfx (1 0 0) (-8 -8 -8) (8 8 8) NOTRAIL NOEFFECTS
+[Sam-KEX] Plays a sound fx, as seen in the N64 version
+*/
+
+
+/*QUAKED monster_turret (1 .5 0) (-16 -16 -16) (16 16 16) Ambush Trigger_Spawn Sight Blaster MachineGun Rocket Heatbeam WallUnit
+
+The automated defense turret that mounts on walls.
+Check the weapon you want it to use: blaster, machinegun, rocket, heatbeam.
+Default weapon is blaster.
+When activated, wall units move 32 units in the direction they're facing.
+*/
+
+
+/*QUAKED weapon_disintegrator (.3 .3 1) (-16 -16 -16) (16 16 16) TRIGGER_SPAWN
+*/
+
+
+/*QUAKED ammo_trap (.3 .3 1) (-16 -16 -16) (16 16 16)
+*/
+
+
+/*QUAKED key_yellow_key (0 .5 .8) (-16 -16 -16) (16 16 16)
+normal door key - yellow
+[Sam-KEX] New key type for Q2 N64
+*/
+
+
+/*QUAKED misc_crashviper (1 .5 0) (-176 -120 -24) (176 120 72)
+This is a large viper about to crash
+*/
+
+
+/*QUAKED dm_dball_ball_start (1 .5 .5) (-48 -48 -48) (48 48 48)
+Deathball ball start point
+*/
+
+
+/*QUAKED key_green_key (0 .5 .8) (-16 -16 -16) (16 16 16)
+normal door key - blue
+*/
+
+
+/*QUAKED misc_fireball (0 .5 .8) (-8 -8 -8) (8 8 8)
+Lava Balls. Shamelessly copied from Quake 1, like N64 guys
+probably did too.
+*/
+
+
+/*QUAKED dm_dball_speed_change (1 .5 .5) ? ONEWAY
+Deathball ball speed changing field.
+
+speed: multiplier for speed (.5 = half, 2 = double, etc) (default = double)
+angle: used with ONEWAY so speed change is only one way.
+delay: time between speed changes (default: 0.2 sec)
+*/
+
+
+/*QUAKED target_anger (1 0 0) (-8 -8 -8) (8 8 8)
+This trigger will cause an entity to be angry at another entity when a player touches it. Target the
+entity you want to anger, and killtarget the entity you want it to be angry at.
+
+target - entity to piss off
+killtarget - entity to be pissed off at
+*/
+
+
+/*QUAKED monster_gekk (1 .5 0) (-24 -24 -24) (24 24 24) Ambush Trigger_Spawn Sight Chant NoJumping
+ */
+
+
+/*QUAKED ammo_prox (.3 .3 1) (-16 -16 -16) (16 16 16) TRIGGER_SPAWN
+*/
+
+
+/*QUAKED monster_boss5 (1 .5 0) (-64 -64 0) (64 64 72) Ambush Trigger_Spawn Sight
+ */
+
+
+/*QUAKED monster_fixbot (1 .5 0) (-32 -32 -24) (32 32 24) Ambush Trigger_Spawn Fixit Takeoff Landing
+ */
+
+
+/*QUAKED item_double (.3 .3 1) (-16 -16 -16) (16 16 16) TRIGGER_SPAWN
+*/
+
+
+/*QUAKED ammo_disruptor (.3 .3 1) (-16 -16 -16) (16 16 16) TRIGGER_SPAWN
+*/
+
+
+/*QUAKED func_door_secret2 (0 .5 .8) ? open_once 1st_left 1st_down no_shoot always_shoot slide_right slide_forward
+Basic secret door. Slides back, then to the left. Angle determines direction.
+
+FLAGS:
+open_once = not implemented yet
+1st_left = 1st move is left/right of arrow
+1st_down = 1st move is forwards/backwards
+no_shoot = not implemented yet
+always_shoot = even if targeted, keep shootable
+reverse_left = the sideways move will be to right of arrow
+reverse_back = the to/fro move will be forward
+
+VALUES:
+wait = # of seconds before coming back (5 default)
+dmg  = damage to inflict when blocked (2 default)
+
+*/
+
+
+/*QUAKED item_doppleganger (.3 .3 1) (-16 -16 -16) (16 16 16) TRIGGER_SPAWN
+*/
+
+
+/*QUAKED monster_chick_heat (1 .5 0) (-16 -16 -24) (16 16 32) Ambush Trigger_Spawn Sight
+ */
+
+
+/*QUAKED rotating_light (0 .5 .8) (-8 -8 -8) (8 8 8) START_OFF ALARM
+"health"	if set, the light may be killed.
+*/
+
+
+/*QUAKED monster_medic_commander (1 .5 0) (-16 -16 -24) (16 16 32) Ambush Trigger_Spawn Sight
+ */
+
+
+/*QUAKED target_blacklight (1 0 1) (-16 -16 -24) (16 16 24)
+Pulsing black light with sphere in the center
+*/
+
+
+/*QUAKED misc_nuke (1 0 0) (-16 -16 -16) (16 16 16)
+ */
+
+
+/*QUAKED func_force_wall (1 0 1) ? start_on
+A vertical particle force wall. Turns on and solid when triggered.
+If someone is in the force wall when it turns on, they're telefragged.
+
+start_on - forcewall begins activated. triggering will turn it off.
+style - color of particles to use.
+	208: green, 240: red, 241: blue, 224: orange
+*/
+
+
+/*QUAKED hint_path (.5 .3 0) (-8 -8 -8) (8 8 8) END
+Target: next hint path
+
+END - set this flag on the endpoints of each hintpath.
+
+"wait" - set this if you want the monster to freeze when they touch this hintpath
+*/
